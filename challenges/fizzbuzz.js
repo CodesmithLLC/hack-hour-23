@@ -17,7 +17,22 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+   if (num % 3 === 0) {
+      if (num % 5 === 0)
+         console.log("fizzbuzz");
+      else
+         console.log("fizz");
+   }
+   else if (num % 5 === 0)
+      console.log("buzz");
+   else {
+      console.log(num);
+   }
 }
 
-module.exports = fizzbuzz;
+fizzbuzz(1);
+fizzbuzz(3);
+fizzbuzz(5);
+fizzbuzz(15);
+
+//module.exports = fizzbuzz;
