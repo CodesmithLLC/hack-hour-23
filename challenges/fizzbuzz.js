@@ -20,7 +20,8 @@
 function fizzbuzz(num) {
     const fizzArr = [];
     const newArr = [];
-    for (let i = 0; i < num + 1; i += 1) {
+    
+    for (let i = 1; i < num + 1; i += 1) {
         fizzArr.push(i);
     }
     fizzArr.forEach(function(ele){
