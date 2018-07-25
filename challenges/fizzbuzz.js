@@ -56,7 +56,4 @@ function divisibleByFive(num){
   return num % 5 === 0;
 }
 
-
-console.log(fizzbuzz(16))
-
 module.exports = fizzbuzz;
