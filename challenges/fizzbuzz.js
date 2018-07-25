@@ -34,5 +34,4 @@ function fizzbuzz(num) {
    return newArr;
 }
 
-console.log(fizzbuzz(16));
-//module.exports = fizzbuzz;
+module.exports = fizzbuzz;
