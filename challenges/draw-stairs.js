@@ -25,32 +25,17 @@ function drawStairs(n) {
     // 2 spaces   * -> n-1 2  n - (n-1) prints
     // 1 space   ** -> n-1 1
     // 0 spaces *** -> n-1 0
-    let str = '';
-
-    if(n === 0){
-        for(let i = 0; i < n; i++){
-            str += '*';
-        }
-        console.log(str);  
-    }else{
-        // for spaces?
-        for(let i = 0; i < (n - 1); i++){
-            str += ' ';
-        }
-        // for *
-        for(let i = 0; i < (n - (n - 1)); i++){
-            str += '*';
-        }
-        console.log(str);
-        drawStairs(n - 1);
+    for(let i = 0; i < n; i++){
+        let newStr = '';
+        let whitespace = ' ';
+        let star = '*';
+        newStr += whitespace.repeat(n - i + 1);
+        newStr += star.repeat(i + 1);
+        console.log(newStr);
     }
-    // let count = 0;
-    // while(count > n){
-    //     newStr += 
-    // }
 }
 
-drawStairs(3);
+drawStairs(6);
 
 
 module.exports = drawStairs;
