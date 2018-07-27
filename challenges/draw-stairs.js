@@ -25,7 +25,6 @@ function drawStairs(n) {
     console.log(space.repeat(input - 1) + ast.repeat(i) + '\n')
     input--
   }
-  return result;
 }
 
 module.exports = drawStairs;
