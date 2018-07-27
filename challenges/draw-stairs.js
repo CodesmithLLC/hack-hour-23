@@ -14,7 +14,7 @@
 */
 
 function drawStairs(n, nHigh = n) {
-  if(1 >= n && n <= 100){
+  if(1 <= n && n <= 100){
     if(n > 0){
       drawStairs(n-1, nHigh);
       console.log(" ".repeat(nHigh - n) + "*".repeat(n));
