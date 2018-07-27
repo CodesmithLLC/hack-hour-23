@@ -46,13 +46,21 @@ function createRow(spaces, stars){
 function drawStairs(n) {
   let numSpaces = n-1;
   let numStars = 1;
+  let result = ''
 
   for (let i = 0; i < n; i++){
-    console.log(createRow(numSpaces,numStars));
-    numSpaces--;
-    numStars++;
-  }
+    result += createRow(numSpaces,numStars);
+    if (i !== n-1){
+      //not last iter
+      result += '\n';
+    }
+      numSpaces--;
+      numStars++;
 
+  }
+  console.log(result);
 }
+
+drawStairs(4);
 
 module.exports = drawStairs;
