@@ -22,9 +22,9 @@ function drawStairs(n) {
       for (let k = 1; k <= i; k++) {
          output += '*';
       }
-      output += '\n';
+      console.log(output);
+      output = '';
    }
-   return output;
 }
 
 module.exports = drawStairs;
