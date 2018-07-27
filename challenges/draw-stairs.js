@@ -13,13 +13,23 @@
 
 */
 
+// function drawStairs(n) {
+//   for (let i = 0; i < n; i += 1) {
+//     let line = '';
+//     line += ' '.repeat(n - (i + 1));
+//     line += '*'.repeat(i + 1);
+//     console.log(line);
+//   }
+// }
+
 function drawStairs(n) {
+  let line = '';
   for (let i = 0; i < n; i += 1) {
-    let line = '';
     line += ' '.repeat(n - (i + 1));
-    line += "*".repeat(i + 1);
-    console.log(line);
+    line += '*'.repeat(i + 1);
+    if (i !== 5) line += '\n'
   }
+  console.log(line);
 }
 
 module.exports = drawStairs;
