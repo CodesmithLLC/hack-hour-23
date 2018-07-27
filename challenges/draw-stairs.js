@@ -14,7 +14,17 @@
 */
 
 function drawStairs(n) {
-
+  //create output string
+  let output = '';
+  //for loop while index is less than or equal to the value passed in
+  for (var i = 1; i <= n; i++) {
+    if(i === n) {
+      output += ' '.repeat(n - i) + "*".repeat(i);
+    } else {
+      output += ' '.repeat(n - i) + "*".repeat(i) + '\n';
+    }
+  }
+   console.log(output);
 }
 
 
