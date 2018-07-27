@@ -14,8 +14,20 @@
 */
 
 function drawStairs(n) {
-
+	let rung = '';
+	for (let i = 0; i < n; i++) {
+		rung += '#';
+		console.log(leftPad(' ', rung, n - i - 1));
+	}
 }
 
+function leftPad(char, padStr, length) {
+	for (let i = 0; i < length; i++) {
+		padStr = char + padStr;
+	}
+	return padStr;
+}
+
+// drawStairs(6);
 
 module.exports = drawStairs;
