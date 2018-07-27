@@ -14,8 +14,6 @@
 */
 
 function drawStairs(n) {
-  // create a empty string to hold results, to be returned.
-  let result = '';
   // hold input value in a variable, to be mutated
   let input = n;
   // create variables holding string values of space & *
@@ -23,9 +21,8 @@ function drawStairs(n) {
   const space = ' ';
   // loop until input number to concat ast to result
   for (let i = 1; i <= n; i++) {
-    // concat asterick to empty string, n++ at a time & add empty spaces to fill up space
-    result += space.repeat(input - 1) + ast.repeat(i) + '\n'
-    // decrement input number in each iteration
+    // console.log the staircase
+    console.log(space.repeat(input - 1) + ast.repeat(i) + '\n')
     input--
   }
   return result;
