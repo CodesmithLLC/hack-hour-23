@@ -46,7 +46,7 @@ function createRow(spaces, stars){
 function drawStairs(n) {
   let numSpaces = n-1;
   let numStars = 1;
-  let result = ''
+  let result = '';
 
   for (let i = 0; i < n; i++){
     result += createRow(numSpaces,numStars);
@@ -60,7 +60,5 @@ function drawStairs(n) {
   }
   console.log(result);
 }
-
-drawStairs(4);
 
 module.exports = drawStairs;
