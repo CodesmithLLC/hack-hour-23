@@ -13,11 +13,11 @@
 
 */
 
-function drawStairs(n) {
-  if(n <= 1 && n <= 100){
+function drawStairs(n, nHigh = n) {
+  if(1 >= n && n <= 100){
     if(n > 0){
-      drawStairs(n-1);
-      console.log("*".repeat(n));
+      drawStairs(n-1, nHigh);
+      console.log(" ".repeat(nHigh - n) + "*".repeat(n));
     }
   }
 }
