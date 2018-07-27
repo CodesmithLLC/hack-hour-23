@@ -14,12 +14,15 @@
 */
 
 function drawStairs(n) {
+	const final = '#'.repeat(n + 1);
+	console.log('final', final);
+
 	if (n >= 1 && n <= 100) {
-		let rung = '';
-		for (let i = 0; i < n; i++) {
-			rung += '#';
-			console.log(leftPad(' ', rung, n - i - 1));
+		for (let rung = '#'; rung !== final; rung += '#') {
+			console.log(leftPad(' ', rung, n - rung.length));
 		}
+	} else {
+		console.log('n needs to be between 1 and 100!');
 	}
 }
 
@@ -30,6 +33,6 @@ function leftPad(char, padStr, length) {
 	return padStr;
 }
 
-// drawStairs(6);
+drawStairs(6);
 
 module.exports = drawStairs;
