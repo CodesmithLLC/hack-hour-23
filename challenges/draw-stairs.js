@@ -13,8 +13,13 @@
 
 */
 
-function drawStairs(n) {
 
+function drawStairs(n) {
+  let res = ""
+  for (let i = n + 1, j = 1; i>=1; i--, j++) {
+    res += (new Array(i).join(" ") + new Array(j).join("*") + "\n")
+  }
+  console.log(res);
 }
 
 
