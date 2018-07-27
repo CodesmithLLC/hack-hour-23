@@ -14,10 +14,12 @@
 */
 
 function drawStairs(n) {
-	let rung = '';
-	for (let i = 0; i < n; i++) {
-		rung += '#';
-		console.log(leftPad(' ', rung, n - i - 1));
+	if (n >= 1 && n <= 100) {
+		let rung = '';
+		for (let i = 0; i < n; i++) {
+			rung += '#';
+			console.log(leftPad(' ', rung, n - i - 1));
+		}
 	}
 }
 
