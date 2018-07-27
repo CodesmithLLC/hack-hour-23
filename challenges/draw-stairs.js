@@ -2,7 +2,7 @@
  The staircase must climb up from left to right. The last line should only consist of asterisks,
  without any leading/trailing spaces.
  
- For example:     
+ For example:
  drawStairs(6) ->          
      *
     **
@@ -14,7 +14,12 @@
 */
 
 function drawStairs(n) {
-
+  let emptySpace = " ";
+  let asterisk = "*";
+  
+  for(var i=1; i<=n; i++){
+    console.log(emptySpace.repeat(n-i) + asterisk.repeat(i));
+  }
 }
 
 
