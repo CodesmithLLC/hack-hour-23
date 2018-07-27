@@ -33,6 +33,6 @@ function leftPad(char, padStr, length) {
 	return padStr;
 }
 
-drawStairs(6);
+// drawStairs(6);
 
 module.exports = drawStairs;
