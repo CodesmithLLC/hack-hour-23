@@ -17,7 +17,12 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+	return Array(num).fill().map((e, i)=> i + 1).map( num => {
+		if (num % 3 === 0 && num  % 5 === 0) return "fizzbuzz";
+		if (num % 3 === 0) return "buzz";
+		if (num % 5 === 0) return "fizz";
+		return num;
+	} )
 }
 
 module.exports = fizzbuzz;
