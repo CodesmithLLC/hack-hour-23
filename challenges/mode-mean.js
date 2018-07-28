@@ -9,10 +9,6 @@
  *
  */
 
-const num = [1, 2, 3, 4, 5, 6, 5];
-
-modemean(num);
-
 function modemean(array) {
   let total = 0;
   array.forEach(e => total += e);
@@ -26,8 +22,9 @@ function modemean(array) {
       obj[e]++;
     }
   });
-  console.log(Object.values(obj));
-  const mode = Math.max(...Object.values(obj));
+
+  const modeIndex = Object.values(obj).indexOf(Math.max(...Object.values(obj)));
+  const mode = Object.keys(obj)[modeIndex];
   if (mean === mode) return true;
   return false;
 }
