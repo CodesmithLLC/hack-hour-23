@@ -11,6 +11,9 @@
 
 
 function modemean(array) {
+  if(array.length === 1){
+    return true;
+  }
   let hashMap = {};
   let total = 0;
   array.reduce((elm) => {
