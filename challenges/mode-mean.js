@@ -11,7 +11,24 @@
 
 
 function modemean(array) {
+  let hashMap = {};
+  let total = 0;
+  array.reduce((elm) => {
+    hashMap[elm] = hashMap[elm] ? hashMap[elm] + 1 : 1;
+    total += elm;
+  });
 
+  let currentHighest = 0;
+  let highestKey;
+  for(let key in hashMap){
+    if(hashMap[key] === currentHighest) {
+      highestKey = key > highestKey ? key : highestKey;
+    }
+    if(hashMap[key] > currentHighest) {
+      highestKey = key;
+    }
+  }
+  return highestKey === Math.floor(total / array.length);
 }
 
 module.exports = modemean;
