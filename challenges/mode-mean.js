@@ -20,7 +20,7 @@ function modemean(array) {
   // mode repeated numbers
   let mode = array.reduce((acc, currValue) => {
     if(acc[currValue]){
-      ++newObj[currValue];
+      ++acc[currValue];
     }else{
       acc[currValue] = 1;
     }
@@ -28,9 +28,9 @@ function modemean(array) {
   }, {});
 
   let modeMax = 0;
-  for(let key in value){
-    if(value[key] > modeMax)
-      modeMax = value[key];
+  for(let key in mode){
+    if(mode[key] > modeMax)
+      modeMax = mode[key];
   }
 
   if(modeMax === mean)
@@ -42,3 +42,4 @@ function modemean(array) {
 module.exports = modemean;
 
 
+console.log(modemean([1,2,1,1,1]));
