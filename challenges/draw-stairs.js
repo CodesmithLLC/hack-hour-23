@@ -14,8 +14,15 @@
 */
 
 function drawStairs(n) {
+    let arr = []
+    for (let i = 0; i < n; i++) {
+     arr.push('\xa0')
+     }
+    for (let i = n - 1; i >= 0; i--) {
+    arr.splice(i, 1, '*')
+    console.log(arr.join(""))
+    }
 
 }
-
-
+drawStairs(6)
 module.exports = drawStairs;
