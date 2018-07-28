@@ -11,11 +11,11 @@
 
 
 function modemean(array) {
-  array.sort();
+  // array.sort();
   // mean
   let mean = Math.floor(array.reduce((acc, currValue) => {
     return acc += currValue;
-  }, 0) / array.length);
+  }) / array.length);
   
   // mode repeated numbers
   let mode = array.reduce((acc, currValue) => {
@@ -30,10 +30,13 @@ function modemean(array) {
   let modeMax = 0;
   for(let key in mode){
     if(mode[key] > modeMax)
-      modeMax = mode[key];
+      modeMax = key;
   }
 
-  if(modeMax === mean)
+  console.log('modeMax', modeMax);
+  console.log('mean', mean);
+
+  if(parseInt(modeMax) === parseInt(mean))
     return true;
   else
     return false;
@@ -42,4 +45,4 @@ function modemean(array) {
 module.exports = modemean;
 
 
-console.log(modemean([1]));
+console.log(modemean([2, 2, 2, 2]));
