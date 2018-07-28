@@ -10,6 +10,7 @@
  */
 
 function modemean(array) {
+  if (array.length === 1) return true;
   const mean = Math.floor(array.reduce((acc, cur) => { return acc + cur }) / array.length);
   const modeObj = {};
   const modeArr = [];
@@ -26,7 +27,8 @@ function modemean(array) {
     if (modeObj[key] === quantity) modeArr.push(parseInt(key));
   });
   mode = Math.max(...modeArr);
-  return mean === mode;
+  // return mean === mode;
+  return (mode === mean);
 }
 
 module.exports = modemean;
