@@ -2,8 +2,6 @@
  The staircase must climb up from left to right. The last line should only consist of asterisks,
  without any leading/trailing spaces.
 
- For example:
- drawStairs(6) ->
      *
     **
    ***
@@ -14,7 +12,8 @@
 */
 
 function drawStairs(n) {
-  for(let i = 1; i<=n; i++){
+
+for(let i = 1; i<=n; i++){
     let step = "";
     for(let j = n-i; j>=0; j--){
       step += " ";
@@ -24,7 +23,6 @@ function drawStairs(n) {
     }
     console.log(step);
   }
-}
 
 
 module.exports = drawStairs;
