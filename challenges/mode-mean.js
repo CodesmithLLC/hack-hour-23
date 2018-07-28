@@ -25,7 +25,7 @@ function modemean(array) {
 
   const modeIndex = Object.values(obj).indexOf(Math.max(...Object.values(obj)));
   const mode = Object.keys(obj)[modeIndex];
-  if (mean === mode) return true;
+  if (mean === parseInt(mode)) return true;
   return false;
 }
 
