@@ -26,7 +26,7 @@ function modemean(array) {
         mode = num;
     }
   }
-  if (mode === mean) return true;
+  if (parseInt(mode) === parseInt(mean)) return true;
   return false;
 }
 
