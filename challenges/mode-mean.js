@@ -15,13 +15,16 @@ function modemean(array) {
    if (array.length === 0) return false;
    if (array.length === 1) return true;
 
+   //find average and round it down
    const mean = Math.floor(array.reduce((acc, next) => acc + next) / array.length);
+
    //find count for every num in array
-   const counter = {};
-   array.forEach(num => {
-      if (counter[num] === undefined) counter[num] = 1;
-      else counter[num] += 1;
-   })
+   const counter = array.reduce((acc, next) => {
+      if (acc[next] === undefined) acc[next] = 1;
+      else acc[next] += 1;
+      return acc;
+   }, {})
+
    //cycle through the counts to find the mode
    let mode;
    for (let key in counter) {
@@ -29,6 +32,7 @@ function modemean(array) {
       else if (counter[key] > counter[mode]) mode = key;
       else if (counter[key] === counter[mode] && key > mode) mode = key;
    }
+
    //mode will be a string, mean will be a num
    return mode == mean;
 }
