@@ -13,11 +13,10 @@
 
 */
 
-function drawStairs(n) {
-    for (let i = 1; i <= n; i += 1){
-        let temp = " ".repeat(n-i) + "*".repeat(i);
-        console.log(temp); 
-    }
+function drawStairs(n, count = 1) {
+    console.log(" ".repeat(n-count) + "*".repeat(count))
+    count++
+    if (count-1 < n) drawStairs(n, count); 
 }
 
 drawStairs(40);
