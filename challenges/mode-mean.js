@@ -15,7 +15,7 @@ function modemean(array) {
   // mean
   let mean = Math.floor(array.reduce((acc, currValue) => {
     return acc += currValue;
-  }, 0) / 2);
+  }, 0) / array.length);
   
   // mode repeated numbers
   let mode = array.reduce((acc, currValue) => {
@@ -42,4 +42,4 @@ function modemean(array) {
 module.exports = modemean;
 
 
-console.log(modemean([1,2,1,1,1]));
+console.log(modemean([1]));
