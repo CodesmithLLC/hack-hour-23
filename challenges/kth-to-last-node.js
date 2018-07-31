@@ -39,6 +39,7 @@ function kthToLastNode(k, head) {
     currentNode = currentNode.next;
   }
 
+  if(kthValueStore.length !== k) return undefined;
   return kthValueStore.shift();
 
 }
