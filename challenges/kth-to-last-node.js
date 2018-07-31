@@ -32,7 +32,7 @@ function kthToLastNode(k, head) {
 	// if k is larger than size, we are out of range
 	if (k > size) {
 		console.error('k out of range of Linked List');
-		return -1;
+		return undefined;
 	}
 	// reset the current node to head and traverse LL until we are at right node
 	current = head;
