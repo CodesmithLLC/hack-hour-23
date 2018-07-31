@@ -17,12 +17,30 @@
  */
 
 function Node(val) {
-  this.value = val;
-  this.next = null;
+	this.value = val;
+	this.next = null;
 }
 
 function kthToLastNode(k, head) {
-
+	let size = 0;
+	let current = head;
+	// loop through the list to determine the size
+	while (current) {
+		current = current.next;
+		size++;
+	}
+	// if k is larger than size, we are out of range
+	if (k > size) {
+		console.error('k out of range of Linked List');
+		return -1;
+	}
+	// reset the current node to head and traverse LL until we are at right node
+	current = head;
+	for (let i = 0; i < size - k; i++) {
+		current = current.next;
+	}
+	// return the value of kth to last node
+	return current.value;
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = { Node: Node, kthToLastNode: kthToLastNode };
