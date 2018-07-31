@@ -23,6 +23,24 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
 
+  //i will start at the head of the linked list, and intend on iterating through the whole thing
+  //i will store the previous k values as I iterate. pushing on new ones, shifting off old ones once its length is K
+  //once I hit the tail, I will get the first value of that array as it should be the target.
+
+  const kthValueStore = [];
+  let currentNode = head;
+  
+  while(currentNode){
+    if(kthValueStore.length === k){
+      kthValueStore.shift();
+    }
+    kthValueStore.push(currentNode.value);
+
+    currentNode = currentNode.next;
+  }
+
+  return kthValueStore.shift();
+
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
