@@ -28,11 +28,13 @@ function Node(val) {
 function kthToLastNode(k, head) {
   let nodesArray = [head,];
   let nodeToPush = head;
+
   while (nodeToPush.next) {
     nodesArray.push(nodeToPush.next);
     nodeToPush = nodeToPush.next;
   }
-  return nodesArray[nodesArray.length - k].value;
+  return nodesArray.length < k ? undefined : nodesArray[nodesArray.length - k].value;
 }
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
