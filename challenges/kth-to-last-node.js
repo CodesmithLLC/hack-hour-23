@@ -23,6 +23,24 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
 
+  // store the values of the nodes in an array, will be used to access kth value. 
+  const storeVals = [];
+  let counter = 1;
+  let currNode = head;
+
+  // traverse through the linked list, starting from head. 
+  while (currNode.next !== null) {
+    counter++;
+    storeVals.push(currNode.value); // store the value of current node in the element 
+    currNode = currNode.next; // keep reassigning the value of the current Node, to continue traversing 
+  }
+  
+  if (currNode.next === null && k < 2) { // edge case if grabbing the last node 
+    return currNode.value;
+  } else {
+    // return the value stored on the kth to last node in the list. 
+    return storeVals[counter - k];
+  }
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
