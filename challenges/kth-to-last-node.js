@@ -23,6 +23,12 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   // get length of list by looping until you reach null
+  if (!head) {
+      return undefined;
+  }
+  if (!k) {
+      return undefined;
+  }
   let current = head;
   let counter = 0;
   while (current.next !== null) { // while not null
@@ -32,9 +38,14 @@ function kthToLastNode(k, head) {
 
   current = head; // reset current to head
   for (let i = 0; i <= counter - k; i++) { // loop until we reach counter - k
+      // should return undefined if it doesn't exist
+      if(!current.next) {
+          return undefined;
+      }
       current = current.next;
   }
   //console.log("the current node", current.value)
+  // should return undefined if it doesn't exist
   return current.value;
 }
 
