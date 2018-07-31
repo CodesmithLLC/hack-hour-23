@@ -38,6 +38,7 @@ function kthToLastNode(k, head) {
     counter++;
     head = head.next;
   }
+  return head;
 }
 
 module.exports = { Node, kthToLastNode };
