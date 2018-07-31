@@ -35,6 +35,9 @@ function kthToLastNode(k, head) {
     currentNode = newNode;
     
   }
+  if(values.length === 0){
+    return undefined;
+  }
   return values[k+1];
 
 }
