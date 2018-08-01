@@ -37,7 +37,7 @@ function kthToLastNode(k, head) {
   }
   linkedListTraverse(head);
 
-  if(nodes.length < k) return undefined
+  if(nodes.length < k) return undefined;
   return nodes[nodes.length - k];
 }
 
