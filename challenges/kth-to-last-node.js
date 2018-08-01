@@ -22,22 +22,17 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-   let count = 0;
-   let value;
-
-   function search(head) {
-      //recurse until we reach the tail of the list
-      if (head.next !== null) search(head.next);
-
-      if (value === undefined) {
-         count += 1;
-         if (count === k) value = head.value;
-      }
+   var lead = head;
+   var follow = head;
+   for (var i = 0; i < k && lead; i++) {
+     lead = lead.next;
    }
-   
-   search(head);
-   return value;
-}
+   while (lead && follow) {
+     lead = lead.next;
+     follow = follow.next;
+   }
+   return follow.value;
+ }
 
 const a = new Node('A');
 const b = new Node('B');
