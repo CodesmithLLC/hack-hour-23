@@ -25,6 +25,8 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   let nodes = [];
+  if(!head) return undefined;
+  
   function linkedListTraverse(head){
     nodes.push(head);
     if(head.next !== null){
@@ -34,6 +36,8 @@ function kthToLastNode(k, head) {
     }
   }
   linkedListTraverse(head);
+
+  if(nodes.length < k) return undefined;
   return nodes[nodes.length - k];
 }
 
