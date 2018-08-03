@@ -10,6 +10,7 @@
  */
 
 
+<<<<<<< HEAD
  function modemean(array) {
    //calculate mean vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
      let sum = array.reduce((a, b)=>{return a+b}); //Find the sum of every item in array
@@ -35,5 +36,10 @@
    return Number(mode) == Number(mean);
 
  }
+=======
+function modemean(array) {
+
+}
+>>>>>>> 2190d775e6d623e610760b846238c0683d13b860
 
 module.exports = modemean;
