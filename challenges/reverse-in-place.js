@@ -15,11 +15,12 @@
 
 function reverseInPlace(array) {
     let length = array.length;
+    console.log(length);
     const newArr = [];
     for(let x= length-1; x >=0; x--){
         newArr.push(array[x]);
     }
-    return newArr;
+    return newArr.join('');
 }
-//console.log(reverseInPlace('hello'));
+console.log(reverseInPlace('hellos'));
 module.exports = reverseInPlace;
