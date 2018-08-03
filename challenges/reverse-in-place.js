@@ -21,7 +21,7 @@ function reverseInPlace(array) {
     array[lastIndex] = front;
     lastIndex--;
   }
-return array;
+  return array;
 }
   
 
