@@ -3,10 +3,15 @@
  */
 
 function pow(base, power, realBase = base) {
-  //base case 
+    // base case 
   if (power === 0) return 1;
-  if (power === 1) return base; //return base
+  if (power === 1) return base;
+  //return base
+  if (power < 0) {
+    return 1/(pow(base * realBase, Math.abs(power) - 1, realBase));
+  }
   return pow(base * realBase, power - 1, realBase);
 }
+  
 
 module.exports = pow;
