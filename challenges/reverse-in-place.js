@@ -1,4 +1,3 @@
-'use strict';
 /**
  * Write a function to reverse an array in place
  *
@@ -13,8 +12,18 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
-
+function reverseInPlace(...array) {
+    const arrayHalfLength = Math.floor(array.length/2);
+    for (let i = 0; i < arrayHalfLength; i += 1) {
+        let temp = array[i];
+        array[i] = array[array.length -1 - i]
+        array[array.length - 1 - i] = temp;
+    }
+    return array; 
 }
 
 module.exports = reverseInPlace;
+
+console.log(reverseInPlace('a','b','c','d','e','f'))
+console.log(reverseInPlace('a','b','c','d','e','f','g'))
+
