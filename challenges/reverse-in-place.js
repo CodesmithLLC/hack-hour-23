@@ -13,7 +13,30 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
+
+// test = [a,b,c,d]
+// output = [d,c,b,a]
+
+function reverseInPlace(array, i = 0) {
+
+    if (array.length < 2) return array; // edge case for empty or one element arrays
+
+    if (array.length % 2 === 0) { // even cases 
+        if (i === array.length / 2) return array; 
+
+        let length = array.length - 1 // storing in variable length for easier readability when accessing last element
+        let firstElement = array[i];
+        let lastElement = array[length - i]
+
+        // reassign values at the indexes you're currently on.
+        array[i] = lastElement
+        array[length - i] = firstElement;
+
+        return reverseInPlace(array, i + 1)
+    } else {
+        // odd cases 
+        if ()
+    }
 
 }
 
