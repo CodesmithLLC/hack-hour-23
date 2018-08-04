@@ -16,12 +16,24 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-   return s1 === s2 ? true : isSubstring(s1, s2.split('').reverse().join(''))
+   if (s1.length !== s2.length) return false;   //checks if strings are same length
+   let temp = '';
+
+   for (let i = 0; i < s1.length; i++) {
+      for (let j = 0; j < s2.length; j++) {
+         if (s1[i] === s2[j]) {
+            temp = s2.substring(j, s2.length) + s2.substring(0, j);
+            if (isSubstring(s1, temp)) return true;
+         }
+      }
+   }
+   return false;
 }
 
 console.log(stringRotation("hello", "hello"))
-console.log(stringRotation("hello", "olleh"))
-console.log(stringRotation("hello", "ohell"))
+console.log(stringRotation("hello", "llohe"))
+console.log(stringRotation("hello", "he"))
+console.log(stringRotation("hello", "ollhe"))
 
 
 
