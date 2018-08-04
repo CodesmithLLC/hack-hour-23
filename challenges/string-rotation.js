@@ -13,11 +13,16 @@
 
 function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
+
 }
 
 function stringRotation(s1, s2) {
-  return s1.split('').sort((a, b) => a > b) === s2.split('').sort((a, b) => a > b);
+  //find the index of s1 first char within s2, slice s2 up to that point and pass it to substring
+  return s1 === s2 ? true : isSubstring(s1, s2.split('').slice(0, s2.indexOf(s1[0])).join(''));
+
+
 }
 
-stringRotation("hello", "he")
+stringRotation("hello", "llohe");
+stringRotation("hello", "ollhe");
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
