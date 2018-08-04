@@ -17,7 +17,32 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+	let ret = [];
+	for (let i = 1; i <= num; i++) {
+		if ((i % 3 === 0) && (i % 5 === 0)){
+			ret.push('fizzbuzz');
+		} else if (i % 3 === 0) {
+			ret.push('fizz');
+		} else if (i % 5 === 0) {
+			ret.push('buzz');
+		} else {
+			ret.push(i);
+		}
+	}
+	return ret;
 }
+
+function fizzbuzz(num) {
+	let ret = new Array(num);
+	for (let i = 0; i < num; i++){
+	    if ((i + 1) % 3 === 0 && (i + 1) % 5 === 0) {ret[i] = 'fizzbuzz'}
+		else if ((i + 1) % 5 === 0) {ret[i] = 'buzz'}
+		else if ((i + 1) % 3 === 0) {ret[i] = 'fizz'}
+    	else {ret[i] = i + 1};
+	}
+	return ret;
+}
+
+
 
 module.exports = fizzbuzz;

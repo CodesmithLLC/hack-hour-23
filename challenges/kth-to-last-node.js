@@ -4,7 +4,7 @@
  *
  * const a = new Node('A');
  * const b = new Node('B');
- * const c = new Node('C');
+ * const c = new Node('C');3
  * const d = new Node('D');
  * const e = new Node('E');
  *
@@ -22,7 +22,22 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-
+	let count = 1;
+	let length = 0;
+	let currentNode = head;
+	while (currentNode.next != null) {
+		currentNode = currentNode.next;
+		count++;
+	}
+	if (k > count) {
+		return "incorrect k value";
+	}
+	length = count - k;
+	currentNode = head;
+	for (let i = 0; i < length; i++) {
+		currentNode = currentNode.next
+	}
+	return currentNode.value;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
