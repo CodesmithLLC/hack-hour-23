@@ -12,11 +12,14 @@
  */
 
 function isSubstring(s1, s2) {
-  return s1.indexOf(s2) >= 0;
+	return s1.indexOf(s2) >= 0;
 }
 
 function stringRotation(s1, s2) {
-
+	if (isSubstring(s1 + s1, s2) && s1.length === s2.length) {
+		return true;
+	}
+	return false;
 }
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+module.exports = { isSubstring: isSubstring, stringRotation: stringRotation };
