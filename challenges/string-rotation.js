@@ -16,6 +16,10 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+
+if(s1.length !== s2.length){
+  return false;
+}
 //two indicies, i1, i2, first one starts at the first leftter of s1.
 let s1Index = 0;
 
