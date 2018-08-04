@@ -21,7 +21,7 @@ function Node(val) {
   this.next = null;
 }
 
-function kthToLastNode(k, head) {jdnwjndjnwj
+function kthToLastNode(k, head) {
   if (!head ) {
     head === "undefined"  
   } else if () {

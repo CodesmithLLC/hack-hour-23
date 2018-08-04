@@ -10,13 +10,17 @@
  *              stringRotation("hello", "he") -> false
  *              stringRotation("hello", "ollhe") -> false (not a rotation, just an anagram)
  */
+// Check second s1 v.s. s2, check if s2 is found in first then true.
+// Rotation can either be reverse or forward.
 
 function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
 
 function stringRotation(s1, s2) {
-
+  if (isSubstring() === true) { //if subSubstring is true then compare the two strings. 
+  }                             //split() the two strings....
 }
+
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
