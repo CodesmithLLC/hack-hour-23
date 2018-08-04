@@ -12,15 +12,11 @@
  */
 
 function isSubstring(s1, s2) {
-  return s1.indexOf(s2) >= 0;
-
+  return s1 === s2;
 }
 
 function stringRotation(s1, s2) {
-  //find the index of s1 first char within s2, slice s2 up to that point and pass it to substring
-  return s1 === s2 ? true : isSubstring(s1, s2.split('').slice(0, s2.indexOf(s1[0])).join(''));
-
-
+  return s1 === s2 ? true : isSubstring(s1, (s2.split('').slice(s2.indexOf(s1[0]), s2.length).join('') + s2.split('').slice(0, s2.indexOf(s1[0])).join('')));
 }
 
 stringRotation("hello", "llohe");
