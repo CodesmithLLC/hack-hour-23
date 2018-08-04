@@ -29,10 +29,8 @@ function kthToLastNode(k, head) {
 		length++
 	}
 	i = head;
-  let counter = length - k;
-	while (counter > 0) {
+	while length - k > 0 {
 		i = i.next;
-    	counter--
 	}
 	return i;
 }
