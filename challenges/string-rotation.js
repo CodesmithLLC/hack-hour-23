@@ -16,7 +16,7 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2, counter = 1) {
-  // make sure that the second string has the same length as the first string 
+  // make sure that the second string has the same length as the first string - edge cases
   if (s1.length !== s2.length) return false;
 
   // return false if counter === length of string, means all string rotation possibilities have been checked
