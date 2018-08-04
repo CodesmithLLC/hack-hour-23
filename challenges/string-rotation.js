@@ -16,12 +16,8 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-  console.log(`s1 is ${s1} s2 is ${s2}`);
   if (s1 === s2) return true;
-  if (s1.length !== s2.length) {
-    console.log(`s1.length is ${s1.length} s2.length is ${s2.length}`);
-    return false;
-  }
+  if (s1.length !== s2.length) return false;
   let loopLength = s2.length;
   let matchIndex = s2.indexOf(s1[0]);
   const str2 = s2.split('');
