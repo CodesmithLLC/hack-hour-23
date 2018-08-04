@@ -18,7 +18,6 @@
 
  function stringRotation(s1, s2) {
    let inner = (str1, str2, count) => {
-     console.log("COUNT -", count)
     if(str1[0] === str2[0] || count > str1.length) {
       return isSubstring(str1, str2);
     } else {
@@ -27,7 +26,6 @@
         r1 += str2[i];
       }
       r1 += str2[0];
-      console.log(r1);
       return inner(str1, r1, ++count);
     }
    }
