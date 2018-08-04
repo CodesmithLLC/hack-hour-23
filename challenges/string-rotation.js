@@ -16,6 +16,22 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  //loop through string s1 length
+    //take out the first letter from s1 and append it to the end of s1
+    //compare s1 to s2
+    //return true if s1===s2
+  let length = s1.length;
+  let temp;
+  let tempString = s1;
+    while(length > 0){
+    temp = tempString.slice(0,1);
+    tempString = tempString.slice(1) + temp;
+    if(tempString === s2){
+      return true;
+    }
+    length--;
+  }
+  return false;
 
 }
 
