@@ -24,7 +24,21 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(input) {
+  input = input.match(/[\{\}\(\)\[\]]/g)
+  input = input.join("")
+
+  if (input.length % 2 !== 0) {
+    return false;
+  }
+
+  for (let i = 0; i < input.length / 2; i++) {
+    input = input.replace("()", "")
+    input = input.replace("[]", "")
+    input = input.replace("{}", "")
+  }
+
+  return input.length === 0 ? true : false;
 
 }
 
