@@ -23,4 +23,6 @@ function stringRotation(s1, s2) {
   return newS1 === s2
 }
 
+console.log(stringRotation("hello", "lohel") )
+
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

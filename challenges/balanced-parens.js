@@ -25,7 +25,26 @@
  */
 
 function balancedParens(input){
+  const bracketTypes = [['[', ']'], ['(', ')'], ['{', '}']];
+  let result = true;
+  let stringArray = input.split('');
 
+  bracketTypes.forEach(bracket => {
+  let first = stringArray.indexOf(bracket[0]);
+  let last = stringArray.lastIndexOf(bracket[1]);
+
+  while(first >= 0 && last >= 0 && first < last) {
+      stringArray = stringArray.splice(first, 1);
+      stringArray = stringArray.splice(last, 1);
+      first = stringArray.indexOf('(');
+      last = stringArray.lastIndexOf('(');
+    }
+    if (first === -1 && last === -1) {
+      return result = result && true
+    }
+    result = false
+  })
+  return result
 }
 
 module.exports = balancedParens;
