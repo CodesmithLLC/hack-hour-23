@@ -19,6 +19,4 @@ function stringRotation(s1, s2) {
   return s1 === s2 ? true : isSubstring(s1, (s2.split('').slice(s2.indexOf(s1[0]), s2.length).join('') + s2.split('').slice(0, s2.indexOf(s1[0])).join('')));
 }
 
-stringRotation("hello", "llohe");
-stringRotation("hello", "ollhe");
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
