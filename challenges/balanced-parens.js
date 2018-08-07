@@ -30,36 +30,32 @@ function balancedParens(input) {
     curly: 0,
     brackets: 0,
   };
-  let index = 0;
+  const index = 0;
 
-  while (i < input.length - i) {
-      if ()
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] === '(') {
+      obj.parens += 1;
+    } else if (input[i] === '[') {
+      obj.brackets += 1;
+    } else if (input[i] === '{') {
+      obj.curly += 1;
+    } else if (input[i] === ')') {
+      obj.parens -= 1;
+      if (obj.parens < 0) {
+        return false;
+      }
+    } else if (input[i] === '}') {
+      obj.curly -= 1;
+      if (obj.curly < 0) {
+        return false;
+      }
+    } else if (input[i] === ']') {
+      obj.brackets -= 1;
+      if (obj.brackets < 0) {
+        return false;
+      }
+    }
   }
-
-  //   for (let i = 0; i < input.length; i++) {
-  //     if (input[i] === '(') {
-  //       obj.parens += 1;
-  //     } else if (input[i] === '[') {
-  //       obj.brackets += 1;
-  //     } else if (input[i] === '{') {
-  //       obj.curly += 1;
-  //     } else if (input[i] === ')') {
-  //       obj.parens -= 1;
-  //       if (obj.parens < 0) {
-  //         return false;
-  //       }
-  //     } else if (input[i] === '}') {
-  //       obj.curly -= 1;
-  //       if (obj.curly < 0) {
-  //         return false;
-  //       }
-  //     } else if (input[i] === ']') {
-  //       obj.brackets -= 1;
-  //       if (obj.brackets < 0) {
-  //         return false;
-  //       }
-  //     }
-  //   }
 
   if (obj.parens === 0 && obj.curly === 0 && obj.brackets === 0) {
     return true;
