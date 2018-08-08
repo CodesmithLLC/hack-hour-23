@@ -71,22 +71,18 @@ function balancedParens(input){
               rightPCount++;
               break;
         }
-        console.log(leftPCount, " - ", rightPCount);
         if(result) {
             if(leftCCount === rightCCount && leftCurly !== -1){
-                console.log("TESTING -", input.slice(leftCurly+1, rightCurly));
                 result = balancedParens(input.slice(leftCurly+1, rightCurly));
                 i = rightCurly;
                 rightCurly = -1;
                 leftCurly = -1;
             } else if (leftSCount === rightSCount && leftSquare !== -1) {
-              console.log("TESTING SQUARE-", input.slice(leftSquare+1, rightSquare));
                 result = balancedParens(input.slice(leftSquare+1, rightSquare));
                 i = rightSquare;
                 rightSquare = -1;
                 leftSquare = -1;
             } else if (leftPCount === rightPCount && leftParen !== -1){
-                console.log("TESTING PAREN -", input.slice(leftParen+1, rightParen));
                 result = balancedParens(input.slice(leftParen+1, rightParen));
                 i = rightParen;
                 rightParen = -1;
@@ -96,5 +92,33 @@ function balancedParens(input){
     }
     return result && (leftCurly === -1 && rightCurly == -1 && leftSquare === -1 && rightSquare === -1 && leftParen === -1 && rightParen === -1);
 }
+
+//REFACTOR - HANNAH
+// function balancedParens(input) {
+//   let stack = [];
+//   for(let i = 0; i < input.length; i++) {
+//     if(input[i] === "{" || input[i] === "(" || input[i] === "["){
+//       stack.push(input[i]);
+//     } else {
+//       switch (input[i]) {
+//         case "}":
+//           if(stack.pop() !== "{")
+//             return false;
+//           break;
+//         case ")":
+//           if(stack.pop() !== "(")
+//             return false;
+//           break;
+//         case "]":
+//           if(stack.pop() !== "[")
+//             return false;
+//           break;
+//         default:
+//           break;
+//       }
+//     }
+//   }
+//   return true;
+// }
 
 module.exports = balancedParens;
