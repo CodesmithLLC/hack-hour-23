@@ -27,7 +27,7 @@ function romanNumeral(n) {
   
   return conversions.reduce((acc, pair) => {
     for (let key in pair) {
-      while (n !== 0 && n % key === 0) {
+      while (n !== 0 && (n % key === 0 || n > key)) {
         acc += pair[key];
         n -= key;
       }
@@ -39,9 +39,10 @@ function romanNumeral(n) {
 console.log(romanNumeral(0));        // ->    0
 console.log(romanNumeral());        // ->    ''
 console.log(romanNumeral(1));        // ->    I
-console.log(romanNumeral(3));        // ->    I
+console.log(romanNumeral(3));        // ->    III
 console.log(romanNumeral(4));        // ->    IV
 console.log(romanNumeral(5));        // ->    V
+console.log(romanNumeral(8));        // ->    VIII
 console.log(romanNumeral(9));        // ->    IX
 console.log(romanNumeral(10));        // ->    X
 console.log(romanNumeral(40));        // ->    XL
