@@ -13,8 +13,26 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
+
+// 
+
 function reverseInPlace(array) {
 
-}
+    for (let i = 0; i < array.length; i++) {
+        array[i] = array.pop()
+
+    }
+    console.log(array)
+
+    }
+
+
+
+
+
+let myArr = [1,2,3,4,5,6]
+
+reverseInPlace(myArr)
+
 
 module.exports = reverseInPlace;
