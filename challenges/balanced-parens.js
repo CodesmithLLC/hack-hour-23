@@ -25,7 +25,30 @@
  */
 
 function balancedParens(input){
+    let brackChars = "()[]{}";
 
+    let brackPairs = {"(":")",
+                        "[":"]",
+                        "{":"}"}
+
+    const match = (char1, char2) => {
+        return brackPairs[char1] === char2;
+    }
+
+    let bracksOnly = input.split('').filter((char)=>{return brackChars.includes(char)});
+    //Filters out every character that isnt a bracket
+
+    let index = 0;
+
+    const findMatch = (index) => {
+        let thisChar = bracksOnly[index];
+        let nextChar = bracksOnly[index+1];
+
+        if(match(thisChar, nextChar)){
+            return true;
+        }
+    }
+    
 }
 
 module.exports = balancedParens;
