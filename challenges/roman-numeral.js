@@ -62,7 +62,7 @@ function romanNumeral(n) {
   for(let i = digitArray.length - 1;i>=0;i--){
     let currentDigit = Number(digitArray[i]);
     if(placeCounter>3) placeCounter = 3;
-    let place = possibleMultiples[j];
+    let place = possibleMultiples[placeCounter];
     let translator = digitMultiple[place];
 
 
@@ -88,6 +88,6 @@ function romanNumeral(n) {
   romans.reverse();
   return romans.join('');
 }
-
+console.log(romanNumeral(12))
 
 module.exports = romanNumeral;
