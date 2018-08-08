@@ -28,6 +28,10 @@ function stringRotation(s1, s2) {
       }
    }
    return false;
+
+   //solution
+   if (s1.length !== s2.length) return false;
+   return isSubstring(s1 + s1, s2);
 }
 
 console.log(stringRotation("hello", "hello"))
