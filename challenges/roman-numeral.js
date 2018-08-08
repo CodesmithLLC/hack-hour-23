@@ -51,26 +51,21 @@
    'ones':ones,
  }
 
-600
-
- //split into an array, the length will specify how big it is (len 4 -- M, len 3, less than that, etc)
-
 
 function romanNumeral(n) {
   digitArray = n.toString().split('');
-
   let romans = [];
 
-  //for each digit, translate and decrement
   let possibleMultiples = ['ones','tens','hundreds','thousand'];
-  let j = 0;
+  let placeCounter = 0;
   
   for(let i = digitArray.length - 1;i>=0;i--){
     let currentDigit = Number(digitArray[i]);
-    if(j>3){
-      j = 3;
-    }
-    let translator = digitMultiple[possibleMultiples[j]];
+    if(placeCounter>3) placeCounter = 3;
+    let place = possibleMultiples[j];
+    let translator = digitMultiple[place];
+
+
     while(currentDigit){
       let currentRomans = [];
       let romanNumeral = translator[currentDigit];
@@ -87,12 +82,12 @@ function romanNumeral(n) {
       currentRomans.reverse();
       romans.push(currentRomans);
     }
-    j++;
+
+    placeCounter++;
   }
   romans.reverse();
   return romans.join('');
 }
 
-console.log(romanNumeral(2432));
 
 module.exports = romanNumeral;
