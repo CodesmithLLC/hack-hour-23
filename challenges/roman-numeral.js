@@ -88,6 +88,5 @@ function romanNumeral(n) {
   romans.reverse();
   return romans.join('');
 }
-console.log(romanNumeral(12))
 
 module.exports = romanNumeral;
