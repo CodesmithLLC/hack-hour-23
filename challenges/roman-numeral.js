@@ -22,20 +22,18 @@ function romanNumeral(n) {
   if (n < 1) return 0;
   n = Math.floor(n);
 
-  const decimal = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  const roman = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+  const conversions = [{1000: 'M'}, {900: 'CM'}, {500: 'D'}, {400: 'CD'}, {100: 'C'}, {90: 'XC'},
+                        {50: 'L'}, {40: 'XL'}, {10: 'X'}, {9: 'IX'}, {5: 'V'}, {4: 'IV'}, {1: 'I'}];
   
-  let final = '';
-  
-  for (let i = 0; i < decimal.length; i++) {
-    if (n % decimal[i] === 0) {
-      final += roman[i];
-      n -= decimal[i];
-      if (n === 0) break;
+  return final = conversions.reduce((acc, pair) => {
+    for (let key in pair) {
+      if (n !== 0 && n % key === 0) {
+        acc += pair[key];
+        n -= key;
+      }
     }
-  }
-
-  return final;
+    return acc;
+  }, '');
 }
 
 console.log(romanNumeral(0));        // ->    I
