@@ -19,7 +19,7 @@
 
 function romanNumeral(n) {
 
-  // if (n < 1) return 0;
+  if (n < 1) return 0;
   n = Math.floor(n);
 
   const conversions = [{1000: 'M'}, {900: 'CM'}, {500: 'D'}, {400: 'CD'}, {100: 'C'}, {90: 'XC'},
@@ -36,20 +36,20 @@ function romanNumeral(n) {
   }, '');
 }
 
-console.log(romanNumeral(0));        // ->    0
-console.log(romanNumeral());        // ->    ''
-console.log(romanNumeral(1));        // ->    I
-console.log(romanNumeral(4));        // ->    IV
-console.log(romanNumeral(5));        // ->    V
-console.log(romanNumeral(9));        // ->    IX
-console.log(romanNumeral(10));        // ->    X
-console.log(romanNumeral(40));        // ->    XL
-console.log(romanNumeral(50));        // ->    L
-console.log(romanNumeral(90));        // ->    XC
-console.log(romanNumeral(100));       // ->    C
-console.log(romanNumeral(400));       // ->    CD
-console.log(romanNumeral(500));       // ->    D
-console.log(romanNumeral(900));       // ->    CM
-console.log(romanNumeral(1000));      // ->    M
+// console.log(romanNumeral(0));        // ->    0
+// console.log(romanNumeral());        // ->    ''
+// console.log(romanNumeral(1));        // ->    I
+// console.log(romanNumeral(4));        // ->    IV
+// console.log(romanNumeral(5));        // ->    V
+// console.log(romanNumeral(9));        // ->    IX
+// console.log(romanNumeral(10));        // ->    X
+// console.log(romanNumeral(40));        // ->    XL
+// console.log(romanNumeral(50));        // ->    L
+// console.log(romanNumeral(90));        // ->    XC
+// console.log(romanNumeral(100));       // ->    C
+// console.log(romanNumeral(400));       // ->    CD
+// console.log(romanNumeral(500));       // ->    D
+// console.log(romanNumeral(900));       // ->    CM
+// console.log(romanNumeral(1000));      // ->    M
 
 module.exports = romanNumeral;
