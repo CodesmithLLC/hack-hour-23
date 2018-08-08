@@ -19,7 +19,7 @@
 
 function romanNumeral(n) {
 
-  if (n < 1) return 0;
+  // if (n < 1) return 0;
   n = Math.floor(n);
 
   const conversions = [{1000: 'M'}, {900: 'CM'}, {500: 'D'}, {400: 'CD'}, {100: 'C'}, {90: 'XC'},
@@ -36,8 +36,8 @@ function romanNumeral(n) {
   }, '');
 }
 
-console.log(romanNumeral(0));        // ->    I
-console.log(romanNumeral());        // ->    I
+console.log(romanNumeral(0));        // ->    0
+console.log(romanNumeral());        // ->    ''
 console.log(romanNumeral(1));        // ->    I
 console.log(romanNumeral(4));        // ->    IV
 console.log(romanNumeral(5));        // ->    V
