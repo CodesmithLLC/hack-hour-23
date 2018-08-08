@@ -27,7 +27,7 @@ function romanNumeral(n) {
   
   return conversions.reduce((acc, pair) => {
     for (let key in pair) {
-      while (n !== 0 && (n % key === 0 || n > key)) {
+      while (n !== 0 && n >= key) {
         acc += pair[key];
         n -= key;
       }
