@@ -24,8 +24,18 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(input) {
+  const obj = {};
+  input.match(/([\{\}\[\]\(\)])/g).forEach((x) => {
+    if (!obj[x]) {
+      obj[x] = 1;
+    } else {
+      obj[x] += 1;
+    }
+  });
+  const keys = Object.keys(obj);
+  const values = Object.values(obj);
 }
 
+balancedParens('123abc*!([{)]}');
 module.exports = balancedParens;
