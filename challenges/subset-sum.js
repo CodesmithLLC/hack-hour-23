@@ -10,6 +10,25 @@
 
 function subsetSum(array, target) {
 
+    // Outer loops thru all indexes
+    for (let i = 0; i < array.length; i++) {
+        let total = 0;
+        for (let j = 1; j < array.length; j++) {
+            let total = array[i];
+            //console.log("total", total);
+            while (total < target) {
+                total += array[j];
+            }
+            //console.log("total after math", total);
+            if (total === target) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }
 
 module.exports = subsetSum;
+
+console.log(subsetSum([8, 2, 4, 12], 13));
