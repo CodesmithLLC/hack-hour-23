@@ -9,7 +9,17 @@
  */
 
 function subsetSum(array, target) {
-
+  if (!Array.isArray(array)) return undefined;
+  if (isNaN(target)) return undefined;
+  let isMatch = false;
+  array.reduce((acc, cur) => {
+    if (acc === target || cur === target) isMatch = true;
+    if (acc + cur === target) isMatch = true;
+    if (acc + cur < target) return (acc + cur);
+    else return acc;
+  });
+  return isMatch;
 }
+console.log(subsetSum([3, 34, 4, 12, 5, 12], 32));
 
 module.exports = subsetSum;
