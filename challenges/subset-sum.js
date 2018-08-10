@@ -9,10 +9,13 @@
  */
 
 function subsetSum(array, target) {
+    if(target <= 0) {
+      return false;
+    }
     let hashTable = {};
     let result = false;
-    array.forEach((elm) =>{
-        if(hashTable[target - elm]){
+    array.forEach((elm, index) =>{
+        if(hashTable[target-elm] || subsetSum(array.slice(index, array.length), target-elm)){
             result =  true;
         }
         hashTable[elm] = "inArray";
