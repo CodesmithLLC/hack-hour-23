@@ -9,21 +9,19 @@
  */
 
 function subsetSum(array, target) {
-  let result = false;
   //keep track of the sets
   const powerSet = [[]];
   
-  array.forEach(num => {
-    //save the current size of the set of sets because we will be pushing to it
-    if (!result) {
+  return array.reduce((acc, num) => {
+    if (!acc) {
+      //save the current size of the set of sets because we will be pushing to it
       const powerSetSize = powerSet.length;
       for (let i = 0; i < powerSetSize; i++) {
         //get sum of current set
         const sum = powerSet[i].reduce((a, b) => a + b, 0);
         //found target
-
-        if (sum + num === target) result = true;
-        //if the sum of the array plus a new number is less than the target, add a new set to the array
+        if (sum + num === target) acc = true;
+        //add a new set to the array
         else {
           const clone = Array.from(powerSet[i]);
           powerSet.push(clone);
@@ -31,8 +29,8 @@ function subsetSum(array, target) {
         }
       }
     }
-  })
-  return result;
+    return acc;
+  }, false);
 }
 
 console.log(subsetSum([1], 1)); // -> true
