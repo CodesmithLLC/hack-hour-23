@@ -12,13 +12,10 @@ function subsetSum(array, target) {
     if(array.length === 1) {
         return array[0] === target;
     }
-    if(target <= 0) {
-      return false;
-    }
     let hashTable = {};
     let result = false;
     array.forEach((elm, index) =>{
-        if(hashTable[target-elm] || subsetSum(array.slice(index, array.length), target-elm)){
+        if(hashTable[target-elm] || subsetSum(array.slice(index+1, array.length), target-elm)){
             result =  true;
         }
         hashTable[elm] = "inArray";
