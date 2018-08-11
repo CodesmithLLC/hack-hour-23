@@ -31,5 +31,6 @@ function romanNumeral(n) {
     return romanString
 }
 
+console.log(romanNumeral(5670))
 
 module.exports = romanNumeral;
