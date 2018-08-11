@@ -14,7 +14,19 @@
  */
 
 function binToDec(binary) {
-
+  // edge case: check if input is string
+  if (typeof binary !== 'string') return undefined;
+  // edge case: check if string is a number
+  if (isNaN(parseInt(binary))) return undefined;
+  // input string
+  // split and reverse array
+  const convert = binary.split('').reverse();
+  // return integer
+  const result = convert.reduce((acc, cur, index) => {
+    if (index === 0) return (acc + (Number(cur) * 1));
+    return (acc + (Number(cur) * 2 * index));
+  }, 0);
+  return result;
 }
 
 module.exports = binToDec;
