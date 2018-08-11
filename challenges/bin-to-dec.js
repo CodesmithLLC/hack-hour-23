@@ -14,10 +14,10 @@
  */
 
 function binToDec(binary) {
-    binary = binary.split('').reverse().map((e, i) => parseInt(e)*Math.pow(2, i))
+    binary = binary.split('').reverse();
     
-    return binary.reduce((acc, curr) => {
-      return acc += curr;
+    return binary.reduce((acc, curr, i) => {
+      return acc += curr * Math.pow(2, i);
     }, 0)
 }
 
