@@ -8,23 +8,13 @@ console.log(subsetSum([8, 2, 4, 12], 13)) //-> false
 console.log(subsetSum([8, -2, 1, -3], 6)) //-> true, 8 + 1 + (-3) = 6
 
 function subsetSum(array, target) {
-    console.log('next level of recursion, array is ', array)
-    let truth = false; 
+    if (array.length === 1) return array[0] === target; 
     for (let i = 0; i < array.length; i += 1){
-        // console.log('this is i ', i)
-        // console.log('new target ', target)
-        if (array[i] === target) return true;
-        if (array[i] < target) {
-            const newTar = target - array[i]
-            const newArr = array
-            newArr.splice(i, 1)
-            //try with slice
-            truth = subsetSum(newArr, newTar)
-            if (truth === true) return true; 
-        }
+        const newTar = target - array[i]
+        const newArr = [...array.slice(0,i), ...array.slice(i+1)]
+        if (array[i] === target || subsetSum(newArr, newTar)) return true; 
     }
-    return truth; 
-    // return false; 
+    return false; 
 }
 
 module.exports = subsetSum;
