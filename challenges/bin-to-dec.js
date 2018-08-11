@@ -14,15 +14,15 @@
  */
 
 const binToDec = (binary) => {
-  let array = binary.split('');
+  const array = binary.split('');
   return array.reduce((a, b, i = 1) => {
     a += parseInt(b) * Math.pow(2, array.length - 1 - i);
     return a;
   }, 0)
 }
 const decToBin = (dec, result = '') => {
-  if (dec === 1) return (result + JSON.stringify(Math.floor(dec % 2))).split('').reverse().join('');
-  result += JSON.stringify(Math.floor(dec % 2));
+  if (dec === 1) return (result + JSON.stringify(dec % 2)).split('').reverse().join('');
+  result += JSON.stringify(dec % 2);
   return decToBin(Math.floor(dec/2), result);
 }
 console.log(decToBin(157));
