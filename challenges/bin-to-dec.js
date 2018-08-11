@@ -12,9 +12,11 @@
  * Extension:
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
-
 function binToDec(binary) {
-
+  return binary.split('').reverse().reduce( (accum, current, i) => {
+    let num = parseInt(current);
+  	return num === 1 ? accum + Math.pow(2, i) : accum
+  }, 0)
 }
 
 module.exports = binToDec;

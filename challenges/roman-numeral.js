@@ -18,7 +18,30 @@
  */
 
 function romanNumeral(n) {
-
+	const conversionChart = {
+		M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1
+	}
+  let build = ""
+  Object.keys(conversionChart).forEach(sym => {
+    console.log(sym)
+    while (n - conversionChart[sym] >= 0) {
+      build += sym;
+      n = n - conversionChart[sym];
+    }
+  })
+  return build;
 }
 
 module.exports = romanNumeral;

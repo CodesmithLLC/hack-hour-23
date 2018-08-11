@@ -9,7 +9,12 @@
  */
 
 function subsetSum(array, target) {
+  
+  const allSubsets = array.reduce((accum, current) => accum.concat(accum.map(subset => [current,...subset])), [[]])
 
+  const add = arr => arr.reduce((accum, current) => accum + current, 0);
+  
+  return allSubsets.reduce((accum, current) => accum || add(current) === target, false);
 }
 
 module.exports = subsetSum;
