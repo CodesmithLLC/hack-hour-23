@@ -17,16 +17,12 @@
 // 
 
 function reverseInPlace(array) {
-
-    for (let i = 0; i < array.length; i++) {
-        array[i] = array.pop()
-
-    }
     console.log(array)
+    let newArr = array.concat(array);
+    
 
-    }
-
-
+    console.log(newArr)
+}
 
 
 
