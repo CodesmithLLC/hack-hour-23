@@ -100,7 +100,7 @@ function romanNumeral(n) {
 
 }
 
-console.log(romanNumeral(5))
+
 
 
 module.exports = romanNumeral;
