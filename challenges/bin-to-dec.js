@@ -14,7 +14,17 @@
  */
 
 function binToDec(binary) {
+    let n = binary.length;
+    let binaryArr = String.binary.split();
+    let ret = 0;
 
+    for (let i = 0; i < binary.length; i++) {
+        ret += binaryArr[i] * Math.pow(2, n);
+        n--;
+
+    }
+    return ret;
 }
+
 
 module.exports = binToDec;
