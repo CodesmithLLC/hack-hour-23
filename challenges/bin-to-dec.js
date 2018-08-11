@@ -14,17 +14,48 @@
  */
 
 function binToDec(binary) {
-  //split binary string to array
-  //iterate through array from 0 to length
-  //for each iteration add up 2^(length - index - 1) * the number at that index
-  const temp = binary.split('');
-  let result = 0;
+  // split binary string to array
+  // iterate through array from 0 to length
+  // for each iteration add up 2^(length - index - 1) * the number at that index
 
-  for (let x = 0; x < temp.length; x += 1) {
-    result += Math.pow(2, temp.length - x - 1) * Number(temp[x]);
+  // binary to decimal
+  if (typeof binary === 'string') {
+    const temp = binary.split('');
+    let result = 0;
+
+    for (let x = 0; x < temp.length; x += 1) {
+      result += Math.pow(2, temp.length - x - 1) * Number(temp[x]);
+    }
+    return result;
   }
 
-  return result;
+  if (typeof binary === 'number') {
+    let result = decToBin(binary);
+    return result;
+  }
+  
+  // decimal to binary
+  function decToBin(number) {
+    let result = '';
+    let isOdd = false;
+    if (number % 2 === 1) {
+      isOdd = true;
+    }
+
+    if (number !== 1) {
+      if(number % 2 === 0){
+        result += '0'
+      }else {
+        result += '1';
+      }
+      return decToBin(Math.floor(number / 2))+ result;
+    }
+    if(!isOdd) {
+      return '0';
+    }else{
+      return '1';
+    }
+  }
 }
 
 module.exports = binToDec;
