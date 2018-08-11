@@ -14,7 +14,40 @@
  */
 
 function binToDec(binary) {
+    let num = 0;
+    let tempArr = [];
+    for(let digit of binary){tempArr.push(digit)}
+    binary = tempArr; //this is just my own split algorithm, its faster than split
 
+    binary.map((val, index, arr) =>{
+        placePower = arr.length - index - 1;
+        console.log(val, 2**placePower);
+        num += (val * (2 ** placePower))
+    })
+
+    return num;
 }
+
+function decToBin(dec){
+    let bin = '';
+    let highestPowerOfTwo = 1;
+  
+    while(highestPowerOfTwo < dec){
+      highestPowerOfTwo *= 2;
+    } 
+    highestPowerOfTwo /= 2;
+    
+    while(highestPowerOfTwo > 1){
+      if(highestPowerOfTwo > dec){
+        bin += '0';
+      } else {
+        bin += '1'
+      }
+        dec = dec % highestPowerOfTwo;
+        highestPowerOfTwo /= 2;
+    }
+  
+    return bin + dec;
+  }
 
 module.exports = binToDec;

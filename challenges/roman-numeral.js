@@ -33,6 +33,7 @@ function romanNumeral(n) {
         for(let i = numerals.length-1; i>=0; i--){
             if(numerals[i][0] < n){return numerals[i]}
         }
+        return [0,0];
     }
 
     function nearestHigher(n){
@@ -56,7 +57,6 @@ function romanNumeral(n) {
     //Then use the subtractive system
 
     for(let i in numerals){
-        console.log(numerals[i]);
         if(higher[0] - numerals[i][0] === n){
             //do subtractive system
             console.log(i)
@@ -74,12 +74,18 @@ function romanNumeral(n) {
     
 
     function additive(n){
-        let nearestLower;
-        if(n === 0){return 0}
-
-        for(let i = n; i>0; i++){
-
-        }
+        
+        if(n === 1){return 1}
+        let low = nearestLower(n);
+        if(low[0] === 0){return 0}
+        console.log(n, low[0])
+        string += low[1];
+        return additive(n-low[0]);
     }
+  
+  additive(n);
+  return string;
 
 }
+
+romanNumeral(9)
