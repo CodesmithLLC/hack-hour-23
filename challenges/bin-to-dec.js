@@ -14,7 +14,9 @@
  */
 
 function binToDec(binary) {
-
+  return binary.split('').reverse().reduce((initial, next, index) => {
+      return (next === '1') ? initial + Math.pow(2, index) : initial;
+    }, 0);
 }
 
 module.exports = binToDec;

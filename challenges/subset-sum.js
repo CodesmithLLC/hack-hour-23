@@ -10,6 +10,34 @@
 
 function subsetSum(array, target) {
 
+  //first filter out values over the target
+  const newArr = array.filter(elem => elem < target);
+  
+  //this is the total value of all array elements
+  const newArrTot = newArr.reduce((initial, elem) => initial += elem);
+  
+  //sorting array elements from highest to lowest
+  const newArrSorted = newArr.sort((a, b) => b > a)
+  
+  let difference = target - newArrTot; //next index to check
+  
+
+  if (newArrTot = target) {
+    return true;
+  } else if (newArrSorted.includes(difference)) {
+    return true
+  }
+
+
+  for (let i = newArr.length - 1; i > 0; i--) {
+    total += newArrSorted[i];
+
+    for (var x = newArr.length - 2; x > 0; x--) {
+      total += newArrSorted[i]
+      if (total > difference)
+    }
+  }
+return
 }
 
 module.exports = subsetSum;
