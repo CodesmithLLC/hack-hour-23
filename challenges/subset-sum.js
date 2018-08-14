@@ -20,7 +20,7 @@ function subsetSum(array, target, sortedArray = array.sort((a, b) => a - b ), pa
       partial.push(sortedArray[0]);
       return subsetSum(sortedArray, target, partial);
     } else if (partial[0] === sortedArray[i]) {
-        
+      
     }
     for (let j = i + 1; j < sortedArray.length; j++) {
       partial.
@@ -31,4 +31,4 @@ function subsetSum(array, target, sortedArray = array.sort((a, b) => a - b ), pa
 
 module.exports = subsetSum;
 
-subsetSum([3, 7, 4, 2], 5);
+console.log(subsetSum([3, 7, 4, 2], 5));
