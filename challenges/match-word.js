@@ -11,7 +11,34 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  // input = string
+  // edge case = nonstring input
+  if (typeof str !== 'string') return undefined;
+  // edge case = empty string
+  if (str.length === 0) return true;
+  let isMatched = false;
+  const result = [];
+  let wordPush = '';
+  const filterStr = str.toLowerCase().replace(/[^a-z ]+/g, ' ').replace(/ +/g, ' ').trim().split('');
+  for (let i = 0; i < filterStr.length; i++) {
+    if (filterStr[i] !== ' ') {
+      if (i === filterStr.length - 1) {
+        wordPush += filterStr[i];
+        result.push(wordPush);
+      } else {
+        wordPush += filterStr[i];
+      }
+    } else {
+      result.push(wordPush);
+      wordPush = '';
+    }
+  }
+  if (result.length % 2 !== 0) return false;
+  for (let j = 0; j < result.length - 1; j++) {
+    if (result[j] === result[result.length - 1 - j].split('').reverse().join('')) isMatched = true;
+  }
+  // output = boolean
+  return isMatched;
 }
 
 module.exports = matchWord;
