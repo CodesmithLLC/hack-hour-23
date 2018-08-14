@@ -11,38 +11,38 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-    if (str === ' ') return true;
-    const front = [];
-    const back = [];
-    str = str.split('');
-  
-    while (!str[0].match(/[A-Za-z]/g)) {
-      str.splice(0, 1);
-    }
-  
-    while (!str[str.length - 1].match(/[A-Za-z]/g)) {
-      str.splice (-1, 1);
-    }
-  
-    while (0 < str.length - 1 && str[0].match(/[A-Za-z]/g)) {
-      if (str[0].match(/[A-Za-z]/g)) {
-        front.push(...str.splice(0, 1));
-      } else {
-        str.splice(0, 1);
-      }
-      if (str[str.length - 1].match(/[A-Za-z]/g)) {
-        back.push(...str.splice(-1, 1));
-      } else {
-        str.splice(-1, 1);
-      }
-    }
-  
-    if (!str.length) return false;
-    if (front.join('').toLowerCase() === back.join('').toLowerCase()) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+   str = str.split('');
+   if (str.every(e => e === ' ')) return true;
+   const front = [];
+   const back = [];
+ 
+   while (!str[0].match(/[A-Za-z]/g)) {
+     str.splice(0, 1);
+   }
+ 
+   while (!str[str.length - 1].match(/[A-Za-z]/g)) {
+     str.splice (-1, 1);
+   }
+ 
+   while (0 < str.length - 1 && str[0].match(/[A-Za-z]/g)) {
+     if (str[0].match(/[A-Za-z]/g)) {
+       front.push(...str.splice(0, 1));
+     } else {
+       str.splice(0, 1);
+     }
+     if (str[str.length - 1].match(/[A-Za-z]/g)) {
+       back.push(...str.splice(-1, 1));
+     } else {
+       str.splice(-1, 1);
+     }
+   }
+ 
+   if (!str.length) return false;
+   if (front.join('').toLowerCase() === back.join('').toLowerCase()) {
+     return true;
+   } else {
+     return false;
+   }
+ }
 
 module.exports = matchWord;
