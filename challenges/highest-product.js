@@ -3,6 +3,7 @@
  */
 
 function highestProduct(array) {
+    if (array.length <3) return 0; 
     //sort from smallest or most negative to most positive
     const arraySort = array.sort((a,b) => a-b);
     const highestPositive = [array[array.length -3], array[array.length -2], array[array.length -1], ]
