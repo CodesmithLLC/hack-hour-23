@@ -23,6 +23,8 @@ function binToDec(binary) {
   let addHere = [];
   if (binary === '0') {return 0}
 
+  
+
   for (let i = strArr.length; i >= 0; i--) {
       console.log(i)
     if (i === 10 && strArr[10] === "1") {
@@ -59,10 +61,11 @@ function binToDec(binary) {
       addHere.push(1);
     }
   }
-
   return addHere.reduce(function(acc, curr) {
     return acc + curr;
   });
 }
+
+console.log(binToDec(''))
 
 module.exports = binToDec;
