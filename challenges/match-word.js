@@ -10,8 +10,13 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
 
+function matchWord(str) {
+  if (!str.length) return true;
+  const lastWordReversed = str.match(/[a-zA-Z]+(?!.*[a-zA-Z]+)/)[0].split('').reverse().join('').toLowerCase();
+  const firstWord = str.match(/[a-zA-Z]+/)[0].toLowerCase();
+  if (firstWord === firstWord.split('').reverse().join('')) return false;
+  return firstWord === lastWordReversed
 }
 
 module.exports = matchWord;
