@@ -4,9 +4,9 @@
 
 function highestProduct(array) {
   // edge case: check if array is an array
-  if (!Array.isArray(array)) return undefined;
+  if (!Array.isArray(array)) return 0;
   // edge case: less than 3 numbers
-  if (array.length < 3) return undefined;
+  if (array.length < 3) return 0;
   // input: array of integers
   const result = array;
   const productArr = [];
