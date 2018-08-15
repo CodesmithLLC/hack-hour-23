@@ -25,7 +25,27 @@
  */
 
 function balancedParens(input){
+  // if it has one side of the parens/bracket there has to be a closing parens/bracket
+  const newStr = input.replace(/[^\[\]\(\)\{\}]/g, '');
+  console.log(newStr);
+  const open = ['(', '[', '{'];
+  const close = [')', ']', ')'];
+  
+  if(newStr.length % 2 !== 0){
+    return false;
+  }else{
+    // let firstHalf = newStr.slice(0, newStr.length / 2);
+    // let secondHalf = newStr.slice(newStr.length - 1, newStr.length);
+    
+    // for(let i = 0; i < newStr.length / 2; i++){
+
+    // }
+    let stack = new Array();
+    
+  }
 
 }
+
+balancedParens(' var wow  = { yo: thisIsAwesome() }');
 
 module.exports = balancedParens;

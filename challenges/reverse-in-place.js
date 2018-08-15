@@ -14,7 +14,23 @@
  */
 
 function reverseInPlace(array) {
-
+  if(array.length > 1){
+    let i = 0;
+    for(let j = array.length - 1; j >= array.length / 2; j--){
+      let temp = array[j];
+      array[j] = array[i];
+      array[i] = temp;
+      ++i;
+    }
+  }
+  
+  return array;
 }
+
+// const hello = ['h','e','l','l','o'];
+// const even = ['e','v','e','n'];
+
+// console.log(reverseInPlace(hello));
+// console.log(reverseInPlace(even));
 
 module.exports = reverseInPlace;
