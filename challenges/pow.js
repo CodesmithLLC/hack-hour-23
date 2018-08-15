@@ -8,4 +8,7 @@ function pow(base, power) {
     }
 
 
+    console.log(pow(3,3))
+
+
 module.exports = pow;
