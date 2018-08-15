@@ -10,10 +10,16 @@ function highestProduct(array) {
   const copyOfArr = array.slice(); // do not mutate input array
   const maxNumberHolder = [];
   let maxNum;
+  let counter = 0;
 
   while (maxNumberHolder.length < 3) {
-    maxNum = Math.max(...copyOfArr);
-    copyOfArr.splice(maxNumberHolder.indexOf(maxNum), 1);
+    if (Math.abs(Math.min(...copyOfArr)) >= Math.max(...copyOfArr) && counter < 2) {
+      maxNum = (Math.min(...copyOfArr));
+      counter++;
+    } else {
+      maxNum = Math.max(...copyOfArr);
+    }
+    copyOfArr.splice(copyOfArr.indexOf(maxNum), 1);
     maxNumberHolder.push(maxNum);
   }
   return maxNumberHolder.reduce((a, b) => a * b);
