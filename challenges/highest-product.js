@@ -22,6 +22,6 @@ function highestProduct(array) {
 
   return product1 > product2 ? product1 : product2;
 }
-// console.log(highestProduct([-3, -2, -1, -5, 2, 3, 4, 7]));
+// console.log(highestProduct([-1]));
 
 module.exports = highestProduct;
