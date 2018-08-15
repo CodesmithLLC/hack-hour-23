@@ -3,11 +3,28 @@
  */
 
 function highestProduct(array) {
-  //sort array 
-  //if 2 big negatives, use them
-  //track whether the number was originally negative
-  return array.sort((a, b) => a - b).slice(array.length - 3).reduce((c, d) => c * d);
+  if (!Array.isArray(array)) return 0;
+  const negArray = [];
+  let newArray = array.map(num => {
+    if (num < 0) {
+      negArray.push(num);
+      return Math.abs(num);
+    }
+    return num;
+  }).sort((a, b) => b - a);
+  const negsToBeCalc = [];
+  const numsToBeCalc = [];
+  newArray.forEach(num => {
+    if (negArray.includes(-1 * num) && negArray.length === 2) {
+      negsToBeCalc.push(num);
+    } else if (negArray.indexOf(-1 * num) === -1) {
+      numsToBeCalc.push(num);
+    }
+  })
+  let sortedArr = negsToBeCalc.concat(numsToBeCalc).sort((a, b) => b - a);
+  if (sortedArr.length < 3) return 0;
+  return sortedArr.slice(0, 3).reduce((a, b) => a * b);
 }
 
-console.log(highestProduct([-20, -30, 8, 5, 10])); // should return 6000
+console.log(highestProduct([-20, -30, 8, 5, -10])); // should return 6000
 module.exports = highestProduct;
