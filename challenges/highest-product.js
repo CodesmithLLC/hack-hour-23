@@ -4,14 +4,20 @@
 
 function highestProduct(array) {
     let prod = 1;
-    if (array.length < 3){
-        return "invalid";
+    let negProd = 0;
+    if (array.length < 3 || !Array.isArray(array)){
+        return 0;
     }
     let newArr = array.sort();
     for (let i = 0; i <= 2; i++) {
         prod *= newArr[newArr.length - i - 1];
     }
-    return prod;
+    negProd = newArr[0] * newArr[1] * newArr[newArr.length - 1];
+    if (negProd > prod) {
+        return negProd;
+    } else {
+        return prod;
+    }
 }
 
 module.exports = highestProduct;
