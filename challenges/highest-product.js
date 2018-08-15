@@ -3,9 +3,10 @@
  */
 
 function highestProduct(array) {
-    if (array.length < 3 || Array.isArray(array)) {
+    if (array.length < 3 || !Array.isArray(array)) {
         return 0;
     }
+    console.log(array)
 
     let sortedArr = array.sort((a, b) => {return a-b}); // sort the array in ascending order.
     
@@ -27,5 +28,7 @@ function highestProduct(array) {
         return Math.max(bigPosRed, bigNegRed) // return the max val out of the two
     }
 }
+
+console.log(highestProduct([-2,-5,-3,7,9,30]))
 
 module.exports = highestProduct;
