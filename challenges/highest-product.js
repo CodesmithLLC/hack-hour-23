@@ -2,9 +2,10 @@
  * Given an array of integers, find the highest product you can get from three of the integers.
  */
 
+
 function highestProduct(array) {
   // edge cases: input must be array or at least 3 integers
-  if (!Array.isArray(array) || array.length < 3) return 'invalid argument';
+  if (!Array.isArray(array) || array.length < 3) return 0;
 
   const copyOfArr = array.slice(); // do not mutate input array
   const maxNumberHolder = [];
