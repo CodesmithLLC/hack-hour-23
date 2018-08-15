@@ -4,24 +4,24 @@
 
 function highestProduct(array) {
 
-    if (array.length === 1) {
-        return array[0];
+    if (!Array.isArray(array)) {
+        return 0;
     }
-
-    if (array.length <= 0) {
-        return "Error: Please pass in an array with at least three elements."
+    
+    if (array.length < 3) {
+        return 0;
     }
 
     // sort order of array from highest to lowest
     array = array.sort((a, b) => b-a);
-    //console.log(array);
+    console.log(array);
 
     // grab first three elements of array and multiply together
     return array[0] * array[1] * array[2];
     
 }
 
-console.log(highestProduct([5, 4, 2, 9, 4, 6]));
+console.log(highestProduct([-1, -6, -2, -7]));
 
 module.exports = highestProduct;
 
