@@ -13,7 +13,9 @@ function highestProduct(array) {
     const newArr = Object.assign([], array);
     newArr.sort();
     
-    if(newArr[0] < 0 && newArr[newArr.length - 1] < 0) return newArr[0] * newArr[1] * newArr[2];
+    if(newArr[0] < 0 && newArr[newArr.length - 1] < 0) {
+      return newArr[0] * newArr[1] * newArr[2];
+    }
 
     return newArr[newArr.length - 1] * newArr[newArr.length - 2] * newArr[newArr.length - 3];
   }
