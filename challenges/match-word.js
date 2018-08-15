@@ -35,11 +35,11 @@ function matchWord(str) {
     return false
   }
 }
-//console.log(matchWord('__ENDDNE__'))
+console.log(matchWord('__ENDDNE__'))
 //console.log(matchWord('__END_DNE-----'));
 //console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'))
 //console.log(matchWord('IF()()fi[]'))
-console.log(matchWord('for__if__rof__fi'))
+//console.log(matchWord('for__if__rof__fi'))
 //console.log(matchWord(''))
 
 module.exports = matchWord;
