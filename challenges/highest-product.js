@@ -7,7 +7,7 @@ function highestProduct(array) {
   // if array.length === 3 || === 2 then multiply all and return that result
   // if array.length === 1 then return that element
   // 
-  if(!array || array.length < 3){
+  if(array.constructor !== Array || array.length < 3){
     return 0;
   }else{
     const newArr = Object.assign([], array);
@@ -15,6 +15,8 @@ function highestProduct(array) {
     
     if(newArr[0] < 0 && newArr[newArr.length - 1] < 0) {
       return newArr[0] * newArr[1] * newArr[2];
+    }else if(newArr[0] < 0 && newArr[newArr.length - 1] > 0){
+      return newArr[newArr.length - 1] * newArr[0] * newArr[1];
     }
 
     return newArr[newArr.length - 1] * newArr[newArr.length - 2] * newArr[newArr.length - 3];
