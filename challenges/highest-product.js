@@ -5,7 +5,7 @@
 function highestProduct(array) {
     let prod = 1;
     let negProd = 0;
-    if (array.length < 3 || !Array.isArray(array)){
+    if (array.length < 3 || Array.isArray(array) === false){
         return 0;
     }
     let newArr = array.sort();
