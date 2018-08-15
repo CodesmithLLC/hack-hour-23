@@ -12,4 +12,13 @@ function subsetSum(array, target) {
 
 }
 
+/*
+iterate array
+
+tar = array.
+
+*/
+
+
+
 module.exports = subsetSum;

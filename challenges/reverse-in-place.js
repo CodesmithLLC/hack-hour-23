@@ -13,6 +13,10 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
+let arr = [1, 2, 3, 4, 5]  // [5, 4, 3, 2, 1]
+
+
+
 function reverseInPlace(array) {
 
 }
