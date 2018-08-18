@@ -11,38 +11,38 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  let newList = {}
+  let c1;
+  let c2;
+  let holder; 
   if (l1.value && l2.value){
-    newList = new Node(l1.value)
-    newList.next = new Node(l2.value)
-    let nextCount = 2; 
+    c1 = l1;
+    c2 = l2; 
   }
-  while (l1.next !== null && l2.next !== null){
-    console.log(newList)
-    l1 = l1.next;
-    l2 = l2.next;
-    const newLeft = new Node(l1.value);
-    const newRight = new Node(l2.value);
+  while (c1.next !== null && c2.next !== null){
+    holder = c1.next
+    c1.next = c2
+    c2 = holder; 
+    c1 = c1.next; 
   }
-  return newList; 
+  return l1 
 };
 
 const left1 = new Node(1)
-const left2 = new Node(2)
-const left3 = new Node(3)
-const left4 = new Node(4)
-const left5 = new Node(5)
+const left2 = new Node(3)
+const left3 = new Node(5)
+const left4 = new Node(7)
+const left5 = new Node(9)
 
 left1.next = left2;
 left2.next = left3;
 left3.next = left4;
 left4.next = left5; 
 
-const right11 = new Node(11)
-const right12 = new Node(12)
-const right13 = new Node(13)
-const right14 = new Node(14)
-const right15 = new Node(15)
+const right11 = new Node(2)
+const right12 = new Node(4)
+const right13 = new Node(6)
+const right14 = new Node(8)
+const right15 = new Node(10)
 
 right11.next = right12;
 right12.next = right13;
