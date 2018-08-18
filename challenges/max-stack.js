@@ -11,24 +11,19 @@ function Stack() {
   const max = -Infinity;
 }
 
-  Stack.prototype.push = value => {
-     if (value > this.max) this.max = value;
-     return this.stack.push(value);
-  }
-  
-  Stack.prototype.pop = () => {
-    if (size < 1) return undefined;
-    const result = this.stack.pop();
-    if (result === this.max) this.max = Math.max(this.stack);
-    return result;
-  }
-  Stack.prototype.getMax = () => {
-    return this.max;
-  }
+Stack.prototype.push = value => {
+  if (value > this.max) this.max = value;
+  return this.stack.push(value);
+};
 
-}
-
-
-
+Stack.prototype.pop = () => {
+  if (size < 1) return undefined;
+  const result = this.stack.pop();
+  if (result === this.max) this.max = Math.max(this.stack);
+  return result;
+};
+Stack.prototype.getMax = () => {
+  return this.max;
+};
 
 module.exports = Stack;
