@@ -9,28 +9,28 @@
 function Stack() {
   this.length = 0;
   this.stack = [];
-  this.max;
+  this.max = 0;
 
   this.push = function(n) {
     // places a value to the position of length
-    this.stack[length] = n;
+    this.stack[this.length] = n;
     // increments length by 1
     this.length++
     // sets new value at length to undefined
-    this.stack[length] = undefined;
+    this.stack[this.length] = undefined;
     //setMax
     if (n > this.max) {
       this.max = n;
     }
     // returns length
-    return length;
+    return this.length;
   }
 
   this.pop = function() {
     // saves the value at the index of length - 1 to a holder variable
-    let temp = this.stack[length-1] 
+    let temp = this.stack[this.length-1] 
     // changes the value at the index of length to undefined
-    this.stack[length-1] = undefined;
+    this.stack[this.length-1] = undefined;
     // decrements length
     this.length--
 
@@ -41,7 +41,17 @@ function Stack() {
     if (this.length > 0) return this.max;
     else return undefined;
   }
-
 }
+
+let myStack = new Stack();
+
+console.log(myStack.push(3))
+console.log(myStack.push(5))
+console.log(myStack.push(20))
+console.log(myStack.push(4))
+
+console.log(myStack.getMax())
+
+
 
 module.exports = Stack;
