@@ -8,6 +8,35 @@
 
 function Stack() {
   // body...
+  this.count = 0;
+  this.storage = {};
+}
+
+// Adds value onto end of stack
+Stack.prototype.push = function(value) {
+  this.storage[this.count] = value;
+  this.count++;
+}
+
+// Removes and returns value at end of stack
+Stack.prototype.pop = function() {
+  // Check if stack is empty
+  if (this.count === 0) {
+    return undefined;
+  }
+
+  this.count--;
+  const result = this.storage[this.count];
+  delete this.storage[this.count];
+  return result;
+}
+
+Stack.prototype.getMax = function() {
+  let values = (Object.values(this.storage));
+  values.sort(function(a, b) {
+    return b - a;
+  });
+  return values[0];
 }
 
 module.exports = Stack;
