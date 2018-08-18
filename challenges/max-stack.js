@@ -33,7 +33,16 @@ function Stack() {
     this.stack[this.length-1] = undefined;
     // decrements length
     this.length--
-
+    // edge case if popped max
+    if (temp === this.max) {
+      let newTemp = 0
+      for (let i = 0; i , this.length; i++){
+        if (this.stack[i] > newTemp) {
+          newTemp = this.stack[i];
+        }
+      }
+      this.max = newTemp;
+    }
     return temp;
   }
 
@@ -42,16 +51,5 @@ function Stack() {
     else return undefined;
   }
 }
-
-let myStack = new Stack();
-
-console.log(myStack.push(3))
-console.log(myStack.push(5))
-console.log(myStack.push(20))
-console.log(myStack.push(4))
-
-console.log(myStack.getMax())
-
-
 
 module.exports = Stack;
