@@ -8,19 +8,19 @@
 
 function Stack() {
   // body...
-  const array = [];
+  this.array = [];
   Stack.prototype.push = (element) => {
-    array[array.length] = element;
-    return array;
+    this.array[this.array.length] = element;
+    return this.array;
   }
 
   Stack.prototype.pop = () => {
-    return array.splice(-1);
+    return this.array.splice(-1);
   }
 
   Stack.prototype.getMax = () => {
-    array.sort((a, b) => b - a);
-    return array[0]
+    this.array.sort((a, b) => b - a);
+    return this.array[0]
   }
 }
 
