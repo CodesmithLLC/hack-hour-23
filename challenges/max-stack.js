@@ -8,6 +8,23 @@
 
 function Stack() {
   // body...
+  this.count = 0;
+  this.max = -Infinity;
+  this.storage = [];
 }
+
+Stack.prototype.push = (input) => {
+  if (input > this.max) this.max = input;
+  this.storage.push(input);
+  this.count += 1;
+};
+
+Stack.prototype.pop = () => {
+  const temp = this.storage.pop();
+  this.max = Math.max(...this.storage);
+  return temp;
+};
+
+Stack.prototype.getMax = () => this.max;
 
 module.exports = Stack;
