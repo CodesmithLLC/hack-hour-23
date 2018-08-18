@@ -9,7 +9,7 @@
 function Stack() {
   this.length = 0;
   this.stack = [];
-  this.max;
+  this.max = 0;
 
   this.push = function(n) {
     // places a value to the position of length
@@ -42,6 +42,15 @@ function Stack() {
     else return undefined;
   }
 }
+
+let myStack = new Stack();
+
+console.log(myStack.push(3))
+console.log(myStack.push(5))
+console.log(myStack.push(20))
+console.log(myStack.push(4))
+
+console.log(myStack.getMax())
 
 
 
