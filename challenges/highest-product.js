@@ -26,5 +26,7 @@ function highestProduct(array) {
   return sortedArr.slice(0, 3).reduce((a, b) => a * b);
 }
 
-console.log(highestProduct([-20, -30, 8, 5, -10])); // should return 6000
+//console.log(highestProduct([-20, -30, 8, 5, 27])); // should return 6000
 module.exports = highestProduct;
+var arr = [0];
+console.log((arr == arr) && (arr == !arr));//
