@@ -7,7 +7,7 @@
  */
 
 function Stack() {
-  this.stack = {};
+  this.stack = [];
   this.size = 0;
   this.max = -Infinity;
 }
@@ -20,7 +20,8 @@ Stack.prototype.push = function(value) {
 
 Stack.prototype.pop = function() {
   if (this.stack.length < 1) return undefined;
-  const result = this.stack.pop();
+  const result = this.stack[--this.size];
+  this.stack.splice(-1);
   if (result === this.max) this.max = Math.max(this.stack);
   return result;
 };
