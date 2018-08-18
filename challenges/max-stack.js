@@ -7,7 +7,39 @@
  */
 
 function Stack() {
-  // body...
+	this.stack = new Array();
 }
+
+Stack.prototype.push = function (toBePushed) {
+	this.stack[this.stack.length] = toBePushed;
+}
+Stack.prototype.pop = function () {
+  ret = this.stack[this.stack.length - 1];
+  this.stack.splice(this.stack.length - 1, 1);
+  return ret;
+}
+
+Stack.prototype.getMax = function () {
+  this.stack.sort();
+  return (this.stack[this.stack.length - 1]);
+}
+
+// let stack = new Stack();
+// console.log(stack);
+// stack.push(1);
+// console.log(stack);
+// stack.push(2);
+// console.log(stack);
+// stack.push(9);
+// console.log(stack);
+// stack.push(3);
+// console.log(stack);
+// stack.push(4);
+// console.log(stack);
+// stack.push(5);
+// console.log(stack);
+// stack.pop();
+// console.log(stack);
+// console.log(stack.getMax())
 
 module.exports = Stack;
