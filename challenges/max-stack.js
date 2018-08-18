@@ -17,7 +17,7 @@ Stack.prototype.push = value => {
 };
 
 Stack.prototype.pop = () => {
-  if (size < 1) return undefined;
+  if (this.stack.length < 1) return undefined;
   const result = this.stack.pop();
   if (result === this.max) this.max = Math.max(this.stack);
   return result;
