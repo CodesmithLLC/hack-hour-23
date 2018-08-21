@@ -14,6 +14,9 @@ function Node(value) {
 }
 
 function reverseLinkedList(originalHead) {
+  if(!originalHead) {
+      return null;
+  }
   let finalHead;
 
   function buildList(head) {
