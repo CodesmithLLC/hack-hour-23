@@ -13,9 +13,10 @@ function Node(value) {
   this.next = null;
 }
 
+// Converting LL into reversed LL and switching next and prev in place
 function reverseLinkedList(head) {
+  if (!head) return null;
   let curr = head;
-  // Converting LL into reversed LL and switching next and prev in place
   curr.prev = curr.next;
   curr.next = null;
   while (curr.prev) {
