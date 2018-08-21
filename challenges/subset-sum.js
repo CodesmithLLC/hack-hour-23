@@ -9,7 +9,20 @@
  */
 
 function subsetSum(array, target) {
+	// filter out elements greater than target value
+	const filteredArr = array.filter(num => num <= target);
+	// check if array includes target value
+	if (filteredArr.includes(target)) return true;
 
+	// base case:
+	if (!array.length || target < 0) return false;
+	// recursive case
+	const newTarget = target - filteredArr.shift();
+	console.log('newTarget:', newTarget);
+	console.log('newArray:', filteredArr);
+	return subsetSum(filteredArr, newTarget);
 }
+
+console.log(subsetSum([3, 34, 4, 12, 5, 12], 32)); //- > true, 3 + 2 = 5
 
 module.exports = subsetSum;

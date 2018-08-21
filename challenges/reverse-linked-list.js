@@ -9,12 +9,21 @@
  */
 
 function Node(value) {
-    this.value = value;
-    this.next = null;
+  this.value = value;
+  this.next = null;
 }
 
 function reverseLinkedList(head) {
-
+  let curr = head;
+  // Converting LL into reversed LL and switching next and prev in place
+  curr.prev = curr.next;
+  curr.next = null;
+  while (curr.prev) {
+    curr.prev.prev = curr.prev.next;
+    curr.prev.next = curr;
+    curr = curr.prev;
+  }
+  return curr;
 }
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };
