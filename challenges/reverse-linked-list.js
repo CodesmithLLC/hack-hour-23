@@ -14,18 +14,20 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+    if (head === null) return null;
     if (head.next === null) return head;
     const holder = [];
-    while (head.next !== null) {
+    while (head !== null) {
         holder.push(head);
         head = head.next;
     }
     holder.reverse()
 
     for (let i = 0; i < holder.length; i++) {
-        holder[i].next = holder[i + 1];
+          holder[i].next = holder[i + 1];
     }
-    return holder[0];
+    holder[holder.length - 1].next = null;
+    return holder
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
