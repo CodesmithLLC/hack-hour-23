@@ -14,29 +14,29 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-    let temp = head;
-    // let length = 0;
-    const nodeHolder = [];
+    if(head === null){
+        return null;
+    }else{
+        let temp = head;
+        // let length = 0;
+        const nodeHolder = [];
+        
+        while(temp != null){
+            nodeHolder.push(temp);
+            temp = temp.next;
+        }
     
-    while(temp != null){
-        nodeHolder.push(temp);
-        temp = temp.next;
-    }
+        let temp2 = nodeHolder[nodeHolder.length - 1];
+        for(let i = nodeHolder.length - 2; i >= 0; i--) {
+            temp2.next = nodeHolder[i];
+            temp2 = temp2.next;
+        }
+        temp2.next = null;
 
-    let temp2 = nodeHolder[nodeHolder.length - 1];
-    for(let i = nodeHolder.length - 2; i >= 0; i--) {
-        temp2.next = nodeHolder[i];
-        temp2 = temp2.next;
+        const newHead = nodeHolder[nodeHolder.length - 1];
+        return newHead;
     }
-    temp2.next = null;
-
-    // let temp3 = nodeHolder[nodeHolder.length - 1];
-    // while(temp3 != null){
-    //     console.log(temp3.value);
-    //     temp3 = temp3.next;
-    // }
-    const newHead = nodeHolder[nodeHolder.length - 1];
-    return newHead;
+    
 }
 
 // const tempArr = [];
