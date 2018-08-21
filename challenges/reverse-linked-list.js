@@ -14,18 +14,16 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-  if (head.next === null) return head;
+  if (!head || !head.next) return head;
   let ftemp = head.next;
   let stemp = ftemp.next;
   head.next = null;
-  
+
   do {
     ftemp.next = head;
     head = ftemp;
-
     ftemp = stemp;
     if (stemp) stemp = ftemp.next;
-
   } while (ftemp);
 
   return head;
