@@ -27,7 +27,7 @@ function reverseLinkedList(head) {
           holder[i].next = holder[i + 1];
     }
     holder[holder.length - 1].next = null;
-    return holder
+    return holder[0];
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
