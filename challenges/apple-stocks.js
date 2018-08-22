@@ -13,7 +13,7 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-    if(stock_prices_yesterday.length <= 1 || stock_prices_yesterday.constructor !== Array) {
+    if(stock_prices_yesterday == undefined || stock_prices_yesterday.constructor !== Array || stock_prices_yesterday.length <= 1) {
         return 0;
     }
 
