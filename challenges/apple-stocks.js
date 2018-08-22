@@ -13,6 +13,8 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  if(!stock_prices_yesterday || !Array.isArray(stock_prices_yesterday)) return 0;
+
   return stock_prices_yesterday.reduce((maxPrice, currentPrice) =>{
     if(currentPrice > maxPrice) maxPrice = currentPrice;
 
@@ -22,6 +24,7 @@ function bestProfit(stock_prices_yesterday) {
 
 
 // const stock = [10,20,30,40,50,60,700,70,80,90,100,150];
+// const stock = 'hello'
 // console.log(bestProfit(stock));
 
 module.exports = bestProfit;
