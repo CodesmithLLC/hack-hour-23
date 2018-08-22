@@ -13,7 +13,27 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  let min = Math.max(...stock_prices_yesterday);
+  let max = 0;
+  let margin = 0;
+  let trueMargin = 0;
 
+  for (let i = 0; i < stock_prices_yesterday.length; i++) {
+    if (stock_prices_yesterday[i] < min) {
+      min = stock_prices_yesterday[i];
+      let j = i;
+      while (j < stock_prices_yesterday.length) {
+        if (stock_prices_yesterday[j] > max) {
+          max = stock_prices_yesterday[j];
+        }
+      }
+      margin = max - min;
+    }
+    if (margin > trueMargin) {
+      trueMargin = margin;
+    }
+  }
+  return trueMargin;
 }
 
 module.exports = bestProfit;
