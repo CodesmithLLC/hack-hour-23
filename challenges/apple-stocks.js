@@ -13,7 +13,7 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-    if(stock_prices_yesterday.length === 0) {
+    if(stock_prices_yesterday.length <= 1 || stock_prices_yesterday.constructor !== Array) {
         return 0;
     }
 
@@ -21,6 +21,9 @@ function bestProfit(stock_prices_yesterday) {
     const highest = {index: stock_prices_yesterday.length + 1, value: -Infinity};
 
     for(let i = 0; i < stock_prices_yesterday.length; i++) {
+        if(typeof stock_prices_yesterday[i] !== 'number') {
+            return 0;
+        }
         if(stock_prices_yesterday[i] < lowest.value && i < highest.index){
             lowest.index = i;
             lowest.value = stock_prices_yesterday[i];
