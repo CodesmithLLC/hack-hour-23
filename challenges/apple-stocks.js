@@ -24,13 +24,13 @@ function bestProfit(stock_prices_yesterday) {
         if(stock_prices_yesterday[i] < lowest.value && i < highest.index){
             lowest.index = i;
             lowest.value = stock_prices_yesterday[i];
-        } else if (stock_prices_yesterday[i] > highest.value && i > lowest.value) {
+        } else if (stock_prices_yesterday[i] > highest.value && i > lowest.index) {
             highest.index = i;
             highest.value = stock_prices_yesterday[i];
         }
     }
 
-    if(lowest.value !== Infinity && highest.value !== Infinity) {
+    if(lowest.value !== Infinity && highest.value !== -Infinity) {
         return highest.value - lowest.value;
     } else {
         return 0;
