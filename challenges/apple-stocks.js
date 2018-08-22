@@ -14,10 +14,23 @@
 
 function bestProfit(stock_prices_yesterday) {
   if (!Array.isArray(stock_prices_yesterday)) return 0;
-  let max = Math.max(...stock_prices_yesterday);
-  let min = Math.min(...stock_prices_yesterday);
-  if (max === min) return 0;
-  return max - min;
+  let low;
+  let high;
+  const prices = [];
+  stock_prices_yesterday.forEach((price, index) => {
+    if (index === 0) {
+      low = price;
+    }
+    if (stock_prices_yesterday[index - 1] < price) {
+      high = price;
+      prices.push(high - low);
+    } else if (stock_prices_yesterday[index - 1] > price) {
+      low = price;
+    }
+  });
+  if (Math.max(...prices) === Math.min(...prices)) return 0;
+  if (prices.length === 0) return 0;
+  return Math.max(...prices);
 }
 
 module.exports = bestProfit;
