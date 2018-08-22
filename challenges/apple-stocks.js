@@ -16,7 +16,7 @@ function bestProfit(stock_prices_yesterday) {
   if (!Array.isArray(stock_prices_yesterday)) return 0;
   let profit = stock_prices_yesterday[1] - stock_prices_yesterday[0];
   for (let i = 0; i < stock_prices_yesterday.length; i++) {
-    for (let j = 0; j < stock_prices_yesterday.length; j++) {
+    for (let j = i + 1; j < stock_prices_yesterday.length; j++) {
       if (stock_prices_yesterday[j] - stock_prices_yesterday[i] > profit) {
         profit = stock_prices_yesterday[j] - stock_prices_yesterday[i];
       }
