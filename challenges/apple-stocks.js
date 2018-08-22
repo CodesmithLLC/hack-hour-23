@@ -13,7 +13,15 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  return stock_prices_yesterday.reduce((maxPrice, currentPrice) =>{
+    if(currentPrice > maxPrice) maxPrice = currentPrice;
 
+    return maxPrice;
+  }, 0);
 }
+
+
+// const stock = [10,20,30,40,50,60,700,70,80,90,100,150];
+// console.log(bestProfit(stock));
 
 module.exports = bestProfit;
