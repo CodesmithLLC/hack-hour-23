@@ -15,15 +15,18 @@
 function bestProfit(stock_prices_yesterday) {
   if(!stock_prices_yesterday || !Array.isArray(stock_prices_yesterday)) return 0;
 
-  return stock_prices_yesterday.reduce((maxPrice, currentPrice) =>{
-    if(currentPrice > maxPrice) maxPrice = currentPrice;
+  if(stock_prices_yesterday.indexOf(Math.max(...stock_prices_yesterday)) === 0) return 0;
 
-    return maxPrice;
-  }, 0);
+  return Math.max(...stock_prices_yesterday);
+  // return stock_prices_yesterday.reduce((maxPrice, currentPrice) =>{
+  //   if(currentPrice > maxPrice) maxPrice = currentPrice;
+
+  //   return maxPrice;
+  // }, 0);
 }
 
 
-// const stock = [10,20,30,40,50,60,700,70,80,90,100,150];
+// const stock = [0,7000,10,20,30,40,50,60,700,70,80,90,100,150,90000];
 // const stock = 'hello'
 // console.log(bestProfit(stock));
 
