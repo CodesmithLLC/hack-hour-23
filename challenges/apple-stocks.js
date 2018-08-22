@@ -18,20 +18,25 @@ function bestProfit(stock_prices_yesterday) {
 
   if(stock_prices_yesterday.indexOf(Math.max(...stock_prices_yesterday)) === 0) return 0;
 
-  const startingPrice = stock_prices_yesterday[0];
+  let lowestPrice = stock_prices_yesterday[0];
+  let peakPrice = stock_prices_yesterday[0];
   let maxProfit = 0;
 
-  return stock_prices_yesterday.reduce((peakPrice, currentPrice) =>{
-    if(currentPrice - startingPrice > maxProfit) {
-      maxProfit = currentPrice - peakPrice;
+  for(let x = 0; x < stock_prices_yesterday.length; x +=1){
+    let currentPrice = stock_prices_yesterday[x];
+    if(currentPrice < lowestPrice){
+      lowestPrice = currentPrice;
+    }
+    if(currentPrice > peakPrice){
+      maxProfit = currentPrice - lowestPrice;
       peakPrice = currentPrice;
     }
-    return peakPrice;
-  }, startingPrice);
+  }
+  return maxProfit;
 }
 
 
-// const stock = [140,10,20,30,40,50,60,70,140, 140,80,90,100,140, 140];
+// const stock = [140,120,130, 150,120,170];
 // // const stock = 'hello'
 // console.log(bestProfit(stock));
 
