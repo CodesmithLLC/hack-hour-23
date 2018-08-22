@@ -12,8 +12,19 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+const stock_prices_yesterday = [225, 2, 900, 46, 20, 258, 4, 500, 3, 2]
 
+function bestProfit(stock_prices_yesterday) {
+  //reduce through the stock prices to track maxProfit as we iterate. 
+  const stockReducer = stock_prices_yesterday.reduce((ac, cv) => {
+    const potentialProfit = cv - Math.min(...ac[0]);
+    if (potentialProfit > maxProfit) maxProfit = potentialProfit
+    ac[0].push(cv)
+    return [ac[0], maxProfit]
+  }, [[stock_prices_yesterday[1]], maxProfit = 0])
+  return stockReducer[1]
 }
+
+console.log(bestProfit(stock_prices_yesterday))
 
 module.exports = bestProfit;
