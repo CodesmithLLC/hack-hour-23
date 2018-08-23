@@ -14,7 +14,17 @@
  */
 
 function mergeArrays(arr1, arr2) {
-
+    let arr1Copy = arr1.slice();
+    let arr2Copy = arr2.slice();
+    let merged = [];
+    for(let i = 0; i < arr1.length + arr2.length; i++){
+        if(arr1Copy[0] > arr2Copy[0]){
+            merged.push(arr2.shift());
+        } else {
+            merged.push(arr1.shift());
+        }
+    }
+    return merged;
 }
 
 module.exports = mergeArrays;
