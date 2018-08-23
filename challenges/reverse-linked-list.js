@@ -13,6 +13,7 @@ function Node(value) {
     this.next = null;
 }
 
+//NOT IN PLACE_____________________
 function reverseLinkedList(head) {
     let index = -1;
     const indexing = [];
@@ -37,17 +38,19 @@ function reverseLinkedList(head) {
     return newHead
 }
 
-function reverseLinkedList(head) {
-    let newHead;
-    while (head.next) {
-        let prev;
-        let curr = head;
-        while (curr.next) {
-            prev = curr;
-            curr = head.next;
-        }
-        if (!newHead) newHead = curr
-    }
-}
+//IN PLACE______(IN PROGRESS)________
+// function reverseLinkedList(head) {
+//     let newHead;
+//     while (head.next) {
+//         let prev;
+//         let curr = head;
+//         while (curr.next) {
+//             prev = curr;
+//             curr = head.next;
+//         }
+//         if (!newHead) newHead = curr;
+//         curr.next = prev;
+//     }
+// }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
