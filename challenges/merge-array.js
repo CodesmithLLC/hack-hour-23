@@ -15,14 +15,13 @@
 
 function mergeArrays(arr1, arr2) {
   const array = [];
-  const length = Math.max(arr1.length, arr2.length);
 
-  while (arr1.length && arr2.length) {
-    if (arr1[0] === undefined) {
-      array.push(arr2);
+  while (arr1.length || arr2.length) {
+    if (arr1.length === 0) {
+      array.push(...arr2);
       break;
-    } else if (arr2[0] === undefined) {
-      array.push(arr1);
+    } else if (arr2.length === 0) {
+      array.push(...arr1);
       break;
     }
     if (arr1[0] < arr2[0]) {
