@@ -23,7 +23,6 @@ function mergeArrays(arr1, arr2) {
   while (i < arr1.length || j < arr2.length) {
     if (j >= arr2.length || arr1[i] < arr2[j]) newArr.push(arr1[i++]);
     else if (i >= arr1.length || arr2[j] < arr1[i]) newArr.push(arr2[j++]);
-    console.log("i: ", i, "j: ", j);
   }
 
   return newArr;
