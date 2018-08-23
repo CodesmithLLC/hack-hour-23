@@ -14,7 +14,22 @@
  */
 
 function mergeArrays(arr1, arr2) {
+    let finalArr = [];
+    let finalI = 0;
 
+    for(let i = 0; i < arr1.length; i++) {
+        finalArr.push(arr1[i]);
+        if(!!arr2[i]){
+            finalArr.push(arr2[i]);
+        } else {
+          finalArr = finalArr.concat(arr1.slice(i + 1));
+          finalI = finalI + 1;
+          break;
+        }
+        finalI = i;
+    }
+    
+    return finalArr.concat(arr2.slice(finalI));
 }
 
 module.exports = mergeArrays;
