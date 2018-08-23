@@ -15,6 +15,26 @@
 
 function mergeArrays(arr1, arr2) {
 
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+    return 0;
+  }
+
+  if (arr1.length === 0 || arr2.length === 0) {
+    return 0;
+  }
+
+  let mergedArr = [];
+
+  while (arr1.length > 0) {
+    mergedArr.push(arr1.pop());
+  }
+
+  while (arr2.length > 0) {
+    mergedArr.push(arr2.pop());
+  }
+
+  mergedArr = mergedArr.sort((a, b) => a - b);
+  return mergedArr;
 }
 
 module.exports = mergeArrays;
