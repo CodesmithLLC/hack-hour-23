@@ -16,7 +16,7 @@
 function mergeArrays(arr1, arr2) {
   return [arr1, arr2].reduce((initial, next, index) => {
     return initial.concat(next);
-  }, [])
+  }, []).sort((a,b) => a - b);
 }
 
 module.exports = mergeArrays;
