@@ -11,7 +11,26 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    let counter = 0;
+    let tempChar = '';
+    const newObj = {};
+    let lowerStr = str.toLowerCase()
+    for (let j = 0; j < lowerStr.length; j += 1) {
+        if (lowerStr.charAt(j).match(/[a-z]/i)) {
+            tempChar += lowerStr.charAt(j);
+        } else if (tempChar.length > 0) {
+            console.log(tempChar)
+            newObj[counter] = tempChar;
+            counter += 1;
+            tempChar = '';
+        }
+        newObj[counter] = tempChar;
+    }
+        console.log(newObj)
 
-}
+    }
 
+//realized too late I was checking for any palindrome
+console.log(matchWord('for__if__rof__fi'))
+console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
 module.exports = matchWord;

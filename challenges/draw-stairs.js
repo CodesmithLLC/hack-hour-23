@@ -14,8 +14,20 @@
 */
 
 function drawStairs(n) {
-
+    if (n < 0) return 'Invalid Input'
+    const newArr = [];
+    let stair = ''
+    for (let i = 1; i < n + 1; i += 1) {
+        newArr.push(stair)
+        stair = ' '.repeat(n - i) + '*'.repeat(i)
+    }
+    newArr.forEach(function(ele){
+        console.log(ele);
+    })
 }
+drawStairs(6)
+
+
 
 
 module.exports = drawStairs;

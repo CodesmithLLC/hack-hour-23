@@ -14,7 +14,24 @@
  */
 
 function binToDec(binary) {
+    let numberArr = binary.split('').reverse();
+    return numberArr.reduce(function(accum, current, index){
+        if (current == 1) {
+            accum += Math.pow(2, index)
+        }
+        console.log(accum)
+        return accum
+
+    }, 0)
+
+    
+
+    
+
+
+    // return parseInt(binary, 2 )
 
 }
+console.log(binToDec('0101'))
 
 module.exports = binToDec;
