@@ -21,8 +21,24 @@ function Node(val) {
   this.next = null;
 }
 
-function kthToLastNode(k, head) {
 
+
+function kthToLastNode(k, head) {
+  let nodes = [];
+  if(!head) return undefined;
+  
+  function linkedListTraverse(head){
+    nodes.push(head);
+    if(head.next !== null){
+      linkedListTraverse(head.next);
+    } else {
+      return null;
+    }
+  }
+  linkedListTraverse(head);
+
+  if(nodes.length < k) return undefined;
+  return nodes[nodes.length - k];
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
