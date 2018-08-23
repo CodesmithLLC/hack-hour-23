@@ -11,6 +11,7 @@
 
 
 function modemean(array) {
+  if (array.length < 1) return false;
   // declare 2 variables mode and mean
   let mode;
   let mean;
@@ -34,7 +35,7 @@ function modemean(array) {
   if (mean === mode) return true;
   return false;
 }
-const arr = [4, 4, 3, 4, 4];
+const arr = [4, 4, 4, 4, 4, 4, 4, 4, 4];
 console.log(modemean(arr));
 
 module.exports = modemean;

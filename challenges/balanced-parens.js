@@ -23,9 +23,32 @@
  *
  *
  */
+function openChecker(char) {
+    const charList = ['{', '(', '[',];
+    if (charList.indexOf(char) !== -1) return true;
+    return false;
+    
+}
+function closeChecker(char) {
+    const charList = ['}', ')', ']',];
+    if (charList.indexOf(char) !== -1) return true;
+    return false;
+    
+}
+function openCloseChecker()
+console.log(charChecker('{'))
 
 function balancedParens(input){
+    const newArr = input.split('');
+    const checkArr = [];
+    for (let i = 0; i < newArr.length; i += 1) {
+        if (openChecker(newArr[i]) || closeChecker(newArr[i])) checkArr.push(newArr[i])
+
+    }
+    for (let i = 0; i < checkArr.length; i += 1) {
+        if (checkArr[])
+    }
 
 }
-
+console.log(balancedParens('[](){}'))
 module.exports = balancedParens;
