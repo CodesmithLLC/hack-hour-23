@@ -25,6 +25,25 @@
  */
 
 function balancedParens(input){
+    const parensFirst = "(";
+    const parentLast = "(";
+    const bracketFirst = "[";
+    const bracketLast = "]";
+    const objFirst = "{";
+    const objLast = "}";
+
+    input = input.split("");
+    const sum = input.reduce((acc,next)=>{
+            if(next == "(") acc += 1
+            else if(next == ")") acc += -1
+            else if(next == "[") acc += 4
+            else if(next == "]") acc += -4
+            else if(next == "{") acc += 10
+            else if(next == "}") acc += -10
+      return acc;      
+    },0)
+    if(sum === 0) return true 
+    return false
 
 }
 
