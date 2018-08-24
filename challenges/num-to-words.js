@@ -65,7 +65,6 @@ function numToWords(num, result = '') {
   } else if (string.length >= 4) {
     result += numToWords(string.substring(0, string.length - 3)) + 'Thousand';
     string = string.substring(string.length - 3);
-    console.log(result)
   } else if (string.length >= 3) {
     result += obj[string[0]] + 'Hundred';
     string = string.substring(1);
