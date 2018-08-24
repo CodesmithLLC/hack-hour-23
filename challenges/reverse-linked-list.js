@@ -14,6 +14,20 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+    let temp;
+    let holder = []
+    let currentHead = head;
+    while (currentHead) {
+        holder.push(currentHead)
+        currentHead = head.next
+    }
+    for (let i = holder.length - 1; i > 0; i -= 1) {
+        head = 
+
+        
+
+        
+    }
 
 }
 

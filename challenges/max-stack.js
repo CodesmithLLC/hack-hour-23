@@ -7,7 +7,20 @@
  */
 
 function Stack() {
-  // body...
+  function push(array, element) {
+   array[array.length] = element;
+   return array.length;
+  }
+  function pop() {
+    const newArr = [];
+    for (let i = 0; i < greg.length -1; i += 1) {
+      newArr[i] = greg[i]
+    }
+  }
+  function getMax(array) {
+
+  }
+  
 }
 
 module.exports = Stack;
