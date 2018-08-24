@@ -44,12 +44,12 @@ function numToWords(num, result = '') {
     90: 'Ninety'
   }
   let string = num.toString();
-
-  if (result !== '' && string.substring(1).split('').every(e => e === '0')) return result;
   if (obj[num] !== undefined) {
     result += obj[num];
     return result;
   }
+  if (result !== '' && string.substring(1).split('').every(e => e === '0')) return result;
+  
   if (string.length >= 16) {
     result += numToWords(string.substring(0, string.length - 15)) + 'Quadrillion';
     string = string.substring(string.length - 15);
@@ -65,6 +65,7 @@ function numToWords(num, result = '') {
   } else if (string.length >= 4) {
     result += numToWords(string.substring(0, string.length - 3)) + 'Thousand';
     string = string.substring(string.length - 3);
+    console.log(result)
   } else if (string.length >= 3) {
     result += obj[string[0]] + 'Hundred';
     string = string.substring(1);
