@@ -1,5 +1,6 @@
 /* Given two strings, write a function to check if the second one is a rotation of the first,
- * using only one call to isSubstring. The function isSubstring takes in two strings and returns
+ * using only one call to isSubstring. 
+ * The function isSubstring takes in two strings and returns
  * true if the second string is found in the first, false otherwise.
  *
  * h->e->l->l->o   ===   l->l-o->h->e
@@ -16,7 +17,19 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  
+    for(let i = 0; i < s1.length; i++) {
+        s3 +=s1[i]
+        s1.slice(i,-1);
+        console.log(s1)
+        s3+=s11
+        //console.log(s3)
+        if(s3 === s2) { 
+          return true;
+        }
+    }
+    return false
+  return s1.indexOf(s2) >= 0;
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

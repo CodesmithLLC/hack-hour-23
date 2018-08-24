@@ -10,11 +10,17 @@
 
 function Node(value) {
     this.value = value;
+    this.head = head;
+    this.tail = tail;
     this.next = null;
 }
 
 function reverseLinkedList(head) {
-
+    //set head to head
+    this.head = head;
+    //set tail to head
+    this.tail = tail;
+    //set head and tail 
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
