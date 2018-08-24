@@ -11,7 +11,18 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+    var keywords = str.match(/[a-zA-Z]+/g) || [];
+    console.log(keywords)
+    var wordStack = [];
+    for (var word of keywords) {
+        console.log(word.split('').reverse().join('').toLowerCase())
+        console.log(wordStack[0])
+    if (word.split('').reverse().join('').toLowerCase() === (wordStack[0] || '').toLowerCase())
+        wordStack.shift();
+    else
+        wordStack.unshift(word);
+    }
+    return !wordStack.length;
 }
-
+matchWord('for__if__rof__fi')
 module.exports = matchWord;
