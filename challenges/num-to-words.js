@@ -13,7 +13,31 @@
  */
 
 function numToWords(num) {
-
+  let strNum = num.toString();
+  let ret = '';
+  let ones = {
+    '1': 'One',
+    '2': 'Two',
+    '3': 'Three',
+    '4': 'Four',
+    '5': 'Five',
+    '6': 'Six',
+    '7': 'Seven',
+    '8': 'Eight',
+    '9': 'Nine'
+  }
+  
+  if (num === 0) { return 'Zero' };
+  if (strNum % 3 === 1) {
+    ret += ones[num[0]];
+    strNum = strNum.substr(1);
+    if (strNum.length % 3 === 2) {
+      ret += 'Hundred';
+    } else if (strNum.length % 3 === 0) {
+      ret += 'Thousand';
+    } else if (strNum.length === )
+  }
+  return ret;
 }
 
 module.exports = numToWords;
