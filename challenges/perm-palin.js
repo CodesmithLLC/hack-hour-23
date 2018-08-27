@@ -12,11 +12,14 @@
 function permPalin(str) {
   if (str.length === 1) return true;
   let sorted = str.split('').sort();
-  while (sorted.length >=2) {
+  while (sorted.length >=3) {
     if (sorted[0] === sorted[1]) {
-      sorted.splice(0, 2)
-    } else {return false}
+      sorted.splice(0, 2);
+    } else {
+      sorted.reverse();
+    }
   }
+  if (sorted.length > 1) return false;
   return true;
 }
 
