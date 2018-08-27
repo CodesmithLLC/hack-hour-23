@@ -38,9 +38,9 @@ function permPalin(str) {
     y:0,
     z:0
   };
-  
-  for (let i = 0; i < str.length; i++) {
-    count[str[i]] = (count[str[i]] + 1)  % 2;
+  let lowStr = str.toLowerCase();
+  for (let i = 0; i < lowStr.length; i++) {
+    count[lowStr[i]] = (count[lowStr[i]] + 1)  % 2;
   }
   if (Object.values(count).indexOf('1') > -1) {
     return true;
