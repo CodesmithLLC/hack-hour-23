@@ -10,7 +10,17 @@
  */
 
 function permPalin(str) {
-	
+    let isPally = false;
+    let newStr = str.concat(str);
+    for (let i = 0; i < newStr.length ; i++) {
+        let palCheck = newStr.slice(i, str.length + i);
+        if (palCheck === palCheck.split('').reverse().join('') ) {
+            isPally = true
+            break;
+        }
+        console.log(isPally)
+    }
+    return isPally;
 }
 
 module.exports = permPalin;
