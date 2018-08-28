@@ -10,8 +10,63 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
 
+
+function matchWord(str) {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  if(!str){
+    return true;
+  }
+  //iterate through string until a letter found
+  let horribleCode = str.split('');
+  let index = 0;
+  let currentLetter = horribleCode[index].toUpperCase();
+
+  let stack = [];
+
+  while(index < horribleCode.length){
+
+    while (alphabet.indexOf(currentLetter) < 0 && index < horribleCode.length) {
+      index++;
+      console.log(index);
+      if(index<horribleCode.length) currentLetter = horribleCode[index].toUpperCase();
+    }
+    //once a letter is found, push it on to an array and keep going until a non letter is found
+
+
+    if(index<horribleCode.length){
+
+      let word = [];
+      word.push(currentLetter);
+      index++;
+      currentLetter = horribleCode[index].toUpperCase();
+  
+      while(alphabet.indexOf(currentLetter) >= 0 && index < horribleCode.length) {
+        word.push(currentLetter);
+        index++;
+        if(index<horribleCode.length) currentLetter = horribleCode[index].toUpperCase();     
+      }
+  
+      if(word.length){
+  
+        // then push it on to a stack
+        if(stack.length){
+          if(stack[stack.length-1].join('') == word.reverse().join('')) stack.pop();
+          else stack.push(word.reverse());
+        }else{
+          stack.push(word);
+        }
+      }
+
+
+    }
+
+  }
+  
+  if (stack.length)return false;
+  return true;
 }
+
 
 module.exports = matchWord;
