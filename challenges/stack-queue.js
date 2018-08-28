@@ -17,11 +17,9 @@ function Stack() {
   }
 }
 
-
 /**
 * Queue Class
 */
-
 
 function Queue() {
   const firstStack = Stack();
