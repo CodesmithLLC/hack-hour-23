@@ -10,15 +10,12 @@
  */
 
 function permPalin(str) {
-	//check if curr str is pal
-
-  //recursively remove the last letter but dont overright the MAIN str
-
-  //recursively remove first letter
   if (str.length === 1) {
     return true
   } else if (str.length === 2) {
-    return false
+    return(str === str.split('').reverse().join('')) {
+      return true
+    }return false
   } else if (str.length > 2 ) {
       if (str === str.split('').reverse().join('')) {
         return true
