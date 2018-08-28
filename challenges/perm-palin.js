@@ -1,5 +1,5 @@
 /**
- * Given a string, determine if any of the permutations of that string is a palindrome
+ * Given a string, determine0 if any of the permutations of that string is a palindrome
  *
  * Example:
  * 	- permPalin('abab') => true
