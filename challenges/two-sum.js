@@ -3,13 +3,13 @@
  */
 
 function twoSum(arr, n) {
-  // base case
+  /***** BASE CASE ******/
   if (!arr.length) return false;
-  // recursive case
+  /***** RECURSIVE CASE ******/
   const temp = arr.shift();
-  arr.forEach(num => {
-    if (num + temp === n) return true;
-  });
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] + temp === n) return true;
+  }
   return twoSum(arr, n);
 }
 
