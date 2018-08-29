@@ -3,6 +3,17 @@
  */
 
 function twoSum(arr, n) {
+  let arrCopy = arr.slice()
+
+
+  while (arrCopy.length){
+    let tail = arrCopy.pop();
+    let difference = n - tail;
+    if(arrCopy.indexOf(difference)>=0){
+      return true;
+    }
+  }
+  return false;
 
 }
 
