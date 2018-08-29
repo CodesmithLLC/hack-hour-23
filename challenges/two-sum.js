@@ -3,7 +3,14 @@
  */
 
 function twoSum(arr, n) {
-
+  // base case
+  if (!arr.length) return false;
+  // recursive case
+  const temp = arr.shift();
+  arr.forEach(num => {
+    if (num + temp === n) return true;
+  });
+  return twoSum(arr, n);
 }
 
 module.exports = twoSum;
