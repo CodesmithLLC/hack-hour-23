@@ -24,6 +24,6 @@ function twoSum(arr, n) {
   return false;
 }
 
-// module.exports = twoSum;
+module.exports = twoSum;
 
-console.log(twoSum([], 6));
+// console.log(twoSum([], 6));
