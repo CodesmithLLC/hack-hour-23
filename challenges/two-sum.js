@@ -3,18 +3,16 @@
  */
 
 function twoSum(arr, n) {
-  let arrCopy = arr.slice()
+  let arrCopy = arr.slice();
 
-
-  while (arrCopy.length){
+  while (arrCopy.length) {
     let tail = arrCopy.pop();
     let difference = n - tail;
-    if(arrCopy.indexOf(difference)>=0){
+    if (arrCopy.indexOf(difference) >= 0) {
       return true;
     }
   }
   return false;
-
 }
 
 module.exports = twoSum;
