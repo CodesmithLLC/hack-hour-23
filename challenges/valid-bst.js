@@ -13,30 +13,42 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-  let currNode = tree;
+  //recursively call validBST to see if left is less than and right is greater than
 
-  if (currNode === null) {
-    return false;
+  //base case left or right equals null
+
+
+  if (tree.left !== null) {
+    let temp = tree.left;
+
+    if (temp.value > tree.value) return false;
+
+    return validBST(tree.left);
   }
-  let nextNode = tree.right;
 
-  while (nextNode !== null) {
-    if (currNode.value > nextNode.value) return false
+  if (tree.right !== null) {
+    let temp2 = tree.right;
 
-    currNode = nextNode;
-    nextNode = nextNode.right;
+    if (temp2.value < tree.value) return false;
+
+    return validBST(tree.right);
   }
   return true;
+
+
 }
 
-// let node1 = new BinaryTree(2);
-// let node2 = new BinaryTree(4);
-// let node3 = new BinaryTree(40);
+// let node1 = new BinaryTree(6);
+// let node2 = new BinaryTree(7);
+// let node3 = new BinaryTree(9);
 // let node4 = new BinaryTree(8);
+// let node5 = new BinaryTree(1);
 
 // node1.right = node2;
 // node2.right = node3;
-// node3.right = node4;
+// node3.left = node4;
+// node2.left = node5;
+
 
 // console.log(validBST(node1));
 
