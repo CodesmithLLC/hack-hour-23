@@ -14,14 +14,10 @@ function BinaryTree(val) {
 
 function validBST(tree) {
     if (this.left) {
-        if (this.left.value < this.value) {
-            return validBST(this.left)
-        } else return false
+        return this.left.value < this.value ? validBST(this.left) : false
     }
     if (this.right) {
-        if (this.right.value > this.value) {
-            return validBST(this.right)
-        } else return false
+        return this.right.value > this.value ? validBST(this.right) : false
     }
     return true
 }
