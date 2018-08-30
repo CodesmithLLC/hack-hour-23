@@ -13,11 +13,11 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-    if (this.left) {
-        return this.left.value < this.value ? validBST(this.left) : false
+    if (tree.left) {
+        return tree.left.value < tree.value ? validBST(tree.left) : false
     }
-    if (this.right) {
-        return this.right.value > this.value ? validBST(this.right) : false
+    if (tree.right) {
+        return tree.right.value > tree.value ? validBST(tree.right) : false
     }
     return true
 }
