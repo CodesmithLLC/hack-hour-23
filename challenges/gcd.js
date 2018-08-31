@@ -8,7 +8,15 @@
  */
 
 function gcd(a, b) {
-
+  const minValue = Math.min(a, b);
+  let returnValue = 1;
+  
+  for(let i = 2; i < minValue + 1; i++) {
+    if(a % i === 0 && b % i === 0) {
+      returnValue = i;
+    }
+  }
+  return returnValue;
 }
 
 module.exports = gcd;
