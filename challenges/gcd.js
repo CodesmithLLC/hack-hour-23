@@ -8,7 +8,21 @@
  */
 
 function gcd(a, b) {
-
+ 
+ let lowest;
+ let highest;
+ if (a < b) {
+   lowest = a;
+   highest = b;
+ } else {
+   lowest = b;
+   highest = a;
+ };
+  if (b % a === 0) {
+    return a;
+  } else {
+    return gcd(a - 1, b);
+  }
 }
 
 module.exports = gcd;
