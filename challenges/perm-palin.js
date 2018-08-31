@@ -10,7 +10,18 @@
  */
 
 function permPalin(str) {
-	
+  let palinPossible = true  
+
+  if (str.length === 1) return true;
+  if (!str.length) return false  
+
+  function innerPermPalin(str) {
+  tempStr = str.substring(1, str.length)
+  if (str[i] === str[str.length] && palinPossible === true)  {
+    
+
+    }
+  }
 }
 
 module.exports = permPalin;
