@@ -7,13 +7,18 @@
  
 
 function BinaryTree(val) {
-    this.value = val;
-    this.left = null;
-    this.right = null;
+  this.value = val;
+  this.left = null;
+  this.right = null;
 }
 
 function validBST(tree) {
+  const curr = new BinaryTree(tree)
+  // if curr.left > curr.value false
+  // if curr.right < curr.value false
 
+  // if curr.left < curr.value,
+  // validBST(curr.left)
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
