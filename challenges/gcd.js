@@ -8,7 +8,19 @@
  */
 
 function gcd(a, b) {
+    while(a > 0 && b > 0) {
+        if(a < b){
+            while(b >= a){
+                b = b - a;
+            }
+        } else {
+            while(a >= b){
+                a = a - b;
+            }
+        }
+    }
 
+    return a || b;
 }
 
 module.exports = gcd;
