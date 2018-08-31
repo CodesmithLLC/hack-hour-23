@@ -8,7 +8,15 @@
  */
 
 function gcd(a, b) {
-
+  if (!Number.isInteger(a) || !Number.isInteger(b)) return undefined;
+  if (!a || !b) return 0;
+  const divisors = [];
+  for (let i = 1; i <= Math.min(Math.abs(a), Math.abs(b)); i += 1) {
+    if (Number.isInteger(a / i) && Number.isInteger(b / i)) {
+      divisors.push(i);
+    }
+  }
+  return Math.max(...divisors);
 }
 
 module.exports = gcd;
