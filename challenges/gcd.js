@@ -8,7 +8,25 @@
  */
 
 function gcd(a, b) {
+  //edge cases. Make sure parameters are numbers, and check if they are equal
+  if (typeof a !== 'number' || typeof b !== 'number') return 'please input numbers'
+  if (a === b) return a
 
+  //make sure a is larger than b
+  if (b > a) {
+    const temp = a; 
+    a = b;
+    b = temp; 
+  }
+
+  //loop through a, starting at a/2. Since a is larger than b, 
+  //the first common divisor possibility would be a/2
+  for (let i = a/2; i > 0; i--){
+    if (a % i === 0 && b % i === 0) return i
+  }
+  return 1
 }
+
+console.log(gcd(6, 18))
 
 module.exports = gcd;
