@@ -11,6 +11,19 @@
 
 function countTwos(num) {
 
+  let counter = 0;
+  let starting = 0;
+
+  while(starting <= num){
+      let temp = String(starting).split('');
+
+      temp.forEach(num => {
+          if (num === '2') counter += 1;
+      })
+      
+      starting += 1;
+  }
+  return counter;
 }
 
 module.exports = countTwos;
