@@ -9,7 +9,14 @@
  */
 
 function subsetSum(array, target) {
-
+  // return true if there's a subset of the array that sums up to the target
+  // have to go through a loop?
+  let sumValue = 0;
+  let copyArr = Object.assign([], array);
+  for(let i = 0; i < array.length; i++) {
+    
+  }
+  // if not, return false
 }
 
 module.exports = subsetSum;

@@ -11,17 +11,20 @@ function Node(val) {
 }
 // 1 -> 2 -> 3 -> null
 // 4 -> 5 -> 6 -> null
+// 1 -> 4 -> 2 -> 5 -> 3 -> 6 -> null
 function zip(l1, l2) {
   // l1 will always be first, l2's node always points to null
   // have 2 pointers and 2 temps?
   while(l1.next !== null && l2.next !== null){
+    // console.log('hi');
     let temp1 = l1.next;
+    console.log('l1 next value', l1.next.value);
     l1.next = l2;
+    console.log('l2 value', l2.value);
     // let temp2 = l2.next;
     l2.next = temp1;
     return zip(l1.next, l2.next);
   }
-
   return l1;
 };
 

@@ -13,7 +13,16 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+    let previous = 0;
+    return checkBST(tree, previous);
+    // check recursively
+    // check left side of the tree
+    // check right side of the tree
+}
+
+function checkBST(tree, previous) {
 
 }
+
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
