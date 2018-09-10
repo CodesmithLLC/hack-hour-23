@@ -14,11 +14,15 @@ function BinaryTree(val) {
 
 function validBST(tree) {
   let current = tree.value;
+  let prevNode;
   while(current.left !== null || current.right !== null) {
     if (current.left.value < current && current.right.value > current) {
+        prevNode = current;
         current = (current.left || current.right);
     }
   }
+
+
 }
 
 let bst1 = new BinaryTree(6);
