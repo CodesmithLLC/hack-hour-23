@@ -21,7 +21,7 @@ function countTwos(num) {
             let count = 0;
             num.toString().split("").forEach(char => {
               count += char == 2 ? 1 : 0;
-            })
+            });
             hashTable[num] = count + inner(num - 1);
             return hashTable[num];
         }
