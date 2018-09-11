@@ -19,22 +19,36 @@ function Node(val) {
 
 function addLinkedList(l1, l2) {
   let carry = 0;
-  let result = new Node();
+  let result = null;
 
   let pointerRes = result;
   let pointer1 = l1;
   let pointer2 = l2;
   while(pointer1 !== null && pointer2 !== null) {
-    pointerRes.value = ((pointer1.value + pointer2.value) % 10) + carry;
+    pointerRes = new Node(((pointer1.value + pointer2.value) % 10) + carry);
+    pointerRes.next = result;
+    result = pointerRes;
     carry = Math.floor((pointer1.value + pointer2.value) / 10);
-    pointerRes.next = new Node();
-
-    pointerRes = pointerRes.next;
     pointer1 = pointer1.next;
     pointer2 = pointer2.next;
   }
 
-  return result;
+  while(pointer1 !== null || pointer2 !== null) {
+    if(pointer1 !== null) {
+      pointerRes = new Node(pointer1.value + carry);
+      pointer1 = pointer1.next;
+    }
+    if(pointer2 !== null) {
+      pointerRes = new Node(pointer2.value + carry);
+      pointer2 = pointer2.next;
+    }
+
+    pointerRes.next = result;
+    result = pointerRes;
+    carry = 0;
+  }
+
+  return pointerRes;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
