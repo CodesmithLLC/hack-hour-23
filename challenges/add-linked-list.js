@@ -18,7 +18,21 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let current = 0;
+  let newNode = new Node(null);
 
+  current = l1.value + l2.value;
+  if (current >= 10) {
+    current = current % 10;
+    l1.next.value += 1;
+  }
+  newNode.value = current;
+  // base case
+  if (l1.next === null) {
+    return newNode;
+  } else {
+    newNode.
+  }
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

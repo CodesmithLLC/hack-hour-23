@@ -35,14 +35,15 @@ function romanNumeral(n) {
     ]
     let i = 0;
     let ret = '';
-    while (n > romanArray[i][0]){
+    if (n === 0) {return ''};
+        while (n > romanArray[i][0]){
         i++;
     }
     return ret + romanArray[i][1] + romanNumeral(n - romanArray[i][0]);
 }
 
 //WHY DOESNT THIS WORK???
-console.log(romanNumeral(5));
+console.log(romanNumeral(33));
 
     // if (n > 1000) {
     //     //ret + 'M';
