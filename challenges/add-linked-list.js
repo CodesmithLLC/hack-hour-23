@@ -52,17 +52,19 @@ function addLinkedList(listOne, listTwo) {
   //verify we are at the end of the lists.
   if(nodeOne){
     while(nodeOne){
-      result.value = nodeOne;
+      result.value = nodeOne + carry;
       result.next = new Node();
       result = result.next;
       nodeOne = nodeOne.next;
+      carry = 0;
     }
   }else if(nodeTwo){
     while(nodeTwo){
-      result.value = nodeTwo;
+      result.value = nodeTwo +carry;
       result.next = new Node();
       result = result.next;
       nodeTwo = nodeTwo.next;
+      carry = 0;
     }
   }
   //throwing the rest of the nodes on to the result
