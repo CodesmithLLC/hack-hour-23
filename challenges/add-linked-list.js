@@ -25,10 +25,10 @@ function addLinkedList(l1, l2) {
   let pointer1 = l1;
   let pointer2 = l2;
   while(pointer1 !== null && pointer2 !== null) {
-    pointerRes = new Node(((pointer1.value + pointer2.value) % 10) + carry);
+    pointerRes = new Node(((pointer1.value + pointer2.value + carry) % 10));
     pointerRes.next = result;
     result = pointerRes;
-    carry = Math.floor((pointer1.value + pointer2.value) / 10);
+    carry = Math.floor(( pointer1.value + pointer2.value + carry) / 10);
     pointer1 = pointer1.next;
     pointer2 = pointer2.next;
   }
