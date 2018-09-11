@@ -17,7 +17,58 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
+function addLinkedList(listOne, listTwo) {
+
+  //create a result list
+  let result = new Node();
+
+  //iterate thru while L1,
+  //also move through L2
+  let nodeOne = listOne;
+  let nodeTwo = listTwo;
+  let carry = 0;
+  while(nodeOne && nodeTwo){
+    //create a sum with the corresponding node of L2
+    let sum = nodeOne.value + nodeTwo.value + carry;
+      //when sum is >9, carry a 1 to the next iteration
+      if(sum>9){
+        //use the remainder from %10 for the value
+        sum = sum%10;
+        carry = 1;
+      }else{
+        carry = 0;
+      }
+      
+    //add the sum as a node value to the result list
+      result.value = sum;
+      result.next = new Node();
+    //go to the next node of each list
+    nodeOne = nodeOne.next;
+    nodeTwo = nodeTwo.next;
+    result = result.next;
+  }
+  
+
+  //verify we are at the end of the lists.
+  if(nodeOne){
+    while(nodeOne){
+      result.value = nodeOne;
+      result.next = new Node();
+      result = result.next;
+      nodeOne = nodeOne.next;
+    }
+  }else if(nodeTwo){
+    while(nodeTwo){
+      result.value = nodeTwo;
+      result.next = new Node();
+      result = result.next;
+      nodeTwo = nodeTwo.next;
+    }
+  }
+  //throwing the rest of the nodes on to the result
+  
+  result.next = null;
+  return result;
 
 }
 

@@ -10,7 +10,30 @@
 
 
 function countTwos(num) {
-
+  //after the first two, the next one is always 10 away...?
+  //2->12->20s->32->42->52->62...->102
+  let cache = {};
+  function countInner (){
+    if (num in cache){
+      return cache[num]
+    }else{
+      for(let i = 1; i<= num; i++){
+        let count = 0;
+        if(cache[i-1]){
+          count = cache[i-1];
+        }
+        let numStr = String(i);
+        count += (numStr.match(/2/g) || []).length;
+        cache[i] = count;
+      }
+      return cache[num];
+    }
+  }
+  return countInner;
+  
 }
+
+let x = countTwos(11420);
+console.log(x());
 
 module.exports = countTwos;
