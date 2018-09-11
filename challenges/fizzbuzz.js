@@ -22,18 +22,18 @@
 //then I will push i to the array, unless it is divisible by either one.
 
 function fizzbuzz(num) {
-  return createFizzBuzzArrayAndReplace(num);
+  return createArrayAndReplaceWithFizzBuzz(num);
 }
 
-function createFizzBuzzArrayAndReplace(lastNum){
+function createArrayAndReplaceWithFizzBuzz(arraySize){
   const arr = [];
-  for (let i=1; i <= lastNum; i++){
-    arr.push(getAppropriateElement(i));
+  for (let i=1; i <= arraySize; i++){
+    arr.push(getFizzOrBuzzOrNum(i));
   }
   return arr;
 }
 
-function getAppropriateElement(num){
+function getFizzOrBuzzOrNum(num){
   if (divisibleByFiveAndThree(num)){
     return 'fizzbuzz'
   }else if (divisibleByThree(num)) {
