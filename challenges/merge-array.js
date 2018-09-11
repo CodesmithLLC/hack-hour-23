@@ -14,7 +14,22 @@
  */
 
 function mergeArrays(arr1, arr2) {
+    let sortedArray = [];
+    let pointer1 = 0;
+    let pointer2 = 0;
 
+
+    while(pointer1 < arr1.length && pointer2 < arr2.length) {
+        if(arr1[pointer1] < arr2[pointer2]) {
+            sortedArray.push(arr1[pointer1]);
+            pointer1 ++;
+        } else {
+            sortedArray.push(arr2[pointer2]);
+            pointer2 ++;
+        }
+    }
+
+    return sortedArray.concat(arr1.slice(pointer1)).concat(arr2.slice(pointer2));
 }
 
 module.exports = mergeArrays;

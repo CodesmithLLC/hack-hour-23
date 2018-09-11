@@ -11,7 +11,29 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
-}
+    if(str.length === 0) {
+      return true;
+    }
+    str = str.toUpperCase();
+    let current = '';
+  
+    for(let i = 0; i < str.length; i++) {
+      if(!str[i].match(/[a-z]/i)){
+        if(current.length > 0){
+          if(str.indexOf(current.split('').reverse().join('')) > -1){
+            let res = matchWord(str.substring(i, str.indexOf(current.split('').reverse().join(''))));
+            return res;
+            current = '';
+            i = str.indexOf(current.split('').reverse().join(''));
+          } else {
+            return false;
+          }
+        }
+      } else {
+        current += str[i];
+      }
+    }
+    return current.length > 0 ? false: true;
+  }
 
 module.exports = matchWord;

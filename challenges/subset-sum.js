@@ -9,7 +9,18 @@
  */
 
 function subsetSum(array, target) {
-
+    if(array.length === 1) {
+        return array[0] === target;
+    }
+    let hashTable = {};
+    let result = false;
+    array.forEach((elm, index) =>{
+        if(hashTable[target-elm] || subsetSum(array.slice(index+1, array.length), target-elm)){
+            result =  true;
+        }
+        hashTable[elm] = "inArray";
+    });
+    return result;
 }
 
 module.exports = subsetSum;

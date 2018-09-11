@@ -14,7 +14,18 @@
  */
 
 function binToDec(binary) {
+    binaryArr = [];
+    for(let i = 0; i < binary.length; i++) {
+        binaryArr.unshift(binary[i]);
+    }
+    return binaryArr.reduce((acc, elm, index) => {
+        return acc + elm * Math.pow(2, index);
+    }, 0);
+}
 
+function decToBin(decimal) {
+    decimal = Number(decimal);
+    return "" + (decimal <= 1 ? decimal % 2 : decToBin(Math.floor(decimal / 2)) + (decimal % 2));
 }
 
 module.exports = binToDec;
