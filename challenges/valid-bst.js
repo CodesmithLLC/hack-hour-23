@@ -19,7 +19,7 @@ function validBST(tree) {
   const failed = false;
   const testCase = -Infinity;
   function traverseTree(node) {
-    if (failed) return; // stop travering tree
+    if (failed) return; // stop traversing tree
 
     if (node.left !== null) traverseTree(node.left);
 
@@ -28,7 +28,6 @@ function validBST(tree) {
       failed = true;
       return;
     }
-
     // if the value is more than we are on track
     if (node.val > testCase) {
       testCase = node.val;
