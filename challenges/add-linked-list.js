@@ -18,6 +18,21 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let num1 = '';
+  let num2 = '';
+  let p1 = l1;
+  let p2 = l2;
+  while (p1) {
+    num1 += p1.value.toString();
+    p1 = p1.next
+
+  }
+  while (p2) {
+    num2 += p2.value.toString();
+    p2 = p2.next;
+  }
+
+  return parseInt(num1.split('').reverse().join('')) + parseInt(num2.split('').reverse().join(''))
 
 }
 

@@ -9,8 +9,19 @@
  *
  */
 
+
 function permPalin(str) {
-	
+  const letters =  {};
+  let oddLetter = 0;
+  
+  str.split('').forEach( letter => {
+    letters[letter] = letters[letter] + 1 || 1
+  })
+
+  return Object.keys(letters).every( letter => {
+    if (letters[letter] % 2 !== 0) oddLetter++
+    return letters[letter] % 2 === 0 || oddLetter < 2;
+  })
 }
 
 module.exports = permPalin;
