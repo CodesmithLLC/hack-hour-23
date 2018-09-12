@@ -21,10 +21,13 @@ function superbalanced(tree) {
     if (balanced === false) return false;
 
     if (tree.left && tree.right) {
+      // helps prevent continuously recursing through tree if we already know it's not balanced
       const left = superbalanced(tree.left);
+      if (left === false) return false;
       const right = superbalanced(tree.right);
-      if (left === false || right === false) return false;
-      else if (Math.abs(left - right) <= 1) return 1;
+      if (right === false) return false;
+
+      if (Math.abs(left - right) <= 1) return 1;
       else balanced = false;
     }
 
