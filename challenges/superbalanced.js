@@ -21,7 +21,7 @@ function superbalanced(tree) {
 
      return Math.max(inner(Node.left, height + 1), inner(Node.right, height + 1));
   }
-  return Math.abs(inner(tree.left) - inner(tree.right)) <= 1 ? true : false;
+  return Math.abs(inner(tree.left) - inner(tree.right)) <= 1;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
