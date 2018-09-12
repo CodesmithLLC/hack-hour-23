@@ -18,6 +18,10 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  // sum the values of l1, l2
+  // if sum > 9, output.value += 0 and 
+  // if output.value is 0, output.value += sum
+  const output = new Node(0);
 
 }
 
