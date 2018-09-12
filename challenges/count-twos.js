@@ -8,27 +8,28 @@
 //console.log(countTwos(1000));  //-> 300
 console.log(countTwos(11420));  //-> 4483
 
-
-function countTwos(num) {
-  //keep count of 2s
-  let count = 0;
-  //for each num from 0 to num, split the num,
-  for (let i = 0; i <= num; i++) {
-    count += checkNum(i);
-  }
-  //loop through num array for 2s
-  return count;
+//currently n^2 time
+function countTwos(num, count = 0) {
+  // let count = 0;
+  // for (let i = 0; i <= num; i++) {
+  //   count += checkNum(i);
+  // }
+  // return count;
+  // if (num === 0) return count;
+  // let arr = JSON.stringify(num).split('');
+  // for (let i = 0; i < arr.length; i += 1) {
+  //   if ()
+  // }
 }
 
 function checkNum(num) {
   let arr = JSON.stringify(num).split('');
   let counter = 0;
-  //console.log(arr);
   for (let j = 0; j < arr.length; j++) {
     if (arr[j] === '2') counter++;
   }
-  //console.log(counter);
   return counter;
 }
+
 
 module.exports = countTwos;
