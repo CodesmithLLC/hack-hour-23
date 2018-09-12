@@ -20,6 +20,7 @@ function superbalanced(tree) {
   function recurse(tree) {
     if (balanced === false) return false;
 
+    // both children present
     if (tree.left && tree.right) {
       // helps prevent continuously recursing through tree if we already know it's not balanced
       const left = superbalanced(tree.left);
@@ -31,19 +32,22 @@ function superbalanced(tree) {
       else balanced = false;
     }
 
-    else if (tree.left) {
-      const count = superbalanced(tree.left);
+    // no children present
+    else if (!tree.left && !tree.right) return 1;
+
+    // one child present
+    else {
+      let count;
+      if (tree.left) count = superbalanced(tree.left);
+      else if (tree.right) count = superbalanced(tree.right);
       if (count <= 1) return count + 1;
-      else balanced = false;
+      else {
+        balanced = false;
+        return false;
+      }
     }
 
-    else if (tree.right) {
-      const count = superbalanced(tree.right)
-      if (count <= 1) return count + 1;
-      else balanced = false;
-    }
-
-    return 1;
+    return 1; // should never get hit. 
   }
 
   recurse(tree);
