@@ -18,56 +18,30 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  //return a new linked list with the same structure but with the sums
-  let curr1 = l1;
-  let curr2 = l2;
-  let l3;
-  let result;
-  
-  let round = 1;
-  while (curr1 && curr2) {
-    //add the values
-    //carry over if sum >= 10
-    
-    let num = curr1.value + curr2.value;
-    let array = JSON.stringify(num).split('');
-    let onesDigit = array[array.length - 1];
-    console.log('round', round);
-    console.log('ones', onesDigit);
-    if (num >= 10) {
-      //add 1 to next val
-      //adjust curr sum val to just be the one digit
-      //create new node
-      console.log('inside first if');
-      if (l3) {
-        console.log('inside l3 if statement');
-        console.log(l3, onesDigit);
-        l3.next = new Node(onesDigit);
-        
-        l3 = l3.next;
-        console.log(l3);
-      } else {
-        console.log('inside l3 else statement');
-        l3 = new Node(onesDigit);
-        result = l3;
-      }
-      curr1 = curr1.next;
-      curr2 = curr2.next;
-      curr1.value = curr1.value + 1;
-    } else {
-      console.log('inside 2nd if');
-      //create new node or 
-      //l3 = new Node(onesDigit);
-      (l3) ? l3.next = new Node(onesDigit) : l3 = new Node(onesDigit);
-      //set curr1 and 2 to curr1.next and curr2.next
-      curr1 = curr1.next;
-      curr2 = curr2.next;
+  //will be the returned list, val doesn't matter
+  let cur = new Node(null);
+  //keep track of the head to ultimately return its .next
+  const head = cur;
+  let sum = 0;
+  // we check sum in case of carryovers from end of lists
+  while (l1 || l2 || sum) {
+    if (l1) {
+      sum += l1.value;
+      l1 = l1.next;
     }
-    round += 1;
+    if (l2) {
+      sum += l2.value;
+      l2 = l2.next
+    }
+    //add the new Node to the returned list, module 10 will give us 
+    //either the # itself or the number minus 10 if > 9
+    cur.next = new Node(sum % 10);
+    //move to next digit in the list we're making
+    cur = cur.next;
+    //start the next iteration with a sum of 1 if we'rße carrying over 1
+    sum = sum > 9? 1 : 0;
   }
-  //console.log('curr3', curr3);
-  console.log('result', l3);
-  return l3;
+  return head.next;
 }
 
 let l1 = new Node(2);
