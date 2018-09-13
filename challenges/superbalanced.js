@@ -14,6 +14,8 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  // if 
+  if(!tree.value) return "balanced";
 
 }
 
