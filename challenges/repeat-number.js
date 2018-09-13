@@ -11,7 +11,13 @@
  */
 
 function repeatNumbers(array) {
-
+  if (!Array.isArray(array)) return undefined;
+  let sum = 0;
+  let arraySum = array.reduce((acc, cur, index) => {
+    sum += index;
+    return acc + cur;
+  });
+  return arraySum - sum;
 }
 
 module.exports = repeatNumbers;
