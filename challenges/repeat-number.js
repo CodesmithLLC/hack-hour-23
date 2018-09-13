@@ -11,7 +11,25 @@
  */
 
 function repeatNumbers(array) {
+    
+    // const obj = array.reduce((acc,next)=>{
+    //     acc[next]= (acc[next] || 0 ) + 1
+    //     return acc
+    // },{})
 
+    // for (let key in obj) {
+    //     if(obj[key] === 2){
+    //         return Number(key);
+    //     }
+    // }
+
+    array = array.sort((a, b) => a - b);
+
+    for(let i = 0; i < array.length; i++) {
+            if(array[i] === array[i+1]) {
+                    return array[i]
+            }
+    }
 }
 
 module.exports = repeatNumbers;
