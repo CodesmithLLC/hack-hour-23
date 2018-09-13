@@ -22,7 +22,7 @@ function repeatNumbers(array) {
     //         return Number(key);
     //     }
     // }
-
+   //console.log("key")
     array = array.sort((a, b) => a - b);
 
     for(let i = 0; i < array.length; i++) {
