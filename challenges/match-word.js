@@ -40,16 +40,13 @@ function matchWord(str) {
     }
   }
 
-  
-
   if(newParseData.length === 0) return true;
   else return false;
-
 }
 
 
-console.log(matchWord('__END_DNE-----'));
-console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
-console.log(matchWord('for__if__rof__fi'));
+// console.log(matchWord('__END_DNE-----'));
+// console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
+// console.log(matchWord('for__if__rof__fi'));
 
 module.exports = matchWord;
