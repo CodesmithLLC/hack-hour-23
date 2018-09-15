@@ -33,7 +33,35 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  if (!head || !head.next) return false;
 
+  let slowPointer = head;
+  let fastPointer = head.next;
+
+  while (fastPointer) {
+    if (slowPointer === fastPointer) return true;
+    else if (fastPointer.next && fastPointer.next.next) {
+      fastPointer = fastPointer.next.next;
+      slowPointer = slowPointer.next;
+    }
+    else return false;
+  }
+
+  return false;
 }
+
+const nodeA = new Node(1);
+const nodeB = new Node(1);
+const nodeC = new Node(1);
+const nodeD = new Node(1);
+const nodeE = new Node(1);
+
+nodeA.next = nodeB;
+nodeB.next = nodeC;
+nodeC.next = nodeD;
+nodeD.next = nodeE;
+nodeE.next = nodeB;
+
+console.log(hasCycle(nodeA));
 
 module.exports = {Node: Node, hasCycle: hasCycle}
