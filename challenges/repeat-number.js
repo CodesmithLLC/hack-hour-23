@@ -11,11 +11,10 @@
  */
 
 function repeatNumbers(array) {
-  let index = 0; 
-  for (let i = {}; index < array.length; index += 1) {
+  for (let i = {}, index = 0; index < array.length; index += 1) {
     const nextNum = array[index]
     if (i[nextNum]) return nextNum
-    i[nextNum] = nextNum; 
+    i[nextNum] = 1; 
   }
   return 'an array with no repeative number was not given'
 }
