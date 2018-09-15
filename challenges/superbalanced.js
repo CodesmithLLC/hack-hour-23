@@ -14,6 +14,11 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  if (this.value === 0) return 0;
+
+  if (this.left) this.superbalanced(this.left)
+
+  if (this.right) this.superbalanced(this.right)
 
 }
 

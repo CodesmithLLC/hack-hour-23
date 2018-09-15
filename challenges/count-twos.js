@@ -10,7 +10,24 @@
 
 
 function countTwos(num) {
+    let currentCount = 0
+    let cache = {};
+    let counter = 0;
+    let numToString;
 
+    function inner(num) {
+        while (currentCount < num) {
+        currentCount += 2;
+        numToString = currentCount.toString().split("")
+        numToString.forEach(function(ele) {
+            if (ele === '2') counter += 1;
+      })
+      
+    }
+  }
+  inner(num)
+  return counter;
 }
 
+console.log(countTwos(10))
 module.exports = countTwos;

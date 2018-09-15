@@ -34,6 +34,19 @@ var Node = function(value) {
 
 function hasCycle(head) {
 
+  if (!head || !head.next) return false;
+
+  let slowMove = head;
+  let fastMove = head;
+
+  while (fastMove.next.next) {
+    fastMove = fastMove.next.next;
+    slowMove = slowMove.next;
+
+    if (slowMove === fastMove) return true
+  }
+  return false;
+
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
