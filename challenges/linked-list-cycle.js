@@ -33,7 +33,17 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-
+  let perms = {};
+  let current = head;
+  while(current.next) {
+    if (perms[current.value]) {
+      return true;
+    } else {
+      perms[current.value] = current.next.value;
+    }
+    current = current.next;
+  }
+  return false
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
