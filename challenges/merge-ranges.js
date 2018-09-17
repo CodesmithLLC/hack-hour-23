@@ -11,7 +11,10 @@
 
 
 function mergeRanges(array) {
-
+  /**
+   * if l,r and l,r same, delete one
+   * if left === right , right's left becomes [0] and left's [1] becomes [1]
+   */
 }
 
 module.exports = mergeRanges;
