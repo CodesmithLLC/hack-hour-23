@@ -20,11 +20,13 @@ function mergeRanges(array) {
     //create a new array to store new all value
     const myArray = [];
     for(let i = 0; i < rangesSorted.length; i++) {
-        console.log(rangesSorted[i][0])
-        console.log(rangesSorted[i][1])
-        
-       
-    }       
+        //console.log(rangesSorted[i][1])
+        for(let k = rangesSorted[i][0]; k <= rangesSorted[i][1]; k++) {
+            myArray.push(k)
+        }
+    } 
+    let unique = [...new Set(myArray)]; 
+    //it seems hard to solve this way cuz need to find overlapping number to range try to use hayden solution//
 }
 mergeRanges([[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]])
 module.exports = mergeRanges;
