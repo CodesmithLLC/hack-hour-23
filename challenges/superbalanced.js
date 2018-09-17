@@ -14,6 +14,23 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  return treecode(tree) !== -2
+
+}
+
+function treecode(tree) {
+
+  if (!tree) return -1;
+
+  const leftCode = treecode(tree.left)
+  const rightCode = treecode(tree.right)
+
+  if (leftCode > -2 && rightCode > -2 && Math.abs(leftCode-rightCode) <= -1) {
+    return Math.max(leftCode, rightCode) + 1;
+  }
+  else {
+    return -2;
+  }
 
 }
 

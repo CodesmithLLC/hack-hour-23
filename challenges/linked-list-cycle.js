@@ -34,6 +34,29 @@ var Node = function(value) {
 
 function hasCycle(head) {
 
+  let isCycle = false
+  let storage = {};
+
+  while (head.value !== null) {
+    for ( let key in storage) {
+    if (storage[key] === head.value) { isCycle = true }
+    }
+    storage[head.value] = head.value
+    head.value = head.next
+
+  }
+
+  return isCycle;
 }
+
+
+  var node1 = new Node('1');
+  var node2 = node1.next = new Node('2');
+  var node3 = node2.next = new Node('3');
+  var node4 = node3.next = new Node('4');
+  var node5 = node4.next = new Node('5');
+  hasCycle(node1); // => false
+  node5.next = node2;
+  hasCycle(node1); // => true
 
 module.exports = {Node: Node, hasCycle: hasCycle}
