@@ -11,7 +11,15 @@
  */
 
 function repeatNumbers(array) {
-
+    function repeatNumbers(array) {
+        for(let i = 0; i < array.length; i++) {
+          if(typeof array[Number(array[i]) - 1] === 'string') {
+            return Number(array[i] - 1) + 1;
+          } else {
+            array[Number(array[i] - 1)] = String(array[Number(array[i] - 1)])
+          }
+        }
+      }
 }
 
 module.exports = repeatNumbers;
