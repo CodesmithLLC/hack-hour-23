@@ -22,7 +22,7 @@ function BinaryTree(value) {
 function superbalanced(tree) {
   if (!tree.left && !tree.right) return true;
 
-  if( tree.left ) 
+  if ( tree.left ) 
 }
 
 let bst = new BinaryTree(6);

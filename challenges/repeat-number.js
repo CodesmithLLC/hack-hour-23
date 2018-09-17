@@ -18,7 +18,6 @@ function repeatNumbers(array) {
       return array[i];
     }
   }
-
 }
 
 
