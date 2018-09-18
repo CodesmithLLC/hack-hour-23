@@ -8,7 +8,66 @@
  */
 
 function maxSubarray(arr) {
+    let newArr = arr;
+    let currentSum;
+    let maxSum = 0;
+    let retArr;
 
+    while (newArr.length !== 0){
+        for (let i = 0; i++; i < newArr.length) {
+            currentSum = 0;
+            for (let j = 0; j++; j <= i) {
+                currentSum = currentSum + newArr[j];
+            }
+            if (currentSum > maxSum) {
+              maxSum = currentSum;
+              retArr = [];
+              for(let x = 0; x++; x <= i) {
+                retArr.push(newArr[x]);
+              }
+            }
+        }
+        //something
+        newArr.shift();
+    }
+    return retArr;
 }
+
+
+
+
+
+
+
+
+
+//     let retArr;
+//     let newArr = arr;
+//     let maxSum = 0;
+    
+//     while (newArr.length !== 0) {
+//         let currentSum = 0;
+//         for (let i = 0; i++; i < newArr.length) {
+//             for (let j = 0; j++; j < )
+//             currentSum = currentSum + newArr[i]
+//             if (currentSum > maxSum) {
+//                 maxSum = currentSum;
+//                 retArr = [];
+//                 for(let x = 0; x++; x <= i) {
+//                     retArr.push(newArr[x]);
+//                 }
+//             }
+//         }
+//     }
+
+
+
+
+//     for (let i = 0; i++; i < arr.length){
+//         for (let j = 0; j++; j < i){
+//             if ()
+//         }
+//     }
+// }
 
 module.exports = maxSubarray;
