@@ -33,7 +33,29 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  let x = head;
+  let y = head;
+   while (y !== null && y.next !== null) {
+    x = x.next;
+    y = y.next.next;
+    if (x === y || (y && y.next === x)) {
+      return true;
+    }
+  }
+  return false;
 
 }
+// var node1 = new Node('1');
+//   var node2 = node1.next = new Node('2');
+//   var node3 = node2.next = new Node('3');
+//   var node4 = node3.next = new Node('4');
+//   var node5 = node4.next = new Node('5');
+// hasCycle(node1); // => false
+// node5.next = node2;
+// hasCycle(node1); // => true
+// console.log(hasCycle(node2));
 
 module.exports = {Node: Node, hasCycle: hasCycle}
+
+
+  

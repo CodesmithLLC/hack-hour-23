@@ -14,7 +14,14 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-
+// if tree is empty, it is balanced
+if (!tree) return true;
+const leftLevels = getLevels(tree.left);
+const rightLevels = getLevels(tree.right);
+// if difference in levels between left tree and right tree is > 1,
+// then it is not balanced
+if (Math.abs(leftLevels - rightLevels) > 1) return false;
+return superbalanced(tree.left) && superbalanced(tree.right);
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
