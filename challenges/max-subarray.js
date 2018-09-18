@@ -8,7 +8,21 @@
  */
 
 function maxSubarray(arr) {
+  const perms = [arr[0]];
 
+  if (arr.length === 1) {
+    return arr[0]
+  }
+
+  for (let i = 1; i < arr.length; i++) {
+    perms.push(perms[perms.length - 1] + arr[i])
+  }
+
+  const child = maxSubarray(arr.slice(1, arr.length))
+  const highestPerm = perms.sort((a, b) => a < b)[0];
+  
+  return highestPerm > child ? highestPerm : child
+ 
 }
 
 module.exports = maxSubarray;
