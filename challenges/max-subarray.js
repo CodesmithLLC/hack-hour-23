@@ -8,7 +8,27 @@
  */
 
 function maxSubarray(arr) {
+  const sum = [0];
 
+  // iterate through the array
+    //walk through the entire array at that element and keep track of the sum 
+    
+  while(arr.length !== 0){
+    let sumOfIndex = 0;
+    let temp = 0;
+    for(let x = 0; x < arr.length; x += 1){
+      temp += arr[x];
+      if(temp > sumOfIndex){
+        sumOfIndex = temp;
+      }
+    }
+    sum.push(sumOfIndex);
+    arr.shift();
+  }
+  
+  return Math.max(...sum);
 }
+
+// console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]))
 
 module.exports = maxSubarray;
