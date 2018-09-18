@@ -15,7 +15,7 @@ function repeatNumbers(array) {
     while (array[0] !== array[1]) {
         array.shift()
     };
-    return array[0] || 'No Duplicates'
+    return array[0] || 'No Duplicates';
 }
 
 module.exports = repeatNumbers;
