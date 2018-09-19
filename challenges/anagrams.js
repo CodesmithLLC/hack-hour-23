@@ -14,6 +14,17 @@
 
 function anagrams(string) {
 
+  let arr = [];
+  let newString = string.concat(string).concat(string);
+  let revString = newString.split('').reverse().join('');
+
+  for (let i = 0; i < string.length; i +=1) {
+    arr.push(newString.slice(i,i+3));
+    arr.push(revString.slice(i,i+3));
+  }
+
+  return arr;
 }
+
 
 module.exports = anagrams;

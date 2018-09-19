@@ -32,21 +32,53 @@ var Node = function(value) {
   this.next = null;
 }
 
-function hasCycle(head) {
+// solution 1: add a property to the node
 
-  let isCycle = false
-  let storage = {};
+function hasCycle(linkedlist) {
+  
+  // ===> Solution 1
+  // if (linkedlist) {
+  //   let curr = linkedlist;
 
-  while (head.value !== null) {
-    for ( let key in storage) {
-    if (storage[key] === head.value) { isCycle = true }
-    }
-    storage[head.value] = head.value
-    head.value = head.next
+  //   while( curr ) {
+  //     if (curr.seen) return true;
+  //     curr.seen = true
+  //     curr =curr.next
+  //   }
+  // }
 
+  // ===> solution 2 (rabbit and the hare)
+  if (linkedlist) return findCycle(linkedlist, linkedlist.next);
+
+  function findCycle(tortoise, hare) {
+    if ( tortoise === hare ) return true;
+    return hare !== null && hare.next !== null && findCycle(tortoise.next, hare.next.next)
   }
 
-  return isCycle;
+
+
+
+
+  //iterate the linked list 
+    // check if 'seen' property, return true
+    // otherwise put a seen property
+
+
+
+
+  // let isCycle = false
+  // let storage = {};
+
+  // while (head.value !== null) {
+  //   for ( let key in storage) {
+  //   if (storage[key] === head.value) { isCycle = true }
+  //   }
+  //   storage[head.value] = head.value
+  //   head.value = head.next
+
+  // }
+
+  // return isCycle;
 }
 
 
