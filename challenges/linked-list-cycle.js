@@ -28,7 +28,7 @@ var Node = function(value) {
   this.next = null;
 }
 
-// one way to do it, but dependant on the each node's value being unique
+// SOLUTION 1: My old way, but dependant on the each node's value being unique
 // also learned that building an obj in the for loop is not constant space
 // function hasCycle(head) {
 //   for (let i = head, obj = {}; i; i = i.next){
@@ -55,6 +55,34 @@ var Node = function(value) {
 //     }
 //   }
 // }
+
+
+// SOLUTION 2: add property to node solution
+// function hasCycle(linkedList) {
+//   if (linkedList) {
+//     let curr = linkedList;
+//     // iterate the linked list
+//     while (curr) {
+//       // check if seen property, return true
+//       if (curr.seen) return true;
+//       // otherwise put a seen property
+//       curr.seen = true;
+//       curr = curr.next
+//     }
+//   }
+//   return false
+// }
+
+// SOLUTION 3: tortoise and hare solution
+function hasCycle(linkedList) {
+  if (linkedList) return findCycle(linkedList, linkedList.next);
+  return false
+}
+
+function findCycle(tortoise, hare) {
+  if (tortoise === hare) return true;
+  return hare !== null && hare.next !== null && findCycle(tortoise.next, hare.next.next);
+}
 
 
 var node1 = new Node('1');
