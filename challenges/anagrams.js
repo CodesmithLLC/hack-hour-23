@@ -11,9 +11,17 @@
   * var result = anagrams('abc');
   * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
-
+ /*this is very fancy way to solve problems
+ var result = inputArray.reduce(function permute(res, item, key, arr) {
+  return res.concat(arr.length > 1 && arr.slice(0, key).concat(arr.slice(key + 1)).reduce(permute, []).map(function(perm) { return [item].concat(perm); }) || item);
+}, []);
+*/
 function anagrams(string) {
+  string = string.split('');
+  for(let i = 0; i < string.length; i++) {
+    console.log(string[i])
+  }
 
 }
-
+anagrams('abc')
 module.exports = anagrams;
