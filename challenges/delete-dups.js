@@ -17,15 +17,15 @@ function deleteDups(head) {
   let curr = head;
 
   while(curr.next) {
-    console.log(vals)
-    if (vals.includes(curr.value)) {
-      curr.value = curr.next.value
-    } else {
-      vals.push(curr.value)
+    curr = curr.next;   
+    vals.push(curr.value)
+    
+    if (vals.includes(curr.next.value)) {
+      curr.next = curr.next.next
     }
-    curr = curr.next;
   }
   return head
 }
+
 
 module.exports = deleteDups;
