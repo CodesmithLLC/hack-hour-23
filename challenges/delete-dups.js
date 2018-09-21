@@ -13,7 +13,11 @@
 
 
 function deleteDups(head) {
-
+  if (!head || !head.next) {
+    console.log('no duplicates');
+    return;
+  }
+  
 }
 
 module.exports = deleteDups;
