@@ -3,16 +3,17 @@
  * Make an EventEmitter that
  *
  * Example:
- * var instance = new EventEmitter();
- * var counter = 0;
- * instance.on('increment', function() {
- *   counter++;
- * }); // counter should be 0
- * instance.trigger('increment'); // counter should be 1
- * instance.trigger('increment'); // counter should be 2
- *
- *
- * Caveats:
+ */
+//  var instance = new EventEmitter();
+//  var counter = 0;
+//  instance.on('increment', function() {
+//    counter++;
+//  }); // counter should be 0
+//  instance.trigger('increment'); // counter should be 1
+//  instance.trigger('increment'); // counter should be 2
+
+
+ /* Caveats:
  * - If we repeatedly call .on with the same event name, it should
  *   continue to call the old function(s) as well. That is to say, we can have multiple
  *   listeners for one event.
@@ -22,15 +23,34 @@
  */
 
 function EventEmitter() {
-
+  this.listeners = {}
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  if (!this.listeners[funcName]) {
+    this.listeners[funcName] = [func]
+  } else {
+    this.listeners[funcName].push(func)
+  }
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  for (let i = 0; i < this.listeners[funcName].length; i += 1) {
+    this.listeners[funcName][i](...args)
+  }
 };
+
+var instance = new EventEmitter();
+var counter = 0;
+instance.on('increment', function(num1, num2) {
+  counter += num1 + num2;
+}); // counter should be 0
+instance.on('increment', function(num1, num2) {
+  counter += num1 - num2;
+}); // counter should be 0
+instance.trigger('increment', 1, 1); // counter should be 1
+instance.trigger('increment', 2, 2); // counter should be 2
+
+console.log(counter)
 
 module.exports = EventEmitter;
