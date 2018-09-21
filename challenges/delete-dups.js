@@ -13,7 +13,22 @@
 
 
 function deleteDups(head) {
-
+  if (typeof head !== 'object') return undefined;
+  if (head.next === null) return head;
+  const set = new Set([head.value]);
+  const list = head;
+  let previousNode = list;
+  let currentNode = list.next;
+  while (currentNode !== null) {
+    if (!set.has(currentNode.value)) {
+      set.add(currentNode.value);
+    } else {
+      previousNode.next = currentNode.next;
+    }
+    previousNode = previousNode.next;
+    currentNode = currentNode.next;
+  }
+  return list;
 }
 
 module.exports = deleteDups;
