@@ -12,7 +12,11 @@ findInOrderedSet(nums, 2);  -> false
 
 function findInOrderedSet(arr, target) {
 
+  const set1 = new Set(arr);
+  // console.log(set1);
+  return set1.has(target);
 }
-
+// var nums = [1, 4, 6, 7, 9, 17, 45]
+// console.log(findInOrderedSet(nums, 18));  //-> true
 
 module.exports = findInOrderedSet;
