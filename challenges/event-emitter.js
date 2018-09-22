@@ -22,15 +22,38 @@
  */
 
 function EventEmitter() {
-
+ this.storage = {}
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+    this.storage[funcName] = func;
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+    for(let key in this.storage) {
+        if(funcName === key) {
+            let store = this.storage[key]
+            store(...args)
+        }
+    }
 };
-
+var instance = new EventEmitter();
+var counter = 0;
+instance.on('increment', function() {
+  counter++;
+}); 
+//counter should be 0
+instance.on('add', function() {
+  counter++;
+}); 
+// counter should be 0
+// instance.on('dec', function() {
+//   counter--;
+// }); // counter should be 0
+// instance.trigger('increment'); // counter should be 1
+// console.log(counter);
+// instance.trigger('add'); // counter should be 2
+// console.log(counter);
+// instance.trigger('dec');
+console.log(counter);
 module.exports = EventEmitter;
