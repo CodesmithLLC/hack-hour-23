@@ -17,15 +17,23 @@ function Node(value) {
 
 function deleteDups(head) {
   let curr = head;
-  let other = head;
+  let other = curr.next;
   //while loop through ll
   const obj = {};
-  while (curr.next) {
-    obj[curr.value] = (obj[curr.value] || 0) + 1
-    if (obj[curr.value] > 1) {
+  obj[curr.value] = 1;
+  while (other) {
+    obj[other.value] = (obj[other.value] || 0) + 1
+    console.log(obj[other.value]);
+    if (obj[other.value] > 1) {
       //remove node
+      console.log(curr.next, other.next);
+      curr.next = other.next
+    } else {
+      curr = other;
     }
+    other = other.next;
   }
+  return head;
 }
 
 
