@@ -13,7 +13,20 @@
   */
 
 function anagrams(string) {
+  let result = [];
 
 }
 
-module.exports = anagrams;
+function helperAnagram(firstChar, remain) {
+  if(!! remain) {
+    return [firstChar];
+  }
+  let result = [];
+
+  helperAnagram(remain[0], remain.substring(1)).forEach(elm => {
+    result.push(firstChar + elm)
+  })
+  return result;
+}
+
+ module.exports = anagrams;
