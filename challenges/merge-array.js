@@ -13,8 +13,17 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
+ // input: two arrays of numbers and sort them from lowest to greatest.
+ // push all elements into one array and then sort method.
 
-}
+ function mergeArrays(arr1, arr2) {
+    const sorted = arr2;
+    for (let i = 0; i < arr1.length; i++) {
+      sorted.push(arr1[i]);
+    }
+     return sorted.sort(function(a, b) {
+      return a - b;
+   });
+  };
 
 module.exports = mergeArrays;

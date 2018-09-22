@@ -13,8 +13,17 @@
 
 */
 
-function drawStairs(n) {
 
+//input: n parameter -> represents a number between 1 and 100.
+//output: console.log of asterisks starting with 1 then to you input number.
+//tools: for loop to iterate through number, recursion? base case?
+
+function drawStairs(n) {
+  for (let i = 1; i <= n; i++) {
+  	if (i <= 1 && i <= 100) {
+  	  return console.log("*");
+  	}
+  }
 }
 
 

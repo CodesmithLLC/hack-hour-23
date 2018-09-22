@@ -22,7 +22,11 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  if (!head ) {
+    head === "undefined"  
+  } else if () {
 
+  })
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};

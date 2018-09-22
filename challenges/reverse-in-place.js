@@ -13,8 +13,16 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
+//input: array no split() or join() needed since you are not dealing with an array.
+//Cannot use reverse method. Cannot create new spaces in memory................
+//Need to iterate through the array until change the positions/index of the values.
+//while loop or for loop?
+//
 
+function reverseInPlace(array) {
+  for (let i = 0; i < array.length; i++) {
+      
+  }
 }
 
 module.exports = reverseInPlace;
