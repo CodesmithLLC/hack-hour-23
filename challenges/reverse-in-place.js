@@ -13,8 +13,22 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
 
+// 
+
+function reverseInPlace(array) {
+    console.log(array)
+    let newArr = array.concat(array);
+    
+
+    console.log(newArr)
 }
+
+
+
+let myArr = [1,2,3,4,5,6]
+
+reverseInPlace(myArr)
+
 
 module.exports = reverseInPlace;
