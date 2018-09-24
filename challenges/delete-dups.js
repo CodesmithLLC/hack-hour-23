@@ -23,7 +23,7 @@ var node6 = node5.next = new Node('4');
 
 
 // one version. Stores the values in head for checking. Did this to avoid a temp buffer
-// though not 100% sure this is what it means by temp buffer lolz
+// though this is not considered a temp buffer
 function deleteDups(head) {
   let pointer = head.next;
   let prev = head
@@ -39,6 +39,30 @@ function deleteDups(head) {
     }
   }
   return head; 
+}
+
+// no temp buffer
+function deleteDups(head) {
+  // define main node
+  let main = head;
+  
+  // loop through list with main node
+  while (main) {
+    // define forward node
+    let forward = main;
+    
+    // loop through list with forward node
+    while (forward.next) {
+      // if main value equals forward's next's value, remove forward's next node
+      if (main.value === forward.next.value)
+        forward.next = forward.next.next;
+      // otherwise, go to next forward node
+      else
+        forward = forward.next;
+    }
+    // always advance main node
+    main = main.next;
+  }
 }
 
 console.log(deleteDups(node1))
