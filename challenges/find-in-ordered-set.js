@@ -11,8 +11,10 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-
+    return arr.includes(target);
 }
 
+var nums = [1, 4, 6, 7, 9, 17, 45]
+findInOrderedSet(nums, 4);
 
 module.exports = findInOrderedSet;

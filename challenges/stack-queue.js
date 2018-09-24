@@ -4,7 +4,8 @@
 
 
 function Stack() {
-
+    this.storage ={};
+    this.length =0; 
 }
 
 
