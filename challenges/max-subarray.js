@@ -9,21 +9,20 @@
 
 function maxSubarray(arr) {
 
-    // instantiate an empty array
-    let myArr = [];
-    // instantiate an empty object
-    let myObj = {};
-    // set addition window to a single digit
+    // 1st Attempt ===> 
+    // // instantiate an empty array
+    // let myArr = [];
+    // // instantiate an empty object
+    // let myObj = {};
+    // // set addition window to a single digit
 
-    for (let i = 0; i < arr.length; i += 1) {
-        myArr.push(arr[i])
-        let tempArr = []
-        tempArr = myArr.reduce((a,b) => {return a+b})
-        myObj[myArr] = tempArr
-        myArr = []
-    }
-
-    console.log(myObj)
+    // for (let i = 0; i < arr.length; i += 1) {
+    //     myArr.push(arr[i])
+    //     let tempArr = []
+    //     tempArr = myArr.reduce((a,b) => {return a+b})
+    //     myObj[myArr] = tempArr
+    //     myArr = []
+    // }
 
     // slide window over the array to determine sum of contents
 
@@ -35,14 +34,26 @@ function maxSubarray(arr) {
 
 
 
-    // start with the whole array and grab it's sum
-    let total = arr.reduce((a,b)=> {
-        return a+b;
-    })
-    console.log(total)
+    // // start with the whole array and grab it's sum
+    // let total = arr.reduce((a,b)=> {
+    //     return a+b;
+    // })
+    // console.log(total)
     
-    // shrink the 
 
+    // 2nd Attempt ===> 
+    // set accumulated sum and maximum sum to negative infinity to start
+    let accumulated = -Infinity, max = -infinity;
+
+    // run through array
+    for (const num of arr) {
+        //accumulated sum will either be higher than num or it wont
+        accumulated = Math.max(accumulated + num, num)
+        //
+        max = Math.max(max, accumulated)
+    }
+
+    return max;
 };
 
 console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));

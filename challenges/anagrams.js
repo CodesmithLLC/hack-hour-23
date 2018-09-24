@@ -14,16 +14,46 @@
 
 function anagrams(string) {
 
-  let arr = [];
-  let newString = string.concat(string).concat(string);
-  let revString = newString.split('').reverse().join('');
+  // === ** SOLUTION 1 ** ==== 
+  // let arr = [];
+  // let newString = string.concat(string).concat(string);
+  // let revString = newString.split('').reverse().join('');
 
-  for (let i = 0; i < string.length; i +=1) {
-    arr.push(newString.slice(i,i+3));
-    arr.push(revString.slice(i,i+3));
-  }
+  // for (let i = 0; i < string.length; i += 1) {
+  //   arr.push(newString.slice(i,i+string.length));
+  //   arr.push(revString.slice(i,i+string.length));
+  // }
 
-  return arr;
+  // return arr;
+
+  // === ** SOLUTION 2 ** ===
+  // For each character going to get the remainder and then recurse the remainder
+
+  // Create a store for permutations
+  const perms = [];
+
+  //define a base case that returns an empty stirng
+  if (string.length) return [''];
+
+  // iterate over the characters 
+  string.split('').forEach((char, i) => {
+    //splice out the current char and get remainder 
+    const remainder = string.slice(0,1) + string.slice(i + 1);
+
+    //make a recursive call on the remainder
+    const subPerms = anagrams(remainder)
+
+    // for each permutation concat the current char
+    subPerms.forEach(subPerm => {
+      perms.push(subPerm + char)
+    })
+  })
+
+  //remove the duplicates
+  return [ ... new Set(perms)]
+
+
+
 }
 
 
