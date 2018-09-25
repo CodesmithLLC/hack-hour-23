@@ -12,19 +12,7 @@
 function uniqueNumber(array) {
     let result = 0;
     for(let i = 0; i < array.length; i++) {
-        if(array[i] < 0) {
-          if(result + array[i] >= 0) {
-            result += array[i];
-          } else {
-            result -= array[i];
-          }
-        } else {
-          if(result - array[i] >= 0) {
-              result -= array[i];
-          } else {
-              result += array[i];
-          }
-        }
+      result ^= array[i];
     }
 
     return result;
