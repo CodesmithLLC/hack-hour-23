@@ -23,13 +23,16 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  let current = head;
-  const values = [];
-  while(current){
-    values.push(current.value)
-    current = current.next;
+  var lead = head;
+  var follow = head;
+  for (var i = 0; i < k && lead; i++) {
+    lead = lead.next;
   }
-  return values[values.length-k]
+  while (lead && follow) {
+    lead = lead.next;
+    follow = follow.next;
+  }
+  return follow.value;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
