@@ -13,7 +13,31 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+  if (!tree) return false;
+  if (!tree.left && !tree.right) return true;
 
+  const failed = false;
+  const testCase = -Infinity;
+  function traverseTree(node) {
+    if (failed) return; // stop traversing tree
+
+    if (node.left !== null) traverseTree(node.left);
+
+    // if the value is less then we do not have a bst
+    if (node.val < testCase) {
+      failed = true;
+      return;
+    }
+    // if the value is more than we are on track
+    if (node.val > testCase) {
+      testCase = node.val;
+    }
+
+    if (node.right !== null) traverseTree(node.right);
+  }
+
+  traverseTree(tree);
+  return !failed;
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};

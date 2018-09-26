@@ -14,7 +14,18 @@
  */
 
 function mergeArrays(arr1, arr2) {
+  if (!arr1 && !arr2) return [];
+  if (!arr1 || arr1.length === 0) return arr2;
+  if (!arr2 || arr2.length === 0) return arr1;
+  const newArr = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length || j < arr2.length) {
+    if (j >= arr2.length || arr1[i] < arr2[j]) newArr.push(arr1[i++]);
+    else if (i >= arr1.length || arr2[j] < arr1[i]) newArr.push(arr2[j++]);
+  }
 
+  return newArr;
 }
 
 module.exports = mergeArrays;

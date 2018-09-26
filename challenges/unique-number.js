@@ -10,7 +10,18 @@
  *
  */
 function uniqueNumber(array) {
-
+  if (!Array.isArray(array) || array.length === 0) return false;
+  if (array.length % 2 === 0) return false;
+  
+  let answer = array[0];
+  for (let i = 1; i < array.length; i++) {
+    answer = answer ^ array[i];
+  }
+  return answer;
 }
+
+console.log(uniqueNumber([1,2,1,3,3])); //-> 2
+console.log(uniqueNumber([1,2,1,3,3, 2, 4])); //-> 2
+
 
 module.exports = uniqueNumber;

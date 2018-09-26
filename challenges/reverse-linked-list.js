@@ -14,7 +14,19 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+  if (!head || !head.next) return head;
+  let ftemp = head.next;
+  let stemp = ftemp.next;
+  head.next = null;
 
+  do {
+    ftemp.next = head;
+    head = ftemp;
+    ftemp = stemp;
+    if (stemp) stemp = ftemp.next;
+  } while (ftemp);
+
+  return head;
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};

@@ -25,7 +25,44 @@
  */
 
 function balancedParens(input){
+  if (input.length <= 1) return false;
+  input = input.split('');
+  let stack = [];
 
+  const allMatches = input.every(char => {
+    //add openers to the stack
+    if (char === "(" || char === "[" || char === "{") {
+      stack.push(char);
+      return true;
+    }
+
+    //check if closer matches top of stack
+    if (char === ")" || char === "]" || char === "}") {
+      let temp = stack.pop();
+      switch(char) {
+        case ')':
+          if (temp === '(') return true; 
+        case ']':
+          if (temp === '[') return true;
+        case '}':
+          if (temp === '{') return true;
+        default:
+          return false; //mismatch
+      }
+    }
+
+    //ignore other characters
+    return true;
+  })
+
+  //check to see if stack is empty
+  return (allMatches && stack.length === 0);
 }
+console.log(balancedParens('(())')); // true
+console.log(balancedParens("[](){}")); // true
+console.log(balancedParens("[({})]"));   // true
+console.log(balancedParens("[(]{)}")); // false
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
 
 module.exports = balancedParens;
