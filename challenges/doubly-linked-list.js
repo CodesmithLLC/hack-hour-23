@@ -17,6 +17,10 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
+  if (!this.head) {
+    this.head = new Node(val);
+    this.tail = this.head;
+  }
   this.tail.next = new Node(val);
   this.tail.next.prev = this.tail;
   this.tail = this.tail.next;
@@ -26,6 +30,8 @@ LinkedList.prototype.add = function(val) {
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
+  if (!this.head) return;
+  
   let temp = this.head;
   while (temp) {
     if (temp.val === val) {
