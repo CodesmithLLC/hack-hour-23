@@ -11,7 +11,11 @@
  */
 
 function repeatNumbers(array) {
-
+    array = array.sort((a, b) => a - b);
+    while (array[0] !== array[1]) {
+        array.shift()
+    };
+    return array[0] || 'No Duplicates';
 }
 
 module.exports = repeatNumbers;

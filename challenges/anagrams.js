@@ -12,8 +12,21 @@
   * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-function anagrams(string) {
-
+function anagrams(input, curr = 0, results = []) {
+  // if (!Array.isArray(input)) {
+  //   input = input.split('')
+  // }
+  // console.log(input)
+  // if (input.length >= 4) {
+  //   curr = input.shift()
+  //   const result = anagrams(input, curr, results)
+  // } else {
+    
+  // }
+  // console.log(curr)
+  // console.log(input)
 }
+
+console.log(anagrams('abc'))
 
 module.exports = anagrams;
