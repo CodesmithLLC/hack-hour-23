@@ -10,7 +10,19 @@
  */
 
 function getAllProducts(array) {
-
+    let result = [];
+    for(let i = 0; i < array.length; i ++) {
+        let currentCalc = array[i];
+        for(let j = i + 2; j < array.length + i; j++) {
+            if(j < array.length) {
+                currentCalc *= array[j];
+            } else if (typeof array[j - array.length] === 'number'){
+                currentCalc *= array[j - array.length];
+            }
+        }
+        result.push(currentCalc);
+    }
+    return result;
 }
 
 module.exports = getAllProducts;
