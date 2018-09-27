@@ -47,6 +47,7 @@ console.log(stack.push(10));
 console.log(stack.push(7));
 console.log(stack.getMax());
 console.log(stack.pop());
-
+console.log(stack.pop());
+console.log(stack.getMax());
 
 module.exports = Stack;
