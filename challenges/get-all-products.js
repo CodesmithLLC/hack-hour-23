@@ -8,9 +8,16 @@
  *
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
-
+//Make two loop
 function getAllProducts(array) {
+    const result = [];
 
+    for(let i = 0; i< array.length; i++) {
+
+        for(let j = i+1; j < array.length; j++) {
+            if(let )
+        }
+    }
 }
 
 module.exports = getAllProducts;
