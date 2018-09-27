@@ -20,7 +20,6 @@ LinkedList.prototype.add = function(val) {
   this.tail.next = new Node(val);
   this.tail.next.prev = this.tail;
   this.tail = this.tail.next;
-
 };
 
 /*
