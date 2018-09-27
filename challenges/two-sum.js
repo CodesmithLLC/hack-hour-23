@@ -3,7 +3,13 @@
  */
 
 function twoSum(arr, n) {
-
+    let ob = {};
+    for(let i in arr){
+        ob[arr[i]] = i;
+        if(!!ob[n - arr[i]]){
+            return [ob[n - arr[i]], i];
+        }
+    }
 }
 
 module.exports = twoSum;

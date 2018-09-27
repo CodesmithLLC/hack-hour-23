@@ -8,7 +8,7 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
+function subsetSum(array, target, i) {
 
 }
 

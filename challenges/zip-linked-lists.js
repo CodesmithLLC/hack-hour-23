@@ -9,8 +9,34 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
-
 function zip(l1, l2) {
+  let head = l1;
+
+  if(!l1){return l2};
+  if(!l2){return l1};
+
+  while(l1 && l2){
+
+    let nextNode1 = l1.next; //store temporary variables
+    let nextNode2 = l2.next;
+
+    if(l1.next && l2.next){
+      
+
+      l1.next = l2;            //zip current nodes
+      l2.next = nextNode1;
+  
+    } else {
+      l1.next = l2;
+    }
+    
+    l1 = nextNode1;          //move on
+    l2 = nextNode2;
+  }
+
+  return head;
+
 };
+
 
 module.exports = {Node: Node, zip: zip};

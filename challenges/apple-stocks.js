@@ -13,6 +13,25 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    let stocks = stock_prices_yesterday;
+    //find lowest
+    let high = 0;
+    for(let i in stocks){ if(stocks[i] > high) high = i }
+    
+    let low = 0;
+    for(let i in stocks){ if(stocks[i] < low) low = i }
+    //find highest
+
+    if(low < high){ return [low, high] }
+    else if (low > high){
+        return bestProfit(stocks.splice(low, 1));
+    }
+
+
+    //see if lowest comes before highest
+    //if so, return that pair of indeces
+    //otherwise, remove the lowest and try again
+
 
 }
 
