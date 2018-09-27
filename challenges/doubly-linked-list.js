@@ -45,7 +45,7 @@ LinkedList.prototype.remove = function(val) {
     this.head.prev = null;
   }
   let currentNode = this.head;
-  while (currentNode !== null) {
+  while (currentNode.val !== val) {
     if (currentNode.val === val) {
       // {A}      {B}      null
       //  ^-----------------^
