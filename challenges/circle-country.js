@@ -23,7 +23,21 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+    let passedThrough = 0;
 
+    for(let i = 0; i < x.length; i++) {
+        if(!(distance(x[i], start_x, y[i], start_y) <= r[i] && distance(x[i], end_x, y[i], end_y) <= r[i])) {
+           if(distance(x[i], end_x, y[i], end_y) < r[i] || distance(x[i], start_x, y[i], start_y) < r[i]) {
+            passedThrough ++;
+        }
+      }
+    }
+
+    return passedThrough;
+}
+
+function distance(x1, x2, y1, y2) {
+    return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
 }
 
 module.exports = circleCountry;
