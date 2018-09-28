@@ -15,9 +15,9 @@ function getAllProducts(array) {
     for(let i = 0; i< array.length; i++) {
 
         for(let j = i+1; j < array.length; j++) {
-            if(let )
+            console.log(array[i],array[j])
         }
     }
 }
-
+getAllProducts([1, 7, 3, 4])
 module.exports = getAllProducts;
