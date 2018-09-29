@@ -18,6 +18,7 @@ function Stack() {
     return this.arr.length;
   };
   this.pop = () => {
+    if(!this.arr.length) return undefined;
     return this.arr.shift();
   }
   this.getMax = () => {
@@ -28,6 +29,31 @@ function Stack() {
       return tempArr[tempArr.length - 1];
     }
     return undefined;
+  }
+}
+
+class Stack {
+  constructor(){
+    this.storage = {};
+    this.length = 0;
+    this.maxValue = 0;
+  }
+
+  push(value) {
+    this.storage[this.length++] = value
+  }
+
+  pop() {
+    if(this.length !== 0) {
+      const deletedValue = this.storage[0];
+      delete this.storage[0];
+      return deletedValue;
+    }
+    return undefined;
+  }
+
+  getMax() {
+    
   }
 }
 
