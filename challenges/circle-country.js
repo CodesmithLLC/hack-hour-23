@@ -23,7 +23,27 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  // does circle i contain the coordinate (x,y)
+  function contains(i, coord_x, coord_y) {
+    const a = x[i] - coord_x;
+    const b = y[i] - coord_y;
+    // pythag theorem
+    return a * a + b * b < r[i] * r[i];
+  }
 
+  // total num of circles
+  let total = 0;
+
+  // loop through circles
+  for (let i = 0; i < x.length; i++) {
+    const startContains = contains(i, start_x, start_y);
+    const endContains = contains(i, end_x, end_y);
+
+    // slick, coercing booleans into numbers
+    total += (startContains != endContains);
+  }
+
+  return total;
 }
 
 module.exports = circleCountry;
