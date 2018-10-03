@@ -60,7 +60,7 @@ const jazbook = [
 console.log(findName(jazbook, 'travis'));
 
 const phoneBook = makePhoneBookObject(jazbook);
-console.log(phoneBook.lookUpNumber('travis'));
+console.log(phoneBook.travis);
 
 const objectToExport = {
   findName,
