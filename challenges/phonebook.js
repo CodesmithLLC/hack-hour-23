@@ -24,14 +24,58 @@
 * complete with methods to add new names and look up and remove existing entries
 */
 
+/**
+ * Find a phone number matching a name in the Jazbook
+ * @param {Object} jazbook - Array of first names and phone numbers
+ * @param {string} name - Name to look up in Jazbook
+ */
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+  const number = jazbook.reduce((acc, cur) => {
+    if (cur[0] === name) return cur[1];
+    else return acc;
+  }, false);
+  return number;
 }
 
+/**
+ * Returns an object version of a jazbook array
+ * @param {Object} jazbook - Array of first names and phone numbers
+ */
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook){
+  const jazbookObj = {};
 
+  /**
+   * 
+   * @param {string} name - Finds phone number of name in jazbook 
+   */
+  jazbookObj.prototype.findEntry = (name) => {
+    if (jazbookObj[name]) return jazbookObj[name];
+    else return false;
+  }
+
+  /**
+   * 
+   * @param {string} name - Name of new entry in jazbook 
+   * @param {string} number - Phone number of new entry in jazbook
+   */
+  jazbookObj.prototype.addEntry = (name, number) => {
+    jazbookObj[name] = number;
+  }
+
+  /**
+   * 
+   * @param {string} name - Delete jazbook entry that matches this name 
+   */
+  jazbookObj.prototype.removeEntry = (name) => {
+    if (jazbookObj[name]) delete jazbookObj[name];
+  }
+
+  jazbook.forEach((arr) => {
+    jazbookObj[arr[0]] = arr[1];
+  });
+  return jazbookObj;
 }
 
 const objectToExport = {
