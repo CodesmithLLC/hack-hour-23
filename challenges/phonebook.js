@@ -39,11 +39,9 @@ function makePhoneBookObject(jazbook){
     phoneBook[person[0]] = person[1];
   })
   return {
+    ...phoneBook,
     addName: (name, number) => {
       phoneBook[name] = number;
-    },
-    lookUpNumber: (name) => {
-      return phoneBook[name];
     },
     removeName: (name) => {
       delete phoneBook[name];
@@ -62,7 +60,7 @@ const jazbook = [
 console.log(findName(jazbook, 'travis'));
 
 const phoneBook = makePhoneBookObject(jazbook);
-console.log(phoneBook.lookUpNumber('travis'));
+console.log(phoneBook.travis);
 
 const objectToExport = {
   findName,
