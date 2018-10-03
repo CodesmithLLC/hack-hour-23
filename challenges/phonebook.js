@@ -39,11 +39,9 @@ function makePhoneBookObject(jazbook){
     phoneBook[person[0]] = person[1];
   })
   return {
+    ...phoneBook,
     addName: (name, number) => {
       phoneBook[name] = number;
-    },
-    lookUpNumber: (name) => {
-      return phoneBook[name];
     },
     removeName: (name) => {
       delete phoneBook[name];
