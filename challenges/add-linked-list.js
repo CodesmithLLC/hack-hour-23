@@ -18,7 +18,49 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  // have a holder for the tenths place
+    // carry this over to the next digit
+  let carry = 0;
+  let l3;
+  // l1 = l1.next;
+  // l2 = l2.next;
 
+  while(l1 !== null || l2 !== null) {
+    let total = carry + l1.value + l2.value;
+    
+    if(total.toString().length === 2) {
+      carry = 1;
+      total = total % 10;
+    }else {
+      carry = 0;
+    }
+    
+    l3 = new Node(total);
+    console.log(l3.value);
+    l1 = l1.next;
+    l2 = l2.next;
+    l3 = l3.next;
+  }
+
+  return l3
 }
+
+
+let l1 = new Node(2);
+l1.next = new Node(1);
+l1.next.next = new Node(5);
+let l2 = new Node(5);
+l2.next = new Node(9);
+l2.next.next = new Node(2);
+
+
+function print(l3) {
+  while(l3 != null) {
+    console.log(l3.value);
+    l3 = l3.next;
+  }
+}
+
+print(addLinkedList(l1,l2));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
