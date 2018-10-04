@@ -10,8 +10,36 @@
 //  example input:
 // var str = "(4 5)"
 
+/**
+ * 
+ * @param {string} str - Position of knight on the board given as (x y) 
+ */
 function knightjumps(str) {
-
+  // check if str is a string
+  if (typeof str !== 'string') return undefined;
+  // create an array of numbers from the string
+  const position = str.replace(/[()]/g, '').split(' ').map(str => Number(str));
+  // declare maximum and minimum coordinates for the board
+  const max = 8;
+  const min = 1;
+  // check if the starting position is on the board
+  if (position[0] < min || position[0] > max || position[1] < min || position[1] > max) return 0;
+  // intialize a variable to count the number of knight jumps
+  let jumps = 0;
+  for (let i = 0; i <= 1; i++) {
+    for (let j = 1; j > -1; j--) {
+      if (position[i] + 2 < max) {
+        if (position[j] + 1 <= max) jumps += 1;
+        if (position[j] - 1 >= min) jumps += 1;
+      }
+      if (position[i] - 2 > min) {
+        if (position[j] + 1 <= max) jumps += 1;
+        if (position[j] - 1 >= min) jumps += 1;
+      }
+    }
+  }
+  // return the number of jumps
+  return Math.floor(jumps/2);
 }
 
 module.exports = knightjumps;
