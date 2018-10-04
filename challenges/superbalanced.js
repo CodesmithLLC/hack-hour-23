@@ -14,7 +14,35 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  // if the tree is empty, return true
+  // the difference between heights of left subtree and right subtree has to be <= 1
+  const result = isBalanced(tree, 0);
 
+  if(result <= 1) {
+    return true;
+  }else {
+    return false;
+  }
+
+  // traverse through the left subtree and count the depth?
+    // do the same for the right subtree
+    // after you're doing traversing through both subtrees, calculate the difference?
+}
+
+function isBalanced(tree, depth) {
+  if(tree === null) {
+    return depth;
+  }
+
+  let count = depth + 1;
+
+  let leftDepth = isBalanced(tree.left, count);
+  let rightDepth = isBalanced(tree.right, count);
+
+  const left = Math.max(leftDepth, rightDepth);
+  const right = Math.min(leftDepth, rightDepth);
+
+  return left - right;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};

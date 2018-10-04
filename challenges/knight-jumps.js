@@ -11,7 +11,29 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  // parse the string into an int
+  const x = Number(str.charAt(1));
+  const y = Number(str.charAt(3));
+  let numOfMoves = 0;
+  // left up
+  if (y - 3 >= 1 && x >= 1) numOfMoves++;
+  // left down
+  if (y - 3 >= 1 && x <= 8) numOfMoves++;
+  // right up
+  if (y + 3 <= 8 && x >= 1) numOfMoves++;
+  // right down
+  if (y + 3 <= 8 && x <= 8) numOfMoves++;
+  // up left
+  if (x + 3 <= 8 && y >= 1) numOfMoves++;
+  // up right
+  if (x + 3 <= 8 && y <= 8) numOfMoves++;
+  // down left
+  if (x - 3 >= 1 && y >= 1) numOfMoves++;
+  // down right
+  if (x - 3 >= 1 && y <= 8) numOfMoves++;
 
+  return numOfMoves;
 }
+
 
 module.exports = knightjumps;
