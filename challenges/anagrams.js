@@ -23,7 +23,9 @@ const anagrams = (string, start) => {
     //starting at next letter until the end of string, and current letter of string at i as start
     let innerResult = anagrams(string.substring(0, i) + string.substring(i + 1), string[i])
     //loop through innerResult length, result.push(start + innerResult[j])
+    console.log('innerRes', innerResult);
     for (let j = 0; j < innerResult.length; j += 1) {
+      console.log('start', start)
       result.push(start + innerResult[j]);
     }
   }
