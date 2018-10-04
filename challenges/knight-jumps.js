@@ -11,7 +11,7 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-  if (parseInt(str[1]) % 8 <= 1 && parseInt(str[3]) % 8 <= 1) return 4
+  if (parseInt(str[1]) % 8 <= 1 && parseInt(str[3]) % 8 <= 1) return 3
   else if (parseInt(str[1]) % 8 <= 1 || parseInt(str[3]) % 8 <= 1) return 5
   else return 8
 }
