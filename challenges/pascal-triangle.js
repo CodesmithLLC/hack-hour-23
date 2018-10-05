@@ -33,20 +33,32 @@
 */
 function memo(){
   let cache = {};
-  return function inner(numRows) {
-    //base case item is in cache or is just 1
-    if(numRows === 1) return [1];
-    else {
-      let higherLevel = inner(numRows - 1);
-      let result = new Array(higherLevel + 1);
-      for(let i = 0; i < result.length; i++){
-        let addend1 = higherLevel[i - 1] || 0;
-        let addend2 = higherLevel[i] || 0
-        result[i] = addend1 + addend2
+  return function func(numRows){
+    let triangle = [];
+    function inner(numRows) {
+      //base case item is in cache or is just 1
+      if(numRows === 1) return [1];
+      else {
+        let higherLevel = inner(numRows - 1);
+        triangle.push(higherLevel);
+        let result = new Array(higherLevel + 1);
+        for(let i = 0; i < higherLevel.length + 1; i++){
+
+          let addend1 = higherLevel[i - 1] || 0;
+          let addend2 = higherLevel[i] || 0
+          result[i] = addend1 + addend2
+        }
+        return result;
       }
-      return result;
     }
+    if(cache.hasOwnProperty(numRows)){ return cache[numRows]}
+    else { 
+      inner(numRows);
+      cache[numRows] = triangle
+    }
+    return triangle
   }
+
 }
 
 let pascalTriangle = memo();
