@@ -23,6 +23,56 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+    //find out how many circles deep you are
+    const startPos = [start_x, start_y];
+    const endPos   = [end_x, end_y];
+
+    const dist = (pos1, pos2) => {
+        const a = pos1[0] - pos2[0];
+        const b = pos1[1] - pos2[1];
+        return Math.sqrt(a*a + b*b);
+    }
+
+    const Circle = (x, y, r) => {
+        this.x = x;
+        this.y = y;
+        this.r = r; //WHY IS THIS COLOR DIFFERENT >:[
+        this.unprocessesUppers;
+        this.upper;
+        this.lowers;
+    }
+
+    const circles = [];
+
+    
+    for(let i = 0; i < x.length; i++){
+        circles.push(new Circle(x[i], y[i], r[i]))
+    }
+    
+    //find circles around the start, keep moving up until there are no more circles to look at
+    
+
+    for(let i of circles){
+        for(let j of circles){
+            //does one of these circles include the other one?
+            //check if i surrounds j;
+            const space = dist([i.x, i.y], [j.x, j.y]);
+            if(space < i.r){ // one of them includes the other
+                if(i.r < j.r){
+                    //j includes i
+                    i.unprocessesUppers.push(j);
+                } else {
+                    //i includes j
+                    j.unprocessesUppers.push(i);
+                }
+            } 
+        }
+    }
+
+
+
+    
+
 
 }
 
