@@ -43,7 +43,41 @@ expectations = {
 
 
 function getPINs(observed) {
+  let lookupTable = {
+    1: [1, 2, 4],
+    2: [1, 2, 3 ,5],
+    3: [2, 3, 6],
+    4: [1, 4, 5, 7],
+    5: [2, 4, 5, 6, 8],
+    6: [3, 5, 6, 9],
+    7: [4, 7, 8],
+    8: [5, 7, 8, 9, 0],
+    9: [6, 8, 9],
+    0: [0, 8]
+  }
 
+  if(observed.length === 0) {
+    return [];
+  }
+
+  let result = new Set;
+
+  for(let i = 0; i < observed.length; i++) {
+      for(let j = 0; j < lookupTable[+observed[i]].length; j++) {
+        if(observed.length === 1) {
+          result.add(`${lookupTable[+observed[i]][j]}`)
+        } else {
+          getPINs(observed.slice(i+1)).forEach(elm => {
+            let newValue = elm.slice(0, i) + `${lookupTable[+observed[i]][j]}` + elm.slice(i);
+            if(newValue.length === observed.length) {
+              result.add(newValue);
+            }
+          })
+        }
+      }
+  }
+
+  return Array.from(result);
 }
 
 
