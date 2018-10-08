@@ -63,13 +63,13 @@ function getPINs(observed) {
     const { length } = starters;
     neighbors[i].forEach(neighbor => {
       for (let j = 0; j < length; j++) {
-        starters.push([...starters[j], neighbor])
+        starters.push(starters[j] + neighbor)
       }
     })
     return starters.slice(length);
   }, [[]]);
 }
 
-console.log(getPINs('11'));
+console.log(getPINs('369'));
 
 module.exports = getPINs
