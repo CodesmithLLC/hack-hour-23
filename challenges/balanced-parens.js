@@ -24,8 +24,19 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(input) {
+  if (typeof input !== 'string' || !input[1]) return false;
+  const parensReg = /[\{\(\[\}\]\)]/ig;
+  const parens = input.match(parensReg);
+  const mapped = parens.map((item) => {
+    if (item === '{' || item === '}') return 'b';
+    if (item === '(' || item === ')') return 'p';
+    if (item === '[' || item === ']') return 'a';
+  });
+  for (let i = 0; i < Math.floor(mapped.length / 2); i++) {
+    if (mapped[i] !== mapped[mapped.length - (1 + i)]) return false;
+  }
+  return true;
 }
 
-module.exports = balancedParens;
+export default balancedParens;
