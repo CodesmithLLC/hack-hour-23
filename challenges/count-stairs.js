@@ -15,7 +15,20 @@
  */
 
 function countStairs(n) {
+  if (isNaN(n)) return 0;
+  let count = 0;
 
+  function goUpStairs(subN) {
+    if (subN === 0) count += 1;
+    if (subN > 0) goUpStairs(subN - 1);
+    if (subN > 1) goUpStairs(subN - 2);
+    return;
+  }
+
+  goUpStairs(n);
+  return count;
 }
+
+console.log(countStairs(5));
 
 module.exports = countStairs;
