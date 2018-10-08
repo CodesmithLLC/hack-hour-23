@@ -31,7 +31,7 @@ potentially leading '0's. Don't worry about the order of the array.
 
 Detective, we count on you!
 
-expectations = {
+expectedOutput = {
   "8": ["5", "7", "8", "9", "0"],
   "11": ["11", "22", "44", "12", "21", "14", "41", "24", "42"],
   "369": ["339","366","399","658","636","258","268","669","668","266","369","398","256","296","259","368","638","396","238","356","659","639","666","359","336","299","338","696","269","358","656","698","699","298","236","239"],
@@ -43,8 +43,33 @@ expectations = {
 
 
 function getPINs(observed) {
+  if (isNaN(observed)) return [];
+  if (observed < 0 || observed.length > 8) return [];
 
+  const neighbors = {
+    '1': ['1','2','4'],
+    '2': ['1','2','3','5'],
+    '3': ['2','3','6'],
+    '4': ['1','4','5','7'],
+    '5': ['2','4','5','6','8'],
+    '6': ['3','5','6','9'],
+    '7': ['4','7','8'],
+    '8': ['5','7','8','9','0'],
+    '9': ['6','8','9'],
+    '0': ['8','0']
+  }
+
+  return observed.split('').reduce((starters, i) => {
+    const { length } = starters;
+    neighbors[i].forEach(neighbor => {
+      for (let j = 0; j < length; j++) {
+        starters.push(starters[j] + neighbor)
+      }
+    })
+    return starters.slice(length);
+  }, [[]]);
 }
 
+console.log(getPINs('369'));
 
 module.exports = getPINs
