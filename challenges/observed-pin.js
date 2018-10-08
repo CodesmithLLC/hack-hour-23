@@ -59,11 +59,11 @@ function getPINs(observed) {
     '0': ['8','0']
   }
 
-  return observed.split('').reduce((starters, e) => {
+  return observed.split('').reduce((starters, i) => {
     const { length } = starters;
-    neighbors[e].forEach(neighbor => {
-      for (let i = 0; i < length; i++) {
-        starters.push([...starters[i], neighbor])
+    neighbors[i].forEach(neighbor => {
+      for (let j = 0; j < length; j++) {
+        starters.push([...starters[j], neighbor])
       }
     })
     return starters.slice(length);
