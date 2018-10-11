@@ -27,20 +27,28 @@ Challange:
 */
 function missingNum(array) {
   if (!Array.isArray(array)) return 0;
-  let temp = 0;
-  array.push(-1);
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] !== -1 && array[i] !== i + 1) {
-      temp = array[array[i] - 1];
-      array[array[i] - 1] = array[i];
-      array[i] = temp;
-    }
-  }
 
-  for (let j = 0; j < array.length; j++) {
-    if (array[j] === -1) return j + 1;
-  }
-  return 0;
+  // if you know the sum formula
+
+  const sum = ((array.length + 2) * (array.length + 1)) / 2;
+  return array.reduce(((acc, next) => acc - next), sum);
+  
+  // if you don't
+
+  // let temp = 0;
+  // array.push(-1);
+  // for (let i = 0; i < array.length; i++) {
+  //   if (array[i] !== -1 && array[i] !== i + 1) {
+  //     temp = array[array[i] - 1];
+  //     array[array[i] - 1] = array[i];
+  //     array[i] = temp;
+  //   }
+  // }
+
+  // for (let j = 0; j < array.length; j++) {
+  //   if (array[j] === -1) return j + 1;
+  // }
+  // return 0;
 }
 
 console.log(missingNum([4,1,2]));
