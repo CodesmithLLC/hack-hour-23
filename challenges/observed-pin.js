@@ -78,7 +78,7 @@ function getPINs(observed) {
   }
 
   return Array.from(result);
-}
+} 
 
 
 module.exports = getPINs

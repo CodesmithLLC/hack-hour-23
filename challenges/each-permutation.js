@@ -21,7 +21,26 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
+  function inner(arr, callback, run = true){
+    let perms = [];
+    if(arr.length === 0) {
+      return [[]];
+    }
+    arr.forEach((elm, i) => {
+      inner(arr.slice(0, i).concat(arr.slice(i+1)), callback, false).forEach(permElm => {
+        let curr = [elm].concat(permElm);
+        console.log(curr);
+        perms.push(curr);
+        if(run) {
+          callback(curr);
+        }
+      });
+    });
 
+    return perms;
+  }
+
+  return inner(arr, callback);
 }
 
 
