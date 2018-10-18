@@ -19,11 +19,11 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 1, 2 ]
 [ 3, 2, 1 ]
 */
+function 
 
 function eachPermutation(arr, callback) {
 
+
 }
-
-
 
 module.exports = eachPermutation;
