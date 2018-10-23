@@ -3,10 +3,9 @@
  */
 
 function pow(base, power) {
-    if(power == 0) {
-        return 1;
-    }
-   return Math.abs(base) * pow(base, power-1)
+  // Base case
+  if (power === 0) return 1;
+  // Takes base and power abolute number so negatif number andling te negatif number
+  return Math.abs(base) * pow(base, Math.abs(power) - 1);
 }
-
 module.exports = pow;
