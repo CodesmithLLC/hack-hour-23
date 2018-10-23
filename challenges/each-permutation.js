@@ -27,3 +27,22 @@ function eachPermutation(arr, callback) {
 }
 
 module.exports = eachPermutation;
+
+
+// function eachPermutation(arr, callback) {
+//   heaps(0);
+//   function heaps(index) {
+//     calls++;
+//     // if index is out of array, callback
+//     if (index === arr.length) return callback(arr);
+//     // from our index, iterate forward (j)
+//     for (let j = index; j < arr.length; j += 1) {
+//       // swap index and j, recurse, swap back
+//       swap(arr, index, j);
+//       swaps++;
+//       heaps(index + 1);
+//       swap(arr, index, j);
+//       swaps++;
+//     }
+//   }
+// }
