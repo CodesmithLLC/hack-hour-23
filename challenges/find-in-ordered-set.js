@@ -10,11 +10,26 @@ findInOrderedSet(nums, 2);  -> false
  */
 
 
-function findInOrderedSet(arr, target) {
-    return arr.includes(target);
-}
+// function findInOrderedSet(arr, target) {
+//     return arr.includes(target);
+// }
 
-var nums = [1, 4, 6, 7, 9, 17, 45]
-findInOrderedSet(nums, 4);
+// var nums = [1, 4, 6, 7, 9, 17, 45]
+// findInOrderedSet(nums, 4);
 
-module.exports = findInOrderedSet;
+// module.exports = findInOrderedSet;
+
+
+// function findInOrderedSet(arr, target) {
+//   function search(left, right) {
+//     const center = Math.floor((left + right) / 2);
+//     if (arr[center] === target) return true;
+//     if (left === right) return false;
+
+//     return arr[center] < target
+//       ? search(center + 1, right)
+//       : search(left, center - 1);
+//   }
+
+//   return search(0, arr.length - 1);
+// }
