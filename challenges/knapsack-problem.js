@@ -14,3 +14,34 @@ function solveKnapsack(items, weightAvailable) {
 };
 
 module.exports = solveKnapsack;
+
+
+
+// function solveKnapsack(items, capacity) {
+//   // 2D array of results given # of considered items and capacity available
+//   const results = [];
+
+//   // we can consider anywhere from 0 to items.length of the items
+//   for (let i = 0; i <= items.length; i++) {
+//     // push onto results array
+//     results.push([]);
+//     // capacity available will be anywhere
+//     for (let c = 0; c <= capacity; c++) {
+//       // if no items considered or no weight available, set result to 0
+//       if (i === 0 || c === 0)
+//         results[i][c] = 0;
+//       // if we can't use the currently looked at item, don't use it!
+//       else if (items[i - 1].weight > c)
+//         results[i][c] = results[i - 1][c];
+//       // otherwise, determine whether using or not using the item is better
+//       else {
+//         const dontUse = results[i - 1][c];
+//         const use = results[i - 1][c - items[i - 1].weight] + items[i - 1].value;
+//         results[i][c] = Math.max(dontUse, use);
+//       }
+//     }
+//   }
+
+//   // return the best result from considering all items at max capacity
+//   return results[items.length][capacity];
+// };
