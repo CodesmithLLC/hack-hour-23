@@ -10,40 +10,33 @@
  *
  */
 function uniqueNumber(array) {
-   //BitWise Operation using XOR 
-   //take a look at how underthe bitwise working when you have a time 
-   // and also hackour solution
-        var result = 0;
-        for (var i = 0; i < array.length; i++) {
-          
-          result ^= array[i]
-          
-        }
-      
-      return result;
-      
-      
+  // BitWise Operation using XOR;
+  // take a look at how underthe bitwise working when you have a time;
+  // and also hackour solution
+  let result = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    result ^= array[i];
+  }
+  return result;
 }
-
-uniqueNumber([1,2,1,3,3,2,4])
 module.exports = uniqueNumber;
 
 
 //  Sort
-function uniqueNumber1(array) {
-  // sort array
-  array = array.sort((a, b) => a - b);
-  // loop through pairs of numbers
-  for (let i = 0; i < array.length - 1; i += 2) {
-    // if pair of numbers are not equal to each other
-    if (array[i] !== array[i + 1]) {
-      // return the first non-matching number
-      return array[i];
-    }
-  }
-  // otherwise return the last number in the array
-  return array[array.length - 1];
-}
+// function uniqueNumber1(array) {
+//   // sort array
+//   array = array.sort((a, b) => a - b);
+//   // loop through pairs of numbers
+//   for (let i = 0; i < array.length - 1; i += 2) {
+//     // if pair of numbers are not equal to each other
+//     if (array[i] !== array[i + 1]) {
+//       // return the first non-matching number
+//       return array[i];
+//     }
+//   }
+//   // otherwise return the last number in the array
+//   return array[array.length - 1];
+// }
 
 // Add and Remove Duplicates
 // function uniqueNumber2(array) {
@@ -68,7 +61,7 @@ function uniqueNumber1(array) {
 //   // a ^ b === b ^ a
 //   // a ^ 0 = a
 //   // a ^ a = 0
-  
+
 // function uniqueNumber(array) {
 //   let result = 0;
 //   for (let i = 0; i < array.length; i++) {
