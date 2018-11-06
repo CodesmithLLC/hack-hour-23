@@ -16,27 +16,46 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-//input: num parameter representing a number.  
-//output: return an array filled with numbers 1 to num param, 
-//However "fizz" is in place of numbers div by 3 and "buzz" in place of num div by 5 and "fizzbuzz" in place of num div by 3 and 5.
-//   
-//tools: conditional logic if/else statements, cover the 3 & 5 condition first and then 3 and 5 separately afterwards. Arrayto add the values to the array.
+// input: num parameter representing a number.  
+// output: return an array filled with numbers 1 to num param, 
+// However "fizz" is in place of numbers div by 3 and "buzz" in place of num div by 5 and "fizzbuzz" in place of num div by 3 and 5.  
+// tools: conditional logic if/else statements, cover the 3 & 5 condition first and then 3 and 5 separately afterwards. Arrayto add the values to the array.
 
-function fizzbuzz(num) {
-  const array = [];
+// ES7
+
+const fizzbuzz = (num) => {
+  const newArr = [];
   for (let i = 1; i <= num; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
-      array.push("fizzbuzz");   
+      newArr.push(`fizzbuzz`);  
     } else if (i % 3 === 0) {
-      array.push("fizz");
+      newArr.push(`fizz`); 
     } else if (i % 5 === 0) {
-      array.push("buzz");
+      newArr.push(`buzz`)
     } else {
-      array.push(i);
+      newArr.push(i);
     }
   }
-  return array;
+  return newArr;
 }
+
+// ES5 
+
+// function fizzbuzz(num) {
+//   const array = [];
+//   for (let i = 1; i <= num; i++) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//       array.push("fizzbuzz");   
+//     } else if (i % 3 === 0) {
+//       array.push("fizz");
+//     } else if (i % 5 === 0) {
+//       array.push("buzz");
+//     } else {
+//       array.push(i);
+//     }
+//   }
+//   return array;
+// }
 
 
 console.log(fizzbuzz(16));
