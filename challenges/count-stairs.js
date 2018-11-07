@@ -15,7 +15,11 @@
  */
 
 function countStairs(n) {
-
+  //fib
+  //get nth fib number
+  if (n === 0) return 1;
+  if (n === 1) return 1;
+  return countStairs(n - 1) + countStairs(n - 2);
 }
-
+console.log(countStairs(6));
 module.exports = countStairs;
