@@ -5,8 +5,8 @@
  // approach: sort the array and then take the last three elements and multiply the together.
  // tools: sort method to get the array into lowest to highest.
 const highestProduct = (array) => {
-  let newArray = array.sort();
-  return newArray[array.length - 1] * newArray[array.length - 2] * newArray[array.length - 3];
+  let sorted = array.sort();
+  return sorted[array.length - 1] * sorted[array.length - 2] * sorted[array.length - 3];
 }
 
 console.log(highestProduct([1,2,3,4]));
