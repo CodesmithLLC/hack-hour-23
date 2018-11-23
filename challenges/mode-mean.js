@@ -1,5 +1,3 @@
-
-
 /*
  * Given an array of numbers, determine if the mode and mean of the array are equivalent
  *
@@ -11,41 +9,47 @@
  *
  */
 
-
-// input: array argument of numbers.
-// output: determine if the mode and mean of the array are equiv then return true else return false.
-// Create a var to store the sum of an array's numbers. Divide the sum to obtain the mean and use math floor to make it a whole integer.
-// Sort through the array and check to see if any integer repeats x2 and more, look at the most commonc occurring integer(s) for your mode value;
-// Compare the mean and mode if they are equiv and pass the appopriate boolean.
-
+// input: array of numbers.
+// output: boolean, if the mode and mean are equal return true else false with the caveats listed above.
+// calculate the mean and assign it to a variable.
+// find the mode, if multiple then get max of the modes.
+// time complexity is only (0)n since there are not nested loops
+// three loops but still awesome and fast to use as stated above.
 
 function modeMean(array) {
-  let arraySum = array.reduce(function(acc, curr) {  
-    return (acc + curr);
-  }, 0)
-  let mean = Math.floor(arraySum / (array.length));
-  let mode = array.reduce(function(acc, curr) { 
-    if (curr in acc) {
-	  acc[curr]++;
-    } else {
-	  acc[curr] = 1;
-    }
-    return acc;
-  }, {})
-  let values = Object.values(mode);
-  let max = Math.max(...values);
-  const maxModes = [];
-  for (let keys in mode) {  
-    if (max === mode[keys]) {
-      maxModes.push(keys)
-    }
-  }
-  let finalMode = Math.max(...maxModes);
-  if (finalMode === mean) {
-    return true
-  } else {
-  	return false
-  }
-} 
+  // calculate the mean.
+  const total = array.reduce(function(acc, curr) {
+    return acc + curr;
+  }, 0);
+  const mean = Math.floor(total / array.length);
 
-module.exports = modemean;
+  // track and create key values for occurrences of the numbers.
+  const tally = {};
+  for (let num of array) {
+    if (tally[num] === undefined) {
+      // num doesn't exist in the object tally as a key then assign it assign value as 1;
+      tally[num] = 1;
+    } else {
+      tally[num] += 1;
+    }
+  }
+
+  // determine the mode and then find the one with most appearances, then get value and compare mean & mode
+  let mode;
+  let appearances = 0;
+  Object.keys(tally).forEach(num => {
+    const number = Number(num); // Object keys are strings so convert to number.
+    if (tally[num] > appearances) {
+      appearances = tally[num];
+      mode = number;
+    } else if (tally[num] === appearances && number > mode) {
+      mode = number;
+    }
+  });
+  return mode === mean;
+}
+
+console.log(modeMean([2, 3, 4, 5, 3, 5]));
+console.log(modeMean([1, 3, 3, 5]));
+
+module.exports = modeMean;
