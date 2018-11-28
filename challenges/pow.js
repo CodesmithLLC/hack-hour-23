@@ -24,16 +24,35 @@
 // 9 * (pow(9, 3 - 1)) -> 9 * 9 = 81 
 // 9 * (pow(9, 2 - 1)) -> 9 * 81 = 729... then base case is met, recursion ends.
 
+// function pow(base, power) {
+//   // termination/fail case
+//   if (base < 0 || power < 0) return;
+//   // base case
+//   if (power === 0) return 1;
+//   return base * (pow(base, power - 1));
+// }
+ 
+
+// recursive that is log(n) time complexity.
+// much more efficient!
+
 function pow(base, power) {
-  // termination/fail case
+  //fail clause
   if (base < 0 || power < 0) return;
   // base case
   if (power === 0) return 1;
-  return base * (pow(base, power - 1));
+  // logic to deal with power if even or odd.
+  if (power % 2 === 0) {
+    const product = pow(base, power / 2);
+    return product * product;
+  } else {
+    const product = pow(base, (power - 1) / 2);
+    return product * product * base;
+  }
 }
 
 console.log(pow(0, 3)); // 0
-console.log(pow(9, 0)); // 0
+console.log(pow(9, 0)); // 1
 console.log(pow(0, 0)); //
 console.log(pow(9, 3)); // 729 expected output;
 
