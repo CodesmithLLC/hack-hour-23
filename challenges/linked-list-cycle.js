@@ -32,8 +32,42 @@ var Node = function(value) {
   this.next = null;
 }
 
-function hasCycle(head) {
+function hasCycle(linkedList) {
+  if (linkedList) return findCycle(linkedList, linkedList.next);
+  return false
+}
 
+function findCycle(tortoise, hare) {
+  if (tortoise === hare) return true;
+  return hare !== null && hare.next !== null && findCycle(tortoise.next, hare.next.next);
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
+
+
+// // add property to node solution
+// function hasCycle(linkedList) {
+//   if (linkedList) {
+//     let curr = linkedList;
+//     // iterate the linked list
+//     while (curr) {
+//       // check if seen property, return true
+//       if (curr.seen) return true;
+//       // otherwise put a seen property
+//       curr.seen = true;
+//       curr = curr.next
+//     }
+//   }
+//   return false
+// }
+
+// // tortoise and hare solution
+// function hasCycle(linkedList) {
+//   if (linkedList) return findCycle(linkedList, linkedList.next);
+//   return false
+// }
+
+// function findCycle(tortoise, hare) {
+//   if (tortoise === hare) return true;
+//   return hare !== null && hare.next !== null && findCycle(tortoise.next, hare.next.next);
+// }

@@ -27,3 +27,32 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 }
 
 module.exports = circleCountry;
+
+
+// function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+//   // does circle i contain the coordinate (coord_x, coord_y) ?
+//   function contains(i, coord_x, coord_y) {
+//     // compute x-coordinate and y-coordinate differences
+//     const a = x[i] - coord_x;
+//     const b = y[i] - coord_y;
+//     // use the pythagorean theorem
+//     return a * a + b * b < r[i] * r[i];
+//   }
+  
+//   // keep track of total number of circles we need to cross
+//   let total = 0;
+//   // loop over every circle
+//   for (let i = 0; i < x.length; i++) {
+//     // check whether circle contains start point
+//     const startContains = contains(i, start_x, start_y);
+//     // check whether circle contains end point
+//     const endContains = contains(i, end_x, end_y);
+    
+//     // if circle i contains just the start or just the end, but not both,
+//     // then we must cross this circle
+//     if (startContains !== endContains) total++;
+//   }
+  
+//   // return total number of circles we need to cross
+//   return total;
+// }

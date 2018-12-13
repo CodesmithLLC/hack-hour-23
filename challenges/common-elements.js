@@ -17,3 +17,29 @@ function commonElements(array1, array2, array3, array4){
 }
 
 module.exports = commonElements;
+
+
+// function commonElements(...inputArrays) {
+//   // obtain de-duplicated arrays from inputArrays
+//   const arrays = inputArrays.map(inputArray => Array.from(new Set(inputArray)));
+  
+//   // tally number of appearances of values
+//   const tally = new Map();
+//   for (const array of arrays) {
+//     for (const val of array) {
+//       if (!tally.has(val))
+//         tally.set(val, 1);
+//       else
+//         tally.set(val, tally.get(val) + 1);
+//     }
+//   }
+  
+//   // results is [key, value] pairs with value being the number of input arrays
+//   const results = Array.from(tally).filter(ele => ele[1] === arrays.length);
+//   // return values if results array has at least one element
+//   if (results.length)
+//     return results.map(ele => ele[0]);
+//   // otherwise, return 'Nothing in Common!'
+//   else
+//     return 'Nothing in Common!';
+// }
